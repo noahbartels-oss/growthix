@@ -82,6 +82,7 @@ export default function ConversationsPage() {
   const [filter, setFilter] = useState<Channel>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [newMessage, setNewMessage] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
 
   const filtered = mockConversations.filter((c) => {
     if (filter !== "all" && c.channel !== filter) return false;
@@ -205,9 +206,10 @@ export default function ConversationsPage() {
             </div>
           </div>
 
-          {/* messages */}
-          <div className="flex-1 overflow-y-auto px-5 py-5 space-y-4"
-            style={{ background: "radial-gradient(ellipse at top, rgba(124,58,237,0.03) 0%, transparent 60%)" }}
+          {/* messages — skill: AI-native chat layout */}
+          <div
+            className="flex-1 overflow-y-auto px-5 py-5 space-y-4"
+            style={{ background: "radial-gradient(ellipse at top, rgba(99,102,241,0.04) 0%, transparent 60%)" }}
           >
             {selected.messages.map((msg, i) => (
               <div
@@ -224,17 +226,23 @@ export default function ConversationsPage() {
                 )}
 
                 <div className={`flex flex-col gap-0.5 max-w-[72%] ${msg.sender === "ai" ? "ml-auto items-end" : "items-start"}`}>
-                  <div className={`rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
-                    msg.sender === "ai"
-                      ? "bg-primary text-primary-foreground rounded-tr-sm shadow-md shadow-primary/20"
-                      : "bg-muted text-foreground rounded-tl-sm"
-                  }`}>
+                  {/* skill: user-bubble-bg / ai-bubble-bg tokens */}
+                  <div
+                    className={`rounded-2xl px-4 py-2.5 text-sm leading-relaxed border ${
+                      msg.sender === "ai" ? "rounded-tl-sm" : "rounded-tr-sm"
+                    }`}
+                    style={{
+                      background:  msg.sender === "ai" ? "var(--ai-bubble-bg)"   : "var(--user-bubble-bg)",
+                      borderColor: msg.sender === "ai" ? "var(--border)"          : "transparent",
+                      color:       "var(--foreground)",
+                    }}
+                  >
                     {msg.text}
                   </div>
                   <div className={`flex items-center gap-1.5 text-[10px] text-muted-foreground px-1 ${msg.sender === "ai" ? "flex-row-reverse" : ""}`}>
                     <span>{msg.time}</span>
                     {msg.sender === "ai" && (
-                      <span className="flex items-center gap-1 text-primary/70">
+                      <span className="flex items-center gap-1 text-primary/60">
                         <Brain className="h-2.5 w-2.5" />
                         {t("aiGenerated")}
                       </span>
@@ -244,13 +252,24 @@ export default function ConversationsPage() {
 
                 {msg.sender === "ai" && (
                   <Avatar className="h-7 w-7 shrink-0 mt-0.5">
-                    <AvatarFallback className="text-[10px] font-bold bg-primary/10 text-primary">
-                      AI
-                    </AvatarFallback>
+                    <AvatarFallback className="text-[10px] font-bold bg-primary/10 text-primary">AI</AvatarFallback>
                   </Avatar>
                 )}
               </div>
             ))}
+
+            {/* skill: typing indicator (3-dot pulse) */}
+            {isTyping && (
+              <div className="flex gap-2.5 items-end animate-fade-in">
+                <Avatar className="h-7 w-7 shrink-0">
+                  <AvatarFallback className="text-[10px] font-bold bg-primary/10 text-primary">AI</AvatarFallback>
+                </Avatar>
+                <div className="typing-indicator">
+                  <span /><span /><span />
+                </div>
+                <span className="text-[10px] text-muted-foreground pb-1">KI tippt...</span>
+              </div>
+            )}
           </div>
 
           {/* input */}
