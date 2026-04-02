@@ -1,0 +1,236 @@
+{
+  "common": {
+    "appName": "ReplyFlow AI",
+    "getStarted": "Jetzt starten",
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "logout": "Abmelden",
+    "dashboard": "Dashboard",
+    "settings": "Einstellungen",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "loading": "Laden...",
+    "search": "Suchen...",
+    "noResults": "Keine Ergebnisse",
+    "back": "Zurück"
+  },
+  "landing": {
+    "hero": {
+      "title": "Mehr Antworten. Mehr Termine. Mehr Umsatz.",
+      "subtitle": "KI antwortet automatisch auf WhatsApp & Instagram Nachrichten und verwandelt sie in Termine — 24/7, ohne Aufwand.",
+      "cta": "Kostenlos testen",
+      "secondaryCta": "Demo ansehen"
+    },
+    "features": {
+      "title": "Alles, was du brauchst",
+      "subtitle": "ReplyFlow AI übernimmt deine Kundenkommunikation — intelligent, schnell und rund um die Uhr.",
+      "autoReply": {
+        "title": "Automatische Antworten",
+        "description": "KI generiert sofort passende Antworten auf Kundenanfragen via WhatsApp und Instagram."
+      },
+      "booking": {
+        "title": "Terminbuchung im Chat",
+        "description": "Kunden können direkt im Chat einen Termin buchen — ohne extra App oder Website."
+      },
+      "available": {
+        "title": "24/7 verfügbar",
+        "description": "Dein virtueller Assistent schläft nie. Kein Kunde geht mehr verloren."
+      },
+      "analytics": {
+        "title": "Echtzeit-Analytik",
+        "description": "Verfolge Gespräche, Konversionen und Termine in einem übersichtlichen Dashboard."
+      },
+      "personalized": {
+        "title": "Personalisierte KI",
+        "description": "Die KI lernt deinen Geschäftsstil und antwortet wie du — nur schneller."
+      },
+      "multichannel": {
+        "title": "Multi-Channel",
+        "description": "WhatsApp, Instagram und mehr — alles in einer Plattform vereint."
+      }
+    },
+    "pricing": {
+      "title": "Einfache Preise",
+      "subtitle": "Wähle den Plan, der zu deinem Business passt.",
+      "starter": {
+        "name": "Starter",
+        "price": "49",
+        "period": "/Monat",
+        "description": "Perfekt für den Einstieg",
+        "features": [
+          "1 WhatsApp-Nummer",
+          "500 AI-Antworten/Monat",
+          "Terminbuchung",
+          "Basis-Analytik",
+          "E-Mail-Support"
+        ]
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "79",
+        "period": "/Monat",
+        "description": "Für wachsende Businesses",
+        "features": [
+          "2 WhatsApp-Nummern",
+          "Unbegrenzte AI-Antworten",
+          "Instagram Integration",
+          "Erweiterte Analytik",
+          "Prioritäts-Support",
+          "Eigenes AI-Training"
+        ],
+        "badge": "Beliebt"
+      },
+      "cta": "Plan wählen"
+    },
+    "testimonials": {
+      "title": "Das sagen unsere Kunden",
+      "items": [
+        {
+          "quote": "Seit wir ReplyFlow nutzen, verpassen wir keine Kundenanfrage mehr. Unsere Terminbuchungen sind um 40% gestiegen!",
+          "author": "Sarah M.",
+          "role": "Kosmetikstudio-Inhaberin"
+        },
+        {
+          "quote": "Die KI antwortet schneller und freundlicher als wir es je könnten. Meine Kunden lieben es.",
+          "author": "Marco K.",
+          "role": "Friseurmeister"
+        },
+        {
+          "quote": "Endlich kann ich mich auf mein Coaching konzentrieren, statt Nachrichten zu beantworten.",
+          "author": "Lisa T.",
+          "role": "Life Coach"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Bereit, mehr Kunden zu gewinnen?",
+      "subtitle": "Starte jetzt kostenlos und erlebe, wie KI dein Business transformiert.",
+      "button": "14 Tage kostenlos testen"
+    },
+    "footer": {
+      "product": "Produkt",
+      "features": "Features",
+      "pricing": "Preise",
+      "company": "Unternehmen",
+      "about": "Über uns",
+      "blog": "Blog",
+      "legal": "Rechtliches",
+      "privacy": "Datenschutz",
+      "terms": "AGB",
+      "imprint": "Impressum",
+      "copyright": "Alle Rechte vorbehalten."
+    }
+  },
+  "auth": {
+    "loginTitle": "Willkommen zurück",
+    "loginSubtitle": "Melde dich an, um fortzufahren",
+    "registerTitle": "Konto erstellen",
+    "registerSubtitle": "Starte kostenlos mit ReplyFlow AI",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "businessName": "Firmenname",
+    "forgotPassword": "Passwort vergessen?",
+    "noAccount": "Noch kein Konto?",
+    "hasAccount": "Bereits ein Konto?",
+    "loginButton": "Anmelden",
+    "registerButton": "Registrieren",
+    "orContinueWith": "oder weiter mit",
+    "google": "Google"
+  },
+  "dashboard": {
+    "overview": "Übersicht",
+    "conversations": "Gespräche",
+    "appointments": "Termine",
+    "settings": "Einstellungen",
+    "welcome": "Willkommen zurück",
+    "stats": {
+      "totalConversations": "Gespräche gesamt",
+      "activeConversations": "Aktive Gespräche",
+      "appointmentsBooked": "Gebuchte Termine",
+      "responseRate": "Antwortrate"
+    },
+    "recentConversations": "Letzte Gespräche",
+    "upcomingAppointments": "Nächste Termine",
+    "noConversations": "Noch keine Gespräche",
+    "noAppointments": "Noch keine Termine"
+  },
+  "conversations": {
+    "title": "Gespräche",
+    "searchPlaceholder": "Gespräche durchsuchen...",
+    "all": "Alle",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "noMessages": "Keine Nachrichten",
+    "typeMessage": "Nachricht eingeben...",
+    "send": "Senden",
+    "aiGenerated": "KI-generiert",
+    "customerInfo": "Kundeninfo",
+    "name": "Name",
+    "phone": "Telefon",
+    "channel": "Kanal",
+    "lastActive": "Zuletzt aktiv"
+  },
+  "appointments": {
+    "title": "Termine",
+    "newAppointment": "Neuer Termin",
+    "upcoming": "Anstehend",
+    "past": "Vergangen",
+    "cancelled": "Storniert",
+    "customer": "Kunde",
+    "service": "Dienstleistung",
+    "date": "Datum",
+    "time": "Uhrzeit",
+    "status": "Status",
+    "confirmed": "Bestätigt",
+    "pending": "Ausstehend",
+    "done": "Erledigt",
+    "cancel": "Stornieren",
+    "noAppointments": "Keine Termine vorhanden"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "business": {
+      "title": "Geschäftsprofil",
+      "name": "Firmenname",
+      "type": "Branche",
+      "types": {
+        "hair_salon": "Friseursalon",
+        "beauty_studio": "Kosmetikstudio",
+        "coaching": "Coaching",
+        "other": "Sonstiges"
+      },
+      "address": "Adresse",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "website": "Website"
+    },
+    "ai": {
+      "title": "KI-Konfiguration",
+      "personality": "KI-Persönlichkeit",
+      "personalityHelp": "Beschreibe, wie die KI antworten soll",
+      "defaultPrompt": "Du bist ein freundlicher Assistent für ein lokales Business. Ziel: Termine vereinbaren, kurz und klar antworten. Wenn möglich, schlage konkrete Zeiten vor.",
+      "services": "Dienstleistungen",
+      "servicesHelp": "Liste deine Dienstleistungen auf (eine pro Zeile)",
+      "hours": "Öffnungszeiten",
+      "language": "Antwortsprache"
+    },
+    "channels": {
+      "title": "Kanäle",
+      "whatsapp": "WhatsApp",
+      "instagram": "Instagram",
+      "connected": "Verbunden",
+      "notConnected": "Nicht verbunden",
+      "connect": "Verbinden",
+      "disconnect": "Trennen"
+    },
+    "account": {
+      "title": "Konto",
+      "plan": "Aktueller Plan",
+      "upgrade": "Upgrade",
+      "deleteAccount": "Konto löschen"
+    }
+  }
+}
