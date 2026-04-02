@@ -2,24 +2,29 @@ import { Link } from "@/i18n/navigation";
 import { Zap } from "lucide-react";
 import { LanguageSwitcher } from "@/components/language-switcher";
 
-export default function AuthLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-muted/30 px-4">
-      <div className="absolute top-4 right-4">
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background">
+      {/* background decoration */}
+      <div className="absolute inset-0 mesh-gradient opacity-60" />
+      <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-primary/10 blur-3xl" />
+      <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-indigo-500/10 blur-3xl" />
+
+      {/* top bar */}
+      <div className="absolute top-4 left-0 right-0 flex items-center justify-between px-6">
+        <Link href="/" className="flex items-center gap-2 font-bold text-sm">
+          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary">
+            <Zap className="h-3.5 w-3.5 text-white" />
+          </div>
+          ReplyFlow AI
+        </Link>
         <LanguageSwitcher />
       </div>
-      <Link
-        href="/"
-        className="mb-8 flex items-center gap-2 text-2xl font-bold"
-      >
-        <Zap className="h-7 w-7 text-primary" />
-        ReplyFlow AI
-      </Link>
-      {children}
+
+      {/* card */}
+      <div className="relative z-10 w-full max-w-sm px-4">
+        {children}
+      </div>
     </div>
   );
 }
