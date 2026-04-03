@@ -9,7 +9,7 @@ import { createClient } from "@/lib/supabase/client";
 import { Zap, Mail, Lock, Building2, ArrowRight, Check, Star } from "lucide-react";
 
 const perks = [
-  "14 Tage kostenlos testen",
+  "7 Tage kostenlos testen",
   "Keine Kreditkarte nötig",
   "Jederzeit kündbar",
 ];

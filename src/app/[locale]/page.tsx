@@ -90,7 +90,7 @@ export default function LandingPage() {
                 <div className="animate-fade-up delay-300 mt-8 flex flex-col sm:flex-row gap-3">
                   <Link href="/register">
                     <Button size="lg" className="gap-2 h-12 px-8 text-base font-semibold bg-cta hover:bg-cta/90 text-white shadow-lg shadow-orange-600/25 hover:-translate-y-0.5 transition-all">
-                      14 Tage kostenlos testen
+                      7 Tage kostenlos testen
                       <ArrowRight className="h-4 w-4" />
                     </Button>
                   </Link>
@@ -335,17 +335,10 @@ export default function LandingPage() {
                     ))}
                   </ul>
                   <Link href="/register">
-                    <Button className="w-full h-11 font-semibold bg-cta hover:bg-cta/90 text-white shadow-md shadow-orange-600/20">14 Tage kostenlos starten</Button>
+                    <Button className="w-full h-11 font-semibold bg-cta hover:bg-cta/90 text-white shadow-md shadow-orange-600/20">7 Tage kostenlos starten</Button>
                   </Link>
                 </div>
               </div>
-            </div>
-
-            {/* page-cro: guarantee removes last price objection */}
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-muted-foreground">
-              <span className="flex items-center gap-2"><Shield className="h-4 w-4 text-primary" /><strong className="text-foreground">30 Tage Geld-zurück-Garantie</strong> — kein Risiko</span>
-              <span className="flex items-center gap-2"><Zap className="h-4 w-4 text-primary" />In 5 Minuten einsatzbereit</span>
-              <span className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" />Keine Kreditkarte für den Test</span>
             </div>
           </div>
         </section>
@@ -411,7 +404,7 @@ export default function LandingPage() {
                   a: "Ja. Die Einrichtung dauert unter 5 Minuten: WhatsApp-Nummer verbinden, dein Business beschreiben, fertig. Kein Code, kein technisches Wissen nötig.",
                 },
                 {
-                  q: "Was passiert nach den 14 kostenlosen Tagen?",
+                  q: "Was passiert nach den 7 kostenlosen Tagen?",
                   a: "Du entscheidest, ob du weitermachst. Keine automatische Verlängerung ohne deine Zustimmung, keine versteckten Kosten. Starter ab 49€/Monat — im Vergleich zu 1.200€ durchschnittlichem Mehrertrag.",
                 },
                 {
@@ -454,7 +447,7 @@ export default function LandingPage() {
                     </Button>
                   </Link>
                 </div>
-                <p className="mt-4 text-sm text-muted-foreground">Keine Kreditkarte · 14 Tage gratis · danach ab 49€/Monat</p>
+                <p className="mt-4 text-sm text-muted-foreground">Keine Kreditkarte · 7 Tage gratis · danach ab 49€/Monat</p>
               </div>
             </div>
           </div>
@@ -464,7 +457,7 @@ export default function LandingPage() {
       {/* ── Sticky mobile CTA bar — page-cro: always-visible CTA on mobile ── */}
       <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl px-4 py-3 flex items-center gap-3 shadow-2xl shadow-black/40">
         <div className="flex-1 min-w-0">
-          <p className="font-syne font-700 text-sm leading-tight">14 Tage kostenlos</p>
+          <p className="font-syne font-700 text-sm leading-tight">7 Tage kostenlos</p>
           <p className="font-jetbrains text-[10px] text-muted-foreground">Keine Kreditkarte · sofort live</p>
         </div>
         <Link href="/register">
