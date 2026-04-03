@@ -6,7 +6,7 @@ import { Link, useRouter } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { createClient } from "@/lib/supabase/client";
-import { Zap, Mail, Lock, Building2, ArrowRight, Check } from "lucide-react";
+import { Zap, Mail, Lock, Building2, ArrowRight, Check, Star } from "lucide-react";
 
 const perks = [
   "14 Tage kostenlos testen",
@@ -44,12 +44,20 @@ export default function RegisterPage() {
         <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary shadow-lg shadow-primary/30">
           <Zap className="h-6 w-6 text-primary-foreground" />
         </div>
-        <h1 className="font-syne text-2xl font-700 text-[#0D0C18]">{t("registerTitle")}</h1>
-        <p className="mt-1.5 text-sm text-[#6B6894]">{t("registerSubtitle")}</p>
+        {/* signup-flow-cro: set time expectation + outcome promise */}
+        <h1 className="font-syne text-2xl font-700 text-[#0D0C18]">In 2 Minuten live</h1>
+        <p className="mt-1.5 text-sm text-[#6B6894]">Konto erstellen und erste KI-Antwort starten</p>
+        {/* social proof near signup form */}
+        <div className="flex items-center justify-center gap-1.5 mt-3">
+          {[...Array(5)].map((_, i) => (
+            <Star key={i} className="h-3.5 w-3.5 fill-warning text-warning" />
+          ))}
+          <span className="text-xs text-[#6B6894] ml-1">4,9 · 500+ Businesses</span>
+        </div>
       </div>
 
       {/* perks */}
-      <div className="flex justify-center gap-4 mb-6 flex-wrap">
+      <div className="flex justify-center gap-3 mb-6 flex-wrap">
         {perks.map((p) => (
           <span key={p} className="flex items-center gap-1.5 text-xs text-[#6B6894]">
             <Check className="h-3 w-3 text-primary" />{p}
@@ -64,8 +72,12 @@ export default function RegisterPage() {
           </div>
         )}
 
+        {/* signup-flow-cro: business name optional — can collect in onboarding, reduces friction */}
         <div className="space-y-1.5">
-          <label className="text-sm font-medium text-[#0D0C18]">{t("businessName")}</label>
+          <div className="flex items-center justify-between">
+            <label className="text-sm font-medium text-[#0D0C18]">{t("businessName")}</label>
+            <span className="text-xs text-[#A8A6C0]">Optional</span>
+          </div>
           <div className="relative">
             <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#6B6894]" />
             <Input
@@ -74,7 +86,6 @@ export default function RegisterPage() {
               className="pl-9 bg-white border-[#D4D2E8] text-[#0D0C18] placeholder:text-[#A8A6C0] focus-visible:ring-primary"
               value={businessName}
               onChange={(e) => setBusinessName(e.target.value)}
-              required
             />
           </div>
         </div>

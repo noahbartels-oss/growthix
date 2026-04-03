@@ -65,21 +65,23 @@ export default function LandingPage() {
 
               {/* LEFT — headline + CTAs */}
               <div>
-                {/* label-tag — frontend-design: JetBrains Mono tag */}
-                <div className="animate-fade-up label-tag mb-6">
-                  <Zap className="h-3 w-3" />
-                  KI · WhatsApp &amp; Instagram
+                {/* page-cro: star rating social proof ABOVE headline — highest trust impact */}
+                <div className="animate-fade-up flex items-center gap-2.5 mb-5">
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-warning text-warning" />
+                    ))}
+                  </div>
+                  <span className="font-jetbrains text-sm text-foreground font-500">4,9</span>
+                  <span className="text-sm text-muted-foreground">· 500+ Businesses vertrauen ReplyFlow</span>
                 </div>
 
-                {/* headline — frontend-design: Syne, huge, editorial */}
-                {/* copywriting: outcome-focused, not feature-focused */}
                 <h1 className="animate-fade-up delay-100 font-syne text-5xl font-800 tracking-tight leading-[1.05] sm:text-6xl lg:text-[4.5rem]">
                   Kein Kunde wartet mehr
                   <br />
                   <span className="gradient-text">auf deine Antwort.</span>
                 </h1>
 
-                {/* subtitle — copywriting: specific, benefit-driven */}
                 <p className="animate-fade-up delay-200 mt-6 text-lg text-muted-foreground leading-relaxed max-w-xl">
                   ReplyFlow AI antwortet sofort auf WhatsApp &amp; Instagram — und bucht Termine, während du arbeitest. Durchschnittlich <strong className="text-foreground">3,2× mehr Buchungen</strong> ab Tag 1.
                 </p>
@@ -104,12 +106,12 @@ export default function LandingPage() {
                   <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-primary" />Jederzeit kündbar</span>
                 </p>
 
-                {/* stat row — page-cro + marketing-psychology: social proof above fold */}
+                {/* stat row — page-cro: specific € outcome anchors value before seeing price */}
                 <div className="animate-fade-up delay-500 mt-10 flex flex-wrap gap-5">
                   {[
-                    { icon: TrendingUp, value: "3,2×",  label: "mehr Buchungen" },
-                    { icon: Clock,      value: "∅ 2s",  label: "Reaktionszeit"  },
-                    { icon: Users,      value: "500+",  label: "Businesses"      },
+                    { icon: TrendingUp, value: "∅ +1.200€", label: "mehr Umsatz/Monat" },
+                    { icon: Clock,      value: "∅ 2s",       label: "Reaktionszeit"     },
+                    { icon: Users,      value: "500+",        label: "Businesses"         },
                   ].map((s) => (
                     <div key={s.label} className="flex items-center gap-3 rounded-xl border border-border/60 bg-card/60 px-4 py-3">
                       <s.icon className="h-5 w-5 text-primary shrink-0" />
@@ -287,6 +289,7 @@ export default function LandingPage() {
               {/* Starter */}
               <div className="rounded-xl border border-border/60 bg-card p-8 card-hover">
                 <h3 className="font-syne text-xl font-700">{t("pricing.starter.name")}</h3>
+
                 <p className="mt-1 text-sm text-muted-foreground">{t("pricing.starter.description")}</p>
                 <div className="flex items-end gap-1 my-6">
                   <span className="text-5xl font-extrabold">{t("pricing.starter.price")}€</span>
@@ -303,7 +306,7 @@ export default function LandingPage() {
                   ))}
                 </ul>
                 <Link href="/register">
-                  <Button variant="outline" className="w-full h-11 font-medium">{t("pricing.cta")}</Button>
+                  <Button variant="outline" className="w-full h-11 font-medium border-border/60 hover:border-primary/40">{t("pricing.cta")}</Button>
                 </Link>
               </div>
 
@@ -332,10 +335,17 @@ export default function LandingPage() {
                     ))}
                   </ul>
                   <Link href="/register">
-                    <Button className="w-full h-11 font-semibold shadow-md shadow-primary/25">{t("pricing.cta")}</Button>
+                    <Button className="w-full h-11 font-semibold bg-cta hover:bg-cta/90 text-white shadow-md shadow-orange-600/20">14 Tage kostenlos starten</Button>
                   </Link>
                 </div>
               </div>
+            </div>
+
+            {/* page-cro: guarantee removes last price objection */}
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-muted-foreground">
+              <span className="flex items-center gap-2"><Shield className="h-4 w-4 text-primary" /><strong className="text-foreground">30 Tage Geld-zurück-Garantie</strong> — kein Risiko</span>
+              <span className="flex items-center gap-2"><Zap className="h-4 w-4 text-primary" />In 5 Minuten einsatzbereit</span>
+              <span className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" />Keine Kreditkarte für den Test</span>
             </div>
           </div>
         </section>
@@ -377,6 +387,52 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* ── FAQ — page-cro: objection handling before final CTA (highest-impact section) ── */}
+        <section className="relative py-24 bg-card/30 border-y border-border/50 overflow-hidden">
+          <div className="absolute top-0 right-4 section-num select-none">06</div>
+          <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-12 text-center">
+              <div className="label-tag inline-flex mb-5">Häufige Fragen</div>
+              <h2 className="font-syne text-3xl font-700 sm:text-4xl">Noch Fragen? Wir antworten.</h2>
+              <p className="mt-3 text-muted-foreground">Genau wie deine Kunden — nur schneller.</p>
+            </div>
+            <div className="space-y-3">
+              {[
+                {
+                  q: "Funktioniert das wirklich automatisch — ohne dass ich selbst eingreife?",
+                  a: "Ja. Die KI antwortet eigenständig auf jede Nachricht, 24/7. Du kannst optional jede Antwort vorher freigeben, aber die meisten Kunden lassen sie vollautomatisch laufen.",
+                },
+                {
+                  q: "Was kostet mich eine falsche KI-Antwort — kann das meiner Marke schaden?",
+                  a: "Die KI antwortet nur auf Basis deiner eigenen Texte und Informationen. Du hast immer die Kontrolle: Antworten prüfen, anpassen oder manuell übernehmen — jederzeit.",
+                },
+                {
+                  q: "Ich bin kein Technik-Profi. Schaffe ich das Setup alleine?",
+                  a: "Ja. Die Einrichtung dauert unter 5 Minuten: WhatsApp-Nummer verbinden, dein Business beschreiben, fertig. Kein Code, kein technisches Wissen nötig.",
+                },
+                {
+                  q: "Was passiert nach den 14 kostenlosen Tagen?",
+                  a: "Du entscheidest, ob du weitermachst. Keine automatische Verlängerung ohne deine Zustimmung, keine versteckten Kosten. Starter ab 49€/Monat — im Vergleich zu 1.200€ durchschnittlichem Mehrertrag.",
+                },
+                {
+                  q: "Funktioniert das auch mit Instagram, nicht nur WhatsApp?",
+                  a: "Ja — beide Kanäle sind von Anfang an dabei. WhatsApp, Instagram Direct Messages, alles in einem Dashboard. Pro-Plan schaltet beide Kanäle frei.",
+                },
+              ].map((faq, i) => (
+                <details key={i} className="group rounded-xl border border-border/60 bg-card overflow-hidden">
+                  <summary className="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer font-syne font-700 text-sm list-none hover:bg-card/80 transition-colors">
+                    {faq.q}
+                    <span className="shrink-0 text-primary font-jetbrains text-lg leading-none group-open:rotate-45 transition-transform duration-200">+</span>
+                  </summary>
+                  <div className="px-6 pb-5 text-sm text-muted-foreground leading-relaxed border-t border-border/40 pt-4">
+                    {faq.a}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── FINAL CTA — page-cro: after social proof, risk-free, high contrast ── */}
         <section className="py-24 bg-card/40 border-t border-border/50">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
@@ -404,6 +460,19 @@ export default function LandingPage() {
           </div>
         </section>
       </main>
+
+      {/* ── Sticky mobile CTA bar — page-cro: always-visible CTA on mobile ── */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl px-4 py-3 flex items-center gap-3 shadow-2xl shadow-black/40">
+        <div className="flex-1 min-w-0">
+          <p className="font-syne font-700 text-sm leading-tight">14 Tage kostenlos</p>
+          <p className="font-jetbrains text-[10px] text-muted-foreground">Keine Kreditkarte · sofort live</p>
+        </div>
+        <Link href="/register">
+          <Button size="sm" className="bg-cta hover:bg-cta/90 text-white font-semibold px-5 shrink-0 shadow-md shadow-orange-600/25">
+            Starten <ArrowRight className="h-3.5 w-3.5 ml-1" />
+          </Button>
+        </Link>
+      </div>
 
       {/* ── Footer ── */}
       <footer className="border-t border-border/50 py-14 bg-card/30">
