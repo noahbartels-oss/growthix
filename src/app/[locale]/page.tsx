@@ -105,19 +105,17 @@ export default function LandingPage() {
                 </p>
 
                 {/* stat row — page-cro + marketing-psychology: social proof above fold */}
-                <div className="animate-fade-up delay-500 mt-10 flex flex-wrap gap-6">
+                <div className="animate-fade-up delay-500 mt-10 flex flex-wrap gap-5">
                   {[
                     { icon: TrendingUp, value: "3,2×",  label: "mehr Buchungen" },
                     { icon: Clock,      value: "∅ 2s",  label: "Reaktionszeit"  },
                     { icon: Users,      value: "500+",  label: "Businesses"      },
                   ].map((s) => (
-                    <div key={s.label} className="flex items-center gap-3">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 shrink-0">
-                        <s.icon className="h-4 w-4 text-primary" />
-                      </div>
+                    <div key={s.label} className="flex items-center gap-3 rounded-xl border border-border/60 bg-card/60 px-4 py-3">
+                      <s.icon className="h-5 w-5 text-primary shrink-0" />
                       <div>
-                        <div className="font-syne text-xl font-700 leading-none">{s.value}</div>
-                        <div className="text-xs text-muted-foreground mt-0.5">{s.label}</div>
+                        <div className="font-syne text-2xl font-800 leading-none tracking-tight text-foreground">{s.value}</div>
+                        <div className="font-manrope text-xs font-500 text-muted-foreground mt-1 leading-none">{s.label}</div>
                       </div>
                     </div>
                   ))}

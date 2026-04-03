@@ -38,21 +38,21 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="glass rounded-2xl border border-white/50 shadow-2xl shadow-black/10 p-8 animate-fade-up">
+    <div className="rounded-2xl border border-border/80 bg-[#F7F6FF] shadow-2xl shadow-black/40 p-8 animate-fade-up">
       {/* header */}
       <div className="text-center mb-6">
         <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary shadow-lg shadow-primary/30">
-          <Zap className="h-6 w-6 text-white" />
+          <Zap className="h-6 w-6 text-primary-foreground" />
         </div>
-        <h1 className="text-2xl font-bold">{t("registerTitle")}</h1>
-        <p className="mt-1.5 text-sm text-muted-foreground">{t("registerSubtitle")}</p>
+        <h1 className="font-syne text-2xl font-700 text-[#0D0C18]">{t("registerTitle")}</h1>
+        <p className="mt-1.5 text-sm text-[#6B6894]">{t("registerSubtitle")}</p>
       </div>
 
       {/* perks */}
       <div className="flex justify-center gap-4 mb-6 flex-wrap">
         {perks.map((p) => (
-          <span key={p} className="flex items-center gap-1.5 text-xs text-muted-foreground">
-            <Check className="h-3 w-3 text-success" />{p}
+          <span key={p} className="flex items-center gap-1.5 text-xs text-[#6B6894]">
+            <Check className="h-3 w-3 text-primary" />{p}
           </span>
         ))}
       </div>
@@ -65,13 +65,13 @@ export default function RegisterPage() {
         )}
 
         <div className="space-y-1.5">
-          <label className="text-sm font-medium">{t("businessName")}</label>
+          <label className="text-sm font-medium text-[#0D0C18]">{t("businessName")}</label>
           <div className="relative">
-            <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#6B6894]" />
             <Input
               type="text"
               placeholder="Salon Schön"
-              className="pl-9"
+              className="pl-9 bg-white border-[#D4D2E8] text-[#0D0C18] placeholder:text-[#A8A6C0] focus-visible:ring-primary"
               value={businessName}
               onChange={(e) => setBusinessName(e.target.value)}
               required
@@ -80,13 +80,13 @@ export default function RegisterPage() {
         </div>
 
         <div className="space-y-1.5">
-          <label className="text-sm font-medium">{t("email")}</label>
+          <label className="text-sm font-medium text-[#0D0C18]">{t("email")}</label>
           <div className="relative">
-            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#6B6894]" />
             <Input
               type="email"
               placeholder="name@example.com"
-              className="pl-9"
+              className="pl-9 bg-white border-[#D4D2E8] text-[#0D0C18] placeholder:text-[#A8A6C0] focus-visible:ring-primary"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -95,24 +95,24 @@ export default function RegisterPage() {
         </div>
 
         <div className="space-y-1.5">
-          <label className="text-sm font-medium">{t("password")}</label>
+          <label className="text-sm font-medium text-[#0D0C18]">{t("password")}</label>
           <div className="relative">
-            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#6B6894]" />
             <Input
               type="password"
-              className="pl-9"
+              className="pl-9 bg-white border-[#D4D2E8] text-[#0D0C18] focus-visible:ring-primary"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
               minLength={6}
             />
           </div>
-          <p className="text-xs text-muted-foreground">Mindestens 6 Zeichen</p>
+          <p className="text-xs text-[#6B6894]">Mindestens 6 Zeichen</p>
         </div>
 
         <Button
           type="submit"
-          className="w-full h-11 font-medium gap-2 shadow-lg shadow-primary/25 mt-2"
+          className="w-full h-11 font-semibold gap-2 bg-cta hover:bg-cta/90 text-white shadow-lg shadow-orange-600/20 mt-2"
           disabled={loading}
         >
           {loading ? (
@@ -129,7 +129,7 @@ export default function RegisterPage() {
         </Button>
       </form>
 
-      <p className="mt-5 text-center text-sm text-muted-foreground">
+      <p className="mt-5 text-center text-sm text-[#6B6894]">
         {t("hasAccount")}{" "}
         <Link href="/login" className="text-primary font-semibold hover:underline">
           {t("loginButton")}
