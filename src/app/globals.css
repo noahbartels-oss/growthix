@@ -1,284 +1,338 @@
+/* ─── External fonts — loaded at runtime by browser, not at build time ─── */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
-/* ─────────────────────────────────────────────────────────────
-   COLOR TOKENS  (ui-ux-pro-max skill — Micro SaaS + Booking)
-   Primary:   Indigo  #6366F1   (AI-native accent)
-   Secondary: #818CF8
-   Accent:    Emerald #059669   (availability / success)
-   CTA:       #F97316           (orange — high-conversion)
-───────────────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════════════
+   DESIGN TOKENS — frontend-design skill: Editorial Dark
+   Direction: "Terminal Noir" — deep space dark, neon mint accent, bold type
+   Fonts: Syne (display/headlines) · Manrope (body) · JetBrains Mono (labels)
+   Palette: #07070E base · #00E676 primary · #FF5722 CTA · #7B78A0 muted
+═══════════════════════════════════════════════════════════════════════════ */
+
 :root {
-  --background:           #F5F3FF;
-  --foreground:           #1E1B4B;
+  /* ── Surfaces ── */
+  --background:           #07070E;
+  --foreground:           #EEEAF8;
+  --card:                 #0D0C18;
+  --card-foreground:      #EEEAF8;
+  --popover:              #0D0C18;
+  --popover-foreground:   #EEEAF8;
+
+  /* ── Brand ── */
+  --primary:              #00E676;   /* neon mint — WhatsApp-adjacent, memorable */
+  --primary-foreground:   #07070E;
+  --secondary:            #1A1830;
+  --secondary-foreground: #EEEAF8;
+
+  /* ── Neutral ── */
+  --muted:                #131222;
+  --muted-foreground:     #7B78A0;
+  --accent:               #1E1C32;
+  --accent-foreground:    #EEEAF8;
+
+  /* ── Semantic ── */
+  --destructive:          #FF453A;
+  --destructive-foreground: #FFFFFF;
+  --success:              #00E676;
+  --warning:              #FFD60A;
+
+  /* ── CTA — deep orange, high contrast on dark ── */
+  --cta:                  #FF5722;
+
+  /* ── Structure ── */
+  --border:               #1E1C32;
+  --input:                #1E1C32;
+  --ring:                 #00E676;
+  --radius:               0.625rem;
+
+  /* ── AI-native chat tokens (preserved from ui-ux-pro-max skill) ── */
+  --ai-accent:            #00E676;
+  --user-bubble-bg:       #1A2E22;
+  --ai-bubble-bg:         #131222;
+  --typing-dot-size:      7px;
+  --message-gap:          14px;
+}
+
+/* Light variant — used when .light class is applied */
+.light {
+  --background:           #F7F6FF;
+  --foreground:           #0D0C18;
   --card:                 #FFFFFF;
-  --card-foreground:      #1E1B4B;
+  --card-foreground:      #0D0C18;
   --popover:              #FFFFFF;
-  --popover-foreground:   #1E1B4B;
-
-  --primary:              #6366F1;
+  --popover-foreground:   #0D0C18;
+  --primary:              #00B856;
   --primary-foreground:   #FFFFFF;
-  --secondary:            #818CF8;
-  --secondary-foreground: #1E1B4B;
-
-  --muted:                #EBEFF9;
-  --muted-foreground:     #64748B;
-  --accent:               #059669;
-  --accent-foreground:    #FFFFFF;
-
-  --destructive:          #DC2626;
-  --destructive-foreground: #FFFFFF;
-  --success:              #059669;
-  --warning:              #F59E0B;
-  --cta:                  #F97316;
-
-  --border:               #E0E7FF;
-  --input:                #E0E7FF;
-  --ring:                 #6366F1;
-  --radius:               0.75rem;
-
-  /* AI-Native UI tokens (from skill) */
-  --ai-accent:            #6366F1;
-  --user-bubble-bg:       #E0E7FF;
-  --ai-bubble-bg:         #F9FAFB;
-  --input-height:         48px;
-  --typing-dot-size:      8px;
-  --message-gap:          16px;
+  --secondary:            #F0EFFF;
+  --secondary-foreground: #0D0C18;
+  --muted:                #F0EFFF;
+  --muted-foreground:     #6B6894;
+  --accent:               #F0EFFF;
+  --accent-foreground:    #0D0C18;
+  --border:               #E4E2F5;
+  --input:                #E4E2F5;
+  --ring:                 #00B856;
+  --user-bubble-bg:       #D1FAE5;
+  --ai-bubble-bg:         #F7F6FF;
 }
 
-.dark {
-  --background:           #0F0E1A;
-  --foreground:           #E2E1FF;
-  --card:                 #1A1830;
-  --card-foreground:      #E2E1FF;
-  --popover:              #1A1830;
-  --popover-foreground:   #E2E1FF;
-
-  --primary:              #818CF8;
-  --primary-foreground:   #0F0E1A;
-  --secondary:            #6366F1;
-  --secondary-foreground: #E2E1FF;
-
-  --muted:                #252340;
-  --muted-foreground:     #94A3B8;
-  --accent:               #10B981;
-  --accent-foreground:    #0F0E1A;
-
-  --destructive:          #EF4444;
-  --destructive-foreground: #FFFFFF;
-  --success:              #10B981;
-  --warning:              #FBBF24;
-  --cta:                  #FB923C;
-
-  --border:               #2E2C50;
-  --input:                #2E2C50;
-  --ring:                 #818CF8;
-
-  --user-bubble-bg:       #312E81;
-  --ai-bubble-bg:         #252340;
-}
-
-/* ─── Tailwind theme mapping ─────────────────────────────── */
+/* ── Tailwind theme mapping ─────────────────────────────────────────────── */
 @theme inline {
-  --color-background:           var(--background);
-  --color-foreground:           var(--foreground);
-  --color-card:                 var(--card);
-  --color-card-foreground:      var(--card-foreground);
-  --color-popover:              var(--popover);
-  --color-popover-foreground:   var(--popover-foreground);
-  --color-primary:              var(--primary);
-  --color-primary-foreground:   var(--primary-foreground);
-  --color-secondary:            var(--secondary);
+  --color-background:       var(--background);
+  --color-foreground:       var(--foreground);
+  --color-card:             var(--card);
+  --color-card-foreground:  var(--card-foreground);
+  --color-primary:          var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary:        var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted:                var(--muted);
-  --color-muted-foreground:     var(--muted-foreground);
-  --color-accent:               var(--accent);
-  --color-accent-foreground:    var(--accent-foreground);
-  --color-destructive:          var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border:               var(--border);
-  --color-input:                var(--input);
-  --color-ring:                 var(--ring);
-  --color-success:              var(--success);
-  --color-warning:              var(--warning);
-  --color-cta:                  var(--cta);
+  --color-muted:            var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent:           var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive:      var(--destructive);
+  --color-border:           var(--border);
+  --color-input:            var(--input);
+  --color-ring:             var(--ring);
+  --color-cta:              var(--cta);
+  --color-success:          var(--success);
+  --color-warning:          var(--warning);
 
-  --radius-sm:  calc(var(--radius) - 4px);
-  --radius-md:  calc(var(--radius) - 2px);
-  --radius-lg:  var(--radius);
-  --radius-xl:  calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-
-  /* Inter as system stack (Calistoga unavailable in sandbox) */
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: ui-monospace, "JetBrains Mono", "Fira Code", monospace;
-  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* Font families — use font-syne / font-manrope / font-jetbrains in JSX */
+  --font-syne:        'Syne', system-ui, sans-serif;
+  --font-manrope:     'Manrope', system-ui, sans-serif;
+  --font-jetbrains:   'JetBrains Mono', 'Fira Code', monospace;
 }
 
-/* ─── Base ───────────────────────────────────────────────── */
-*, *::before, *::after { border-color: var(--border); box-sizing: border-box; }
+/* ── Base ───────────────────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
 
-html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-body {
-  background:  var(--background);
-  color:       var(--foreground);
-  font-family: var(--font-sans);
-  font-size:   16px;          /* skill: min 16px body — prevents iOS zoom */
-  line-height: 1.6;           /* skill: 1.5–1.75 body line-height */
-}
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
 
-/* ─── Accessibility (skill priority 1) ──────────────────── */
-/* Visible focus rings for keyboard nav */
-:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
-}
+  /* Headings use Syne display font */
+  h1, h2, h3, h4 {
+    font-family: 'Syne', system-ui, sans-serif;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
 
-/* cursor-pointer on all interactive elements */
-button, [role="button"], a, label[for], select { cursor: pointer; }
+  /* Accessibility: visible focus rings */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
 
-/* Reduced motion (skill requirement) */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  /* Interactive elements */
+  button, a, [role="button"], label[for] {
+    cursor: pointer;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-/* ─── Animations ─────────────────────────────────────────── */
+/* ── Utility classes ────────────────────────────────────────────────────── */
+@layer utilities {
+
+  /* Glass morphism */
+  .glass {
+    background: rgba(13, 12, 24, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* Editorial gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #00E676 0%, #00BFA5 50%, #69F0AE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* CTA gradient text */
+  .gradient-text-cta {
+    background: linear-gradient(135deg, #FF5722 0%, #FF8A65 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Hero radial glow */
+  .hero-glow {
+    background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0, 230, 118, 0.08) 0%, transparent 70%);
+  }
+
+  /* Editorial section number — large background number */
+  .section-num {
+    font-family: 'Syne', system-ui, sans-serif;
+    font-weight: 800;
+    font-size: clamp(5rem, 15vw, 12rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(0, 230, 118, 0.12);
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* Context card — AI-native left-border accent (from ui-ux-pro-max) */
+  .context-card {
+    border-left: 3px solid var(--primary);
+    padding-left: 1.25rem;
+  }
+
+  /* Card hover — lift + glow */
+  .card-hover {
+    transition: transform 150ms ease, box-shadow 150ms ease, border-color 200ms ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 230, 118, 0.08);
+    border-color: rgba(0, 230, 118, 0.25);
+  }
+
+  /* Horizontal editorial rule */
+  .editorial-rule {
+    border: none;
+    border-top: 1px solid var(--border);
+    width: 100%;
+  }
+
+  /* Tag / label badge */
+  .label-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--primary);
+    border: 1px solid rgba(0, 230, 118, 0.25);
+    background: rgba(0, 230, 118, 0.06);
+    padding: 0.3rem 0.75rem;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  /* Dot separator */
+  .dot-sep::before {
+    content: '·';
+    margin: 0 0.5rem;
+    opacity: 0.4;
+  }
+
+  /* Mesh background texture */
+  .mesh-bg {
+    background-image:
+      linear-gradient(rgba(0, 230, 118, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 230, 118, 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* AI typing indicator — 3-dot pulse (ui-ux-pro-max skill) */
+  .typing-indicator {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding: 10px 14px;
+    background: var(--ai-bubble-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    border-bottom-left-radius: 4px;
+    width: fit-content;
+  }
+  .typing-indicator span {
+    width: var(--typing-dot-size);
+    height: var(--typing-dot-size);
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0.4;
+    display: block;
+    animation: typing-dot 1.2s infinite ease-in-out;
+  }
+  .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+}
+
+/* ── Animations ─────────────────────────────────────────────────────────── */
+@keyframes typing-dot {
+  0%, 60%, 100% { opacity: 0.25; transform: scale(1); }
+  30%            { opacity: 1;    transform: scale(1.25); }
+}
+
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
 @keyframes fade-in {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-8px); }
+  50%       { transform: translateY(-10px); }
 }
-@keyframes gradient-shift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+
 @keyframes slide-right {
-  from { opacity: 0; transform: translateX(12px); }
+  from { opacity: 0; transform: translateX(-16px); }
   to   { opacity: 1; transform: translateX(0); }
 }
-@keyframes bounce-in {
-  0%   { transform: scale(0.85); opacity: 0; }
-  60%  { transform: scale(1.03); }
-  100% { transform: scale(1); opacity: 1; }
-}
 
-/* AI-native: typing indicator (3-dot pulse) */
-@keyframes typing-dot {
-  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-  30%            { transform: translateY(-6px); opacity: 1; }
-}
-
-/* AI-native: streaming text reveal */
 @keyframes stream-in {
-  from { opacity: 0; clip-path: inset(0 100% 0 0); }
-  to   { opacity: 1; clip-path: inset(0 0% 0 0); }
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* scale press feedback (skill: 0.95–1.05) */
-@keyframes press { to { transform: scale(0.97); } }
-
-.animate-fade-up     { animation: fade-up 0.5s cubic-bezier(0.16,1,0.3,1) both; }
-.animate-fade-in     { animation: fade-in 0.35s ease both; }
-.animate-float       { animation: float 4s ease-in-out infinite; }
-.animate-gradient    { animation: gradient-shift 8s ease infinite; background-size: 200% 200%; }
-.animate-slide-right { animation: slide-right 0.35s cubic-bezier(0.16,1,0.3,1) both; }
-.animate-bounce-in   { animation: bounce-in 0.45s cubic-bezier(0.16,1,0.3,1) both; }
-.animate-stream      { animation: stream-in 0.6s ease both; }
-
-/* stagger delays */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }
-
-/* ─── Typing Indicator (3-dot pulse) ────────────────────── */
-.typing-indicator {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 10px 14px;
-  background: var(--ai-bubble-bg);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  border-bottom-left-radius: 4px;
-}
-.typing-indicator span {
-  width:  var(--typing-dot-size);
-  height: var(--typing-dot-size);
-  border-radius: 50%;
-  background: var(--muted-foreground);
-  animation: typing-dot 1.2s ease infinite;
-}
-.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
-.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
-
-/* ─── Utility classes ────────────────────────────────────── */
-.glass {
-  background: rgba(255,255,255,0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,0.5);
-}
-.dark .glass {
-  background: rgba(26,24,48,0.8);
-  border-color: rgba(255,255,255,0.07);
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.3); }
+  70%  { box-shadow: 0 0 0 10px rgba(0, 230, 118, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0); }
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, var(--primary), #4F46E5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-.hero-glow {
-  background: radial-gradient(ellipse 80% 50% at 50% -5%,
-    rgba(99,102,241,0.18) 0%,
-    rgba(129,140,248,0.08) 40%,
-    transparent 70%);
-}
+/* Animation utilities */
+.animate-fade-up    { animation: fade-up 0.5s ease both; }
+.animate-fade-in    { animation: fade-in 0.4s ease both; }
+.animate-float      { animation: float 4s ease-in-out infinite; }
+.animate-slide-right { animation: slide-right 0.35s ease both; }
+.animate-stream-in  { animation: stream-in 0.3s ease both; }
+.animate-pulse-ring { animation: pulse-ring 2s ease-out infinite; }
+.animate-marquee    { animation: marquee 25s linear infinite; }
 
-.mesh-bg {
-  background-image:
-    radial-gradient(at 20% 50%, rgba(99,102,241,0.12) 0px, transparent 50%),
-    radial-gradient(at 80% 20%, rgba(5,150,105,0.08) 0px, transparent 50%),
-    radial-gradient(at 50% 85%, rgba(129,140,248,0.10) 0px, transparent 50%);
-}
-
-/* context card (AI-native style — left accent border) */
-.context-card {
-  border-left: 3px solid var(--primary);
-  padding-left: 12px;
-  background: var(--muted);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-}
-
-.card-hover {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 32px rgba(99,102,241,0.12);
-}
-
-/* scrollbar */
-::-webkit-scrollbar { width: 5px; height: 5px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 9999px; }
-::-webkit-scrollbar-thumb:hover { background: var(--muted-foreground); }
+/* Delay utilities */
+.delay-100  { animation-delay: 0.1s; }
+.delay-200  { animation-delay: 0.2s; }
+.delay-300  { animation-delay: 0.3s; }
+.delay-400  { animation-delay: 0.4s; }
+.delay-500  { animation-delay: 0.5s; }
+.delay-600  { animation-delay: 0.6s; }
