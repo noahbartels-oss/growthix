@@ -78,13 +78,13 @@ export default function LandingPage() {
                 </div>
 
                 <h1 className="animate-fade-up delay-100 font-syne text-5xl font-800 tracking-tight leading-[1.05] sm:text-6xl lg:text-[4.5rem]">
-                  Kein Kunde wartet mehr
+                  Dein 24/7 Mitarbeiter für
                   <br />
-                  <span className="gradient-text">auf deine Antwort.</span>
+                  <span className="gradient-text">WhatsApp &amp; Instagram.</span>
                 </h1>
 
                 <p className="animate-fade-up delay-200 mt-6 text-lg text-muted-foreground leading-relaxed max-w-xl">
-                  ReplyFlow AI antwortet sofort auf WhatsApp &amp; Instagram — und bucht Termine, während du arbeitest. Durchschnittlich <strong className="text-foreground">3,2× mehr Buchungen</strong> ab Tag 1.
+                  Antwortet automatisch auf WhatsApp &amp; Instagram und bucht Termine direkt in deinen Kalender. Durchschnittlich <strong className="text-foreground">3,2× mehr Buchungen</strong> ab Tag 1.
                 </p>
 
                 {/* CTAs — page-cro: one clear primary, specific copy */}
@@ -96,7 +96,7 @@ export default function LandingPage() {
                     </Button>
                   </Link>
                   <Button variant="outline" size="lg" className="h-12 px-7 text-base border-border/60 hover:border-primary/40 hover:bg-primary/5">
-                    {t("hero.secondaryCta")}
+                    Jetzt ausprobieren
                   </Button>
                 </div>
 
