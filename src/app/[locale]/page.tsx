@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { PricingCards } from "@/components/paypal/pricing-cards";
 import {
   MessageSquare, CalendarCheck, Clock, BarChart3, Brain,
   Layers, Check, Zap, ArrowRight, Star,
@@ -285,61 +286,16 @@ export default function LandingPage() {
               <h2 className="font-syne text-3xl font-700 sm:text-4xl">{t("pricing.title")}</h2>
               <p className="mt-3 text-muted-foreground">{t("pricing.subtitle")}</p>
             </div>
-            <div className="grid gap-8 md:grid-cols-2 items-start">
-              {/* Starter */}
-              <div className="rounded-xl border border-border/60 bg-card p-8 card-hover">
-                <h3 className="font-syne text-xl font-700">{t("pricing.starter.name")}</h3>
-
-                <p className="mt-1 text-sm text-muted-foreground">{t("pricing.starter.description")}</p>
-                <div className="flex items-end gap-1 my-6">
-                  <span className="text-5xl font-extrabold">{t("pricing.starter.price")}€</span>
-                  <span className="text-muted-foreground pb-1">{t("pricing.starter.period")}</span>
-                </div>
-                <ul className="space-y-3 mb-8">
-                  {(t.raw("pricing.starter.features") as string[]).map((f) => (
-                    <li key={f} className="flex items-start gap-3 text-sm">
-                      <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                        <Check className="h-3 w-3 text-primary" />
-                      </div>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/register">
-                  <Button variant="outline" className="w-full h-11 font-medium border-border/60 hover:border-primary/40">{t("pricing.cta")}</Button>
-                </Link>
-              </div>
-
-              {/* Pro — editorial mint border */}
-              <div className="relative p-[1.5px] rounded-xl bg-gradient-to-br from-primary/80 via-primary to-primary/60 shadow-xl shadow-primary/15 card-hover">
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                  <span className="font-jetbrains inline-flex items-center gap-1.5 rounded-sm bg-primary px-4 py-1 text-[10px] font-500 text-primary-foreground tracking-wider uppercase shadow-md">
-                    {t("pricing.pro.badge")}
-                  </span>
-                </div>
-                <div className="rounded-xl bg-card p-8">
-                  <h3 className="font-syne text-xl font-700">{t("pricing.pro.name")}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{t("pricing.pro.description")}</p>
-                  <div className="flex items-end gap-1 my-6">
-                    <span className="text-5xl font-extrabold">{t("pricing.pro.price")}€</span>
-                    <span className="text-muted-foreground pb-1">{t("pricing.pro.period")}</span>
-                  </div>
-                  <ul className="space-y-3 mb-8">
-                    {(t.raw("pricing.pro.features") as string[]).map((f) => (
-                      <li key={f} className="flex items-start gap-3 text-sm">
-                        <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15">
-                          <Check className="h-3 w-3 text-accent" />
-                        </div>
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href="/register">
-                    <Button className="w-full h-11 font-semibold bg-cta hover:bg-cta/90 text-white shadow-md shadow-orange-600/20">7 Tage kostenlos starten</Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
+            <PricingCards
+              starterFeatures={t.raw("pricing.starter.features") as string[]}
+              proFeatures={t.raw("pricing.pro.features") as string[]}
+              ctaText={t("pricing.cta")}
+              starterName={t("pricing.starter.name")}
+              starterDesc={t("pricing.starter.description")}
+              proName={t("pricing.pro.name")}
+              proDesc={t("pricing.pro.description")}
+              proBadge={t("pricing.pro.badge")}
+            />
           </div>
         </section>
 

@@ -13,7 +13,11 @@ create table if not exists businesses (
   website text,
   ai_prompt text default 'Du bist ein freundlicher Assistent für ein lokales Business. Ziel: Termine vereinbaren, kurz und klar antworten. Wenn möglich, schlage konkrete Zeiten vor.',
   services text,
-  plan text check (plan in ('starter', 'pro')) default 'starter',
+  plan text check (plan in ('trial', 'starter', 'pro')) default 'trial',
+  subscription_id text,                          -- PayPal subscription ID
+  subscription_status text check (subscription_status in ('trial', 'active', 'cancelled', 'expired')) default 'trial',
+  trial_ends_at timestamptz default (now() + interval '7 days'),
+  subscription_starts_at timestamptz,
   created_at timestamptz default now(),
   updated_at timestamptz default now()
 );

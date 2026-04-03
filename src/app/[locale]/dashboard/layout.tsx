@@ -16,12 +16,14 @@ import {
   Menu,
   X,
   ChevronRight,
+  CreditCard,
 } from "lucide-react";
 
 const navItems = [
   { key: "overview",      href: "/dashboard",                   icon: LayoutDashboard },
   { key: "conversations", href: "/dashboard/conversations",     icon: MessageSquare },
   { key: "appointments",  href: "/dashboard/appointments",      icon: CalendarCheck },
+  { key: "billing",       href: "/dashboard/billing",           icon: CreditCard },
   { key: "settings",      href: "/dashboard/settings",          icon: Settings },
 ] as const;
 
