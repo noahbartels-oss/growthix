@@ -28,10 +28,7 @@ export default function LandingPage() {
       {/* ── Navbar — frontend-design: translucent, editorial ── */}
       <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/85 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2.5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary shadow-lg shadow-primary/25">
-              <Zap className="h-4 w-4 text-primary-foreground" />
-            </div>
+          <div className="flex items-center">
             <span className="font-syne text-lg font-700 tracking-tight">{tc("appName")}</span>
           </div>
           <nav className="hidden md:flex items-center gap-8 text-sm">
@@ -56,121 +53,70 @@ export default function LandingPage() {
 
       <main className="flex-1">
 
-        {/* ── 1. HERO — frontend-design: asymmetric 2-col, Syne display, editorial ── */}
-        <section className="relative pt-16 pb-24 overflow-hidden">
+        {/* ── 1. HERO — centered layout, colorful orbs ── */}
+        <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden pt-8 pb-20">
           <div className="absolute inset-0 hero-glow" />
-          <div className="absolute inset-0 mesh-bg opacity-60" />
+          <div className="absolute inset-0 mesh-bg opacity-30" />
 
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-[1fr_420px] gap-12 items-center">
-
-              {/* LEFT — headline + CTAs */}
-              <div>
-                {/* page-cro: star rating social proof ABOVE headline — highest trust impact */}
-                <div className="animate-fade-up flex items-center gap-2.5 mb-5">
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-warning text-warning" />
-                    ))}
-                  </div>
-                  <span className="font-jetbrains text-sm text-foreground font-500">4,9</span>
-                  <span className="text-sm text-muted-foreground">· 500+ Businesses vertrauen ReplyFlow</span>
-                </div>
-
-                <h1 className="animate-fade-up delay-100 font-syne text-5xl font-800 tracking-tight leading-[1.05] sm:text-6xl lg:text-[4.5rem]">
-                  Dein 24/7 Mitarbeiter für
-                  <br />
-                  <span className="gradient-text">WhatsApp &amp; Instagram.</span>
-                </h1>
-
-                <p className="animate-fade-up delay-200 mt-6 text-lg text-muted-foreground leading-relaxed max-w-xl">
-                  Antwortet automatisch auf WhatsApp &amp; Instagram und bucht Termine direkt in deinen Kalender. Durchschnittlich <strong className="text-foreground">3,2× mehr Buchungen</strong> ab Tag 1.
-                </p>
-
-                {/* CTAs — page-cro: one clear primary, specific copy */}
-                <div className="animate-fade-up delay-300 mt-8 flex flex-col sm:flex-row gap-3">
-                  <Link href="/register">
-                    <Button size="lg" className="gap-2 h-12 px-8 text-base font-semibold bg-cta hover:bg-cta/90 text-white shadow-lg shadow-orange-600/25 hover:-translate-y-0.5 transition-all">
-                      7 Tage kostenlos testen
-                      <ArrowRight className="h-4 w-4" />
-                    </Button>
-                  </Link>
-                  <Button variant="outline" size="lg" className="h-12 px-7 text-base border-border/60 hover:border-primary/40 hover:bg-primary/5">
-                    Jetzt ausprobieren
-                  </Button>
-                </div>
-
-                {/* risk reversal — page-cro: above fold trust signals */}
-                <p className="animate-fade-up delay-400 mt-4 text-sm text-muted-foreground flex flex-wrap gap-x-4 gap-y-1">
-                  <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-primary" />Keine Kreditkarte</span>
-                  <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-primary" />Setup in 1 Minute</span>
-                  <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-primary" />Jederzeit kündbar</span>
-                </p>
-
-                {/* stat row — page-cro: specific € outcome anchors value before seeing price */}
-                <div className="animate-fade-up delay-500 mt-10 flex flex-wrap gap-5">
-                  {[
-                    { icon: TrendingUp, value: "∅ +1.200€", label: "mehr Umsatz/Monat" },
-                    { icon: Clock,      value: "∅ 2s",       label: "Reaktionszeit"     },
-                    { icon: Users,      value: "500+",        label: "Businesses"         },
-                  ].map((s) => (
-                    <div key={s.label} className="flex items-center gap-3 rounded-xl border border-border/60 bg-card/60 px-4 py-3">
-                      <s.icon className="h-5 w-5 text-primary shrink-0" />
-                      <div>
-                        <div className="font-syne text-2xl font-800 leading-none tracking-tight text-foreground">{s.value}</div>
-                        <div className="font-manrope text-xs font-500 text-muted-foreground mt-1 leading-none">{s.label}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+            {/* star rating */}
+            <div className="animate-fade-up flex items-center justify-center gap-2.5 mb-5">
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-warning text-warning" />
+                ))}
               </div>
+              <span className="font-jetbrains text-sm text-foreground font-500">4,9</span>
+              <span className="text-sm text-muted-foreground">· 500+ Businesses vertrauen ReplyFlow</span>
+            </div>
 
-              {/* RIGHT — chat mockup, frontend-design: floating card with glow */}
-              <div className="animate-float mx-auto w-full max-w-sm lg:mx-0">
-                <div className="relative">
-                  {/* glow behind card */}
-                  <div className="absolute inset-0 rounded-2xl bg-primary/10 blur-3xl scale-110" />
-                  <div className="relative glass rounded-2xl overflow-hidden border border-border/60 shadow-2xl shadow-primary/10">
-                    {/* chat header */}
-                    <div className="flex items-center gap-3 border-b border-border/50 bg-card/80 px-4 py-3">
-                      <div className="h-7 w-7 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-primary text-xs font-bold">K</div>
-                      <div className="flex-1">
-                        <p className="text-xs font-semibold leading-none">Kunde via WhatsApp</p>
-                        <p className="text-[10px] text-primary mt-0.5 flex items-center gap-1">
-                          <span className="h-1.5 w-1.5 rounded-full bg-primary inline-block animate-pulse" />Online
-                        </p>
-                      </div>
-                      <MessageSquare className="h-4 w-4 text-muted-foreground" />
-                    </div>
-                    {/* messages */}
-                    <div className="space-y-3 bg-card/50 px-4 py-4">
-                      <div className="flex justify-end">
-                        <div className="max-w-[80%] rounded-2xl rounded-tr-sm px-3 py-2 text-xs" style={{ background: "var(--user-bubble-bg)", color: "var(--foreground)" }}>
-                          Ich möchte einen Termin buchen 💇‍♀️
-                        </div>
-                      </div>
-                      <div className="typing-indicator">
-                        <span /><span /><span />
-                      </div>
-                      <div className="max-w-[90%] rounded-2xl rounded-tl-sm border border-border/40 px-3 py-2 text-xs" style={{ background: "var(--ai-bubble-bg)" }}>
-                        Hallo! 👋 Morgen um <strong>10:00</strong> oder <strong>14:00</strong> Uhr?
-                        <div className="mt-1.5 flex items-center gap-1 text-[10px] text-primary/70">
-                          <Brain className="h-2.5 w-2.5" /> KI · sofort geantwortet
-                        </div>
-                      </div>
-                      <div className="flex justify-end">
-                        <div className="rounded-2xl rounded-tr-sm px-3 py-2 text-xs" style={{ background: "var(--user-bubble-bg)", color: "var(--foreground)" }}>
-                          14:00 Uhr bitte!
-                        </div>
-                      </div>
-                      <div className="max-w-[90%] rounded-2xl rounded-tl-sm border border-primary/20 px-3 py-2 text-xs" style={{ background: "var(--ai-bubble-bg)" }}>
-                        <span className="text-primary font-semibold">✓ Bestätigt!</span> Morgen 14:00 Uhr. Bis dann! 🎉
-                      </div>
-                    </div>
+            <h1 className="animate-fade-up delay-100 font-syne text-5xl font-800 tracking-tight leading-[1.05] sm:text-6xl lg:text-[5rem]">
+              Dein 24/7 Mitarbeiter für
+              <br />
+              <span className="gradient-text">WhatsApp &amp; Instagram.</span>
+            </h1>
+
+            <p className="animate-fade-up delay-200 mt-6 text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              Antwortet automatisch auf WhatsApp &amp; Instagram und bucht Termine direkt in deinen Kalender. Durchschnittlich <strong className="text-foreground">3,2× mehr Buchungen</strong> ab Tag 1.
+            </p>
+
+            {/* CTAs */}
+            <div className="animate-fade-up delay-300 mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+              <Link href="/register">
+                <Button size="lg" className="gap-2 h-12 px-8 text-base font-semibold bg-white hover:bg-white/90 text-[#07070E] shadow-lg hover:-translate-y-0.5 transition-all">
+                  7 Tage kostenlos testen
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/login">
+                <Button variant="outline" size="lg" className="h-12 px-7 text-base border-white/30 text-white hover:bg-white/10 hover:border-white/50">
+                  Jetzt ausprobieren
+                </Button>
+              </Link>
+            </div>
+
+            {/* trust signals */}
+            <p className="animate-fade-up delay-400 mt-4 text-sm text-muted-foreground flex flex-wrap gap-x-4 gap-y-1 justify-center">
+              <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-primary" />Keine Kreditkarte</span>
+              <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-primary" />Setup in 1 Minute</span>
+              <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-primary" />Jederzeit kündbar</span>
+            </p>
+
+            {/* stat pills */}
+            <div className="animate-fade-up delay-500 mt-10 flex flex-wrap gap-4 justify-center">
+              {[
+                { icon: TrendingUp, value: "∅ +1.200€", label: "mehr Umsatz/Monat" },
+                { icon: Clock,      value: "∅ 2s",       label: "Reaktionszeit"     },
+                { icon: Users,      value: "500+",        label: "Businesses"         },
+              ].map((s) => (
+                <div key={s.label} className="flex items-center gap-3 rounded-xl border border-border/60 bg-card/60 px-4 py-3">
+                  <s.icon className="h-5 w-5 text-primary shrink-0" />
+                  <div>
+                    <div className="font-syne text-2xl font-800 leading-none tracking-tight text-foreground">{s.value}</div>
+                    <div className="font-manrope text-xs font-500 text-muted-foreground mt-1 leading-none">{s.label}</div>
                   </div>
                 </div>
-              </div>
-
+              ))}
             </div>
           </div>
         </section>

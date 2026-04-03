@@ -1,5 +1,4 @@
 import { Link } from "@/i18n/navigation";
-import { Zap } from "lucide-react";
 import { LanguageSwitcher } from "@/components/language-switcher";
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
@@ -13,9 +12,6 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
       {/* top bar */}
       <div className="absolute top-4 left-0 right-0 flex items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-sm">
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary">
-            <Zap className="h-3.5 w-3.5 text-white" />
-          </div>
           ReplyFlow AI
         </Link>
         <LanguageSwitcher />

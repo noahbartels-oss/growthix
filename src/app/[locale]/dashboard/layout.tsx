@@ -12,7 +12,6 @@ import {
   CalendarCheck,
   Settings,
   LogOut,
-  Zap,
   Menu,
   X,
   ChevronRight,
@@ -47,9 +46,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     <div className="flex h-full flex-col">
       {/* Logo */}
       <div className="flex h-16 items-center gap-2.5 px-5 border-b border-border/50">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary shadow-lg shadow-primary/30">
-          <Zap className="h-4 w-4 text-white" />
-        </div>
         <span className="font-bold text-sm tracking-tight">{tc("appName")}</span>
       </div>
 
@@ -129,9 +125,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <Menu className="h-5 w-5" />
           </button>
           <div className="flex items-center gap-2">
-            <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary">
-              <Zap className="h-3 w-3 text-white" />
-            </div>
             <span className="font-bold text-sm">{tc("appName")}</span>
           </div>
         </header>
