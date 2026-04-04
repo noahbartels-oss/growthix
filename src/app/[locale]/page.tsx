@@ -5,7 +5,7 @@ import { LanguageSwitcher } from "@/components/language-switcher";
 import { PricingCards } from "@/components/paypal/pricing-cards";
 import {
   MessageSquare, CalendarCheck, Clock, BarChart3, Brain,
-  Layers, Check, Zap, ArrowRight, Star,
+  Layers, ArrowRight, Star,
   TrendingUp, Users, Shield,
 } from "lucide-react";
 
@@ -25,25 +25,30 @@ export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background overflow-x-hidden">
 
-      {/* ── Navbar — frontend-design: translucent, editorial ── */}
-      <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/85 backdrop-blur-xl">
+      {/* ── Navbar ── */}
+      <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-xl border-b border-white/5">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center">
-            <span className="font-syne text-lg font-700 tracking-tight">{tc("appName")}</span>
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 border border-white/15">
+              <span className="text-white text-xs font-bold">R</span>
+            </div>
+            <span className="font-syne text-base font-700 tracking-tight text-white">{tc("appName")}</span>
           </div>
           <nav className="hidden md:flex items-center gap-8 text-sm">
-            <a href="#problem"      className="text-muted-foreground hover:text-foreground transition-colors">Problem</a>
-            <a href="#features"     className="text-muted-foreground hover:text-foreground transition-colors">{t("footer.features")}</a>
-            <a href="#pricing"      className="text-muted-foreground hover:text-foreground transition-colors">{t("footer.pricing")}</a>
-            <a href="#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">Kunden</a>
+            <a href="#features"     className="text-white/60 hover:text-white transition-colors">{t("footer.features")}</a>
+            <a href="#pricing"      className="text-white/60 hover:text-white transition-colors">{t("footer.pricing")}</a>
+            <a href="#testimonials" className="text-white/60 hover:text-white transition-colors">Kunden</a>
+            <a href="#faq"          className="text-white/60 hover:text-white transition-colors">FAQ</a>
           </nav>
           <div className="flex items-center gap-2">
             <LanguageSwitcher />
             <Link href="/login">
-              <Button variant="ghost" size="sm">{tc("login")}</Button>
+              <Button variant="ghost" size="sm" className="text-white/70 hover:text-white hover:bg-white/10">
+                {tc("login")}
+              </Button>
             </Link>
             <Link href="/register">
-              <Button size="sm" className="bg-cta hover:bg-cta/90 text-white shadow-md shadow-orange-600/20">
+              <Button size="sm" className="rounded-full bg-white hover:bg-white/90 text-[#07070E] font-semibold px-5 shadow-lg">
                 {tc("register")}
               </Button>
             </Link>
@@ -53,67 +58,71 @@ export default function LandingPage() {
 
       <main className="flex-1">
 
-        {/* ── 1. HERO — centered layout, colorful orbs ── */}
-        <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden pt-8 pb-20">
+        {/* ── HERO ── */}
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+          {/* vivid orbs */}
           <div className="absolute inset-0 hero-glow" />
-          <div className="absolute inset-0 mesh-bg opacity-30" />
+          {/* subtle grid */}
+          <div className="absolute inset-0 mesh-bg opacity-20" />
+          {/* dark vignette at edges */}
+          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 120% 100% at 50% 50%, transparent 40%, rgba(7,7,14,0.85) 100%)" }} />
 
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            {/* star rating */}
-            <div className="animate-fade-up flex items-center justify-center gap-2.5 mb-5">
+          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center py-20">
+            {/* social proof pill */}
+            <div className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 mb-8 backdrop-blur-sm">
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-warning text-warning" />
+                  <Star key={i} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <span className="font-jetbrains text-sm text-foreground font-500">4,9</span>
-              <span className="text-sm text-muted-foreground">· 500+ Businesses vertrauen ReplyFlow</span>
+              <span className="text-xs text-white/80 font-medium">4,9 · 500+ Businesses vertrauen ReplyFlow</span>
             </div>
 
-            <h1 className="animate-fade-up delay-100 font-syne text-5xl font-800 tracking-tight leading-[1.05] sm:text-6xl lg:text-[5rem]">
+            <h1 className="animate-fade-up delay-100 font-syne font-800 tracking-tight leading-[1.0] text-white"
+                style={{ fontSize: "clamp(2.8rem, 8vw, 5.5rem)" }}>
               Dein 24/7 Mitarbeiter für
               <br />
               <span className="gradient-text">WhatsApp &amp; Instagram.</span>
             </h1>
 
-            <p className="animate-fade-up delay-200 mt-6 text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              Antwortet automatisch auf WhatsApp &amp; Instagram und bucht Termine direkt in deinen Kalender. Durchschnittlich <strong className="text-foreground">3,2× mehr Buchungen</strong> ab Tag 1.
+            <p className="animate-fade-up delay-200 mt-6 text-lg text-white/60 leading-relaxed max-w-2xl mx-auto">
+              Antwortet automatisch auf WhatsApp &amp; Instagram und bucht Termine direkt in deinen Kalender. Durchschnittlich <strong className="text-white/90">3,2× mehr Buchungen</strong> ab Tag 1.
             </p>
 
-            {/* CTAs */}
+            {/* pill CTAs */}
             <div className="animate-fade-up delay-300 mt-8 flex flex-col sm:flex-row gap-3 justify-center">
               <Link href="/register">
-                <Button size="lg" className="gap-2 h-12 px-8 text-base font-semibold bg-white hover:bg-white/90 text-[#07070E] shadow-lg hover:-translate-y-0.5 transition-all">
+                <Button size="lg" className="rounded-full h-12 px-8 text-base font-semibold bg-white hover:bg-white/92 text-[#07070E] shadow-xl hover:-translate-y-0.5 transition-all">
                   7 Tage kostenlos testen
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4 ml-1" />
                 </Button>
               </Link>
               <Link href="/login">
-                <Button variant="outline" size="lg" className="h-12 px-7 text-base border-white/30 text-white hover:bg-white/10 hover:border-white/50">
+                <Button variant="outline" size="lg" className="rounded-full h-12 px-7 text-base border-white/25 text-white bg-white/5 hover:bg-white/12 hover:border-white/40 backdrop-blur-sm">
                   Jetzt ausprobieren
                 </Button>
               </Link>
             </div>
 
-            {/* trust signals */}
-            <p className="animate-fade-up delay-400 mt-4 text-sm text-muted-foreground flex flex-wrap gap-x-4 gap-y-1 justify-center">
-              <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-primary" />Keine Kreditkarte</span>
-              <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-primary" />Setup in 1 Minute</span>
-              <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-primary" />Jederzeit kündbar</span>
+            {/* micro trust signals */}
+            <p className="animate-fade-up delay-400 mt-4 text-sm text-white/40 flex flex-wrap gap-x-5 gap-y-1 justify-center">
+              <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5" />Keine Kreditkarte</span>
+              <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5" />Setup in 1 Minute</span>
+              <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5" />Jederzeit kündbar</span>
             </p>
 
             {/* stat pills */}
-            <div className="animate-fade-up delay-500 mt-10 flex flex-wrap gap-4 justify-center">
+            <div className="animate-fade-up delay-500 mt-12 flex flex-wrap gap-3 justify-center">
               {[
                 { icon: TrendingUp, value: "∅ +1.200€", label: "mehr Umsatz/Monat" },
                 { icon: Clock,      value: "∅ 2s",       label: "Reaktionszeit"     },
                 { icon: Users,      value: "500+",        label: "Businesses"         },
               ].map((s) => (
-                <div key={s.label} className="flex items-center gap-3 rounded-xl border border-border/60 bg-card/60 px-4 py-3">
-                  <s.icon className="h-5 w-5 text-primary shrink-0" />
+                <div key={s.label} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md px-4 py-3">
+                  <s.icon className="h-4 w-4 text-white/50 shrink-0" />
                   <div>
-                    <div className="font-syne text-2xl font-800 leading-none tracking-tight text-foreground">{s.value}</div>
-                    <div className="font-manrope text-xs font-500 text-muted-foreground mt-1 leading-none">{s.label}</div>
+                    <div className="font-syne text-xl font-800 leading-none tracking-tight text-white">{s.value}</div>
+                    <div className="text-xs text-white/50 mt-0.5 leading-none">{s.label}</div>
                   </div>
                 </div>
               ))}
@@ -121,14 +130,13 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* ── MARQUEE — marketing-psychology: social proof, FOMO ── */}
-        <div className="border-y border-border/50 bg-card/40 py-4 overflow-hidden">
+        {/* ── MARQUEE ── */}
+        <div className="border-y border-white/6 bg-white/3 py-4 overflow-hidden">
           <div className="flex gap-0">
-            {/* duplicate for seamless loop */}
             {[...Array(2)].map((_, i) => (
-              <div key={i} className="animate-marquee flex shrink-0 gap-8 pr-8">
+              <div key={i} className="animate-marquee flex shrink-0 gap-10 pr-10">
                 {marqueeItems.map((item) => (
-                  <span key={item} className="font-jetbrains text-xs text-muted-foreground whitespace-nowrap tracking-wider uppercase">
+                  <span key={item} className="font-jetbrains text-xs text-white/30 whitespace-nowrap tracking-widest uppercase">
                     {item}
                   </span>
                 ))}
@@ -137,32 +145,29 @@ export default function LandingPage() {
           </div>
         </div>
 
-        {/* ── 01. PROBLEM — marketing-psychology: loss aversion, copywriting: specific numbers ── */}
+        {/* ── PROBLEM ── */}
         <section id="problem" className="relative py-24 overflow-hidden">
-          <div className="absolute top-0 left-4 section-num select-none">01</div>
           <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-14">
-              <div className="label-tag mb-5">Das Problem</div>
-              {/* copywriting: loss aversion headline */}
-              <h2 className="font-syne text-3xl font-700 sm:text-4xl lg:text-5xl max-w-2xl">
+            <div className="mb-14 text-center">
+              <h2 className="font-syne text-3xl font-800 sm:text-4xl lg:text-5xl text-white">
                 Jede unbeantwortete Nachricht ist
                 <span className="gradient-text-cta"> bares Geld.</span>
               </h2>
-              <p className="mt-4 text-muted-foreground max-w-xl">
-                74% der Kunden buchen beim Konkurrenten, wenn du nicht binnen 5 Minuten antwortest. Wie viele Buchungen verlierst du gerade?
+              <p className="mt-4 text-white/50 max-w-xl mx-auto">
+                74% der Kunden buchen beim Konkurrenten, wenn du nicht binnen 5 Minuten antwortest.
               </p>
             </div>
-            <div className="grid gap-5 sm:grid-cols-3">
+            <div className="grid gap-4 sm:grid-cols-3">
               {[
                 { num: "01", title: "Nachrichten stapeln sich",   desc: "Täglich Dutzende Anfragen auf WhatsApp & Instagram — du kommst kaum hinterher und verlierst potenzielle Kunden.", loss: "⌀ 8 verpasste Buchungen/Woche" },
-                { num: "02", title: "Zu langsame Reaktion",        desc: "Wer nicht binnen Minuten antwortet, verliert. Kunden haben keine Geduld — sie schreiben einfach dem Nächsten.", loss: "74% wechseln nach 5 Min" },
-                { num: "03", title: "Manuelles Buchen kostet Zeit", desc: "Hin und her schreiben, Termine koordinieren — das kostet dich Stunden pro Woche, die du im Business brauchst.", loss: "∅ 4 Std/Woche verschwendet" },
+                { num: "02", title: "Zu langsame Reaktion",        desc: "Wer nicht binnen Minuten antwortet, verliert. Kunden haben keine Geduld — sie schreiben einfach dem Nächsten.",  loss: "74% wechseln nach 5 Min" },
+                { num: "03", title: "Manuelles Buchen kostet Zeit", desc: "Hin und her schreiben, Termine koordinieren — das kostet dich Stunden pro Woche, die du im Business brauchst.",  loss: "∅ 4 Std/Woche verschwendet" },
               ].map((p) => (
-                <div key={p.num} className="rounded-xl border border-border/60 bg-card p-6 card-hover group">
-                  <div className="font-jetbrains text-xs text-primary/50 mb-4">{p.num} /</div>
-                  <h3 className="font-syne font-700 text-base mb-2">{p.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{p.desc}</p>
-                  <div className="label-tag text-[10px]" style={{ color: "var(--cta)", borderColor: "rgba(255,87,34,0.25)", background: "rgba(255,87,34,0.06)" }}>
+                <div key={p.num} className="rounded-2xl border border-white/8 bg-white/4 p-6 hover:border-white/15 hover:bg-white/6 transition-all duration-200">
+                  <div className="font-jetbrains text-xs text-white/25 mb-4">{p.num}</div>
+                  <h3 className="font-syne font-700 text-white mb-2">{p.title}</h3>
+                  <p className="text-sm text-white/50 leading-relaxed mb-4">{p.desc}</p>
+                  <div className="inline-block text-xs font-jetbrains text-orange-400/80 border border-orange-500/20 bg-orange-500/6 px-3 py-1 rounded-full">
                     {p.loss}
                   </div>
                 </div>
@@ -171,13 +176,12 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* ── 02. HOW IT WORKS — frontend-design: editorial numbered steps ── */}
-        <section className="relative py-24 bg-card/30 border-y border-border/50 overflow-hidden">
-          <div className="absolute top-0 right-4 section-num select-none">02</div>
+        {/* ── HOW IT WORKS ── */}
+        <section className="relative py-24 overflow-hidden border-y border-white/6">
           <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-14">
-              <div className="label-tag mb-5">So funktioniert&apos;s</div>
-              <h2 className="font-syne text-3xl font-700 sm:text-4xl">In 3 Schritten zu mehr Buchungen</h2>
+            <div className="mb-14 text-center">
+              <h2 className="font-syne text-3xl font-800 sm:text-4xl text-white">In 3 Schritten zu mehr Buchungen</h2>
+              <p className="mt-3 text-white/50">Einrichtung in unter 5 Minuten</p>
             </div>
             <div className="grid gap-8 md:grid-cols-3">
               {[
@@ -185,37 +189,34 @@ export default function LandingPage() {
                 { step: "2", title: "KI einrichten",      desc: "Erkläre der KI dein Business, deine Dienstleistungen und Öffnungszeiten — fertig." },
                 { step: "3", title: "Termine fließen",    desc: "Kunden schreiben, KI antwortet sofort und bucht Termine automatisch in deinen Kalender." },
               ].map((s, i) => (
-                <div key={s.step} className="relative" style={{ animationDelay: `${i * 0.1}s` }}>
-                  {i < 2 && <div className="hidden md:block absolute top-8 left-full w-full h-px border-t border-dashed border-border/60 z-10" />}
-                  <div className="font-syne text-6xl font-800 text-primary/10 leading-none mb-4">{s.step}</div>
-                  <h3 className="font-syne font-700 text-lg mb-2">{s.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                <div key={s.step} className="relative text-center">
+                  {i < 2 && <div className="hidden md:block absolute top-7 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-px border-t border-dashed border-white/10" />}
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/15 bg-white/6 font-syne text-2xl font-800 text-white mb-5">{s.step}</div>
+                  <h3 className="font-syne font-700 text-white text-lg mb-2">{s.title}</h3>
+                  <p className="text-sm text-white/50 leading-relaxed">{s.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── 03. FEATURES — frontend-design: 2x3 editorial grid ── */}
+        {/* ── FEATURES ── */}
         <section id="features" className="relative py-24 overflow-hidden">
-          <div className="absolute top-0 left-4 section-num select-none">03</div>
           <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-14">
-              <div className="label-tag mb-5">{t("footer.features")}</div>
-              <h2 className="font-syne text-3xl font-700 sm:text-4xl">{t("features.title")}</h2>
-              <p className="mt-3 text-muted-foreground max-w-xl">{t("features.subtitle")}</p>
+            <div className="mb-14 text-center">
+              <h2 className="font-syne text-3xl font-800 sm:text-4xl lg:text-5xl text-white">{t("features.title")}</h2>
+              <p className="mt-3 text-white/50 max-w-xl mx-auto">{t("features.subtitle")}</p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {featureKeys.map((key, i) => {
                 const Icon = featureIcons[i];
                 return (
-                  <div key={key} className="group rounded-xl border border-border/60 bg-card p-6 card-hover overflow-hidden relative">
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-primary/4 to-transparent" />
-                    <div className="relative mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 border border-primary/20">
-                      <Icon className="h-5 w-5 text-primary" />
+                  <div key={key} className="group rounded-2xl border border-white/8 bg-white/4 p-6 hover:border-white/15 hover:bg-white/6 transition-all duration-200">
+                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/8">
+                      <Icon className="h-5 w-5 text-white/70" />
                     </div>
-                    <h3 className="relative font-syne font-700 mb-2">{t(`features.${key}.title`)}</h3>
-                    <p className="relative text-sm text-muted-foreground leading-relaxed">{t(`features.${key}.description`)}</p>
+                    <h3 className="font-syne font-700 text-white mb-2">{t(`features.${key}.title`)}</h3>
+                    <p className="text-sm text-white/50 leading-relaxed">{t(`features.${key}.description`)}</p>
                   </div>
                 );
               })}
@@ -223,14 +224,14 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* ── 04. PRICING ── */}
-        <section id="pricing" className="relative py-24 bg-card/30 border-y border-border/50 overflow-hidden">
-          <div className="absolute top-0 right-4 section-num select-none">04</div>
+        {/* ── PRICING ── */}
+        <section id="pricing" className="relative py-24 border-y border-white/6 overflow-hidden">
+          {/* subtle purple glow behind pricing */}
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(139,92,246,0.08) 0%, transparent 70%)" }} />
           <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-14">
-              <div className="label-tag mb-5">{t("footer.pricing")}</div>
-              <h2 className="font-syne text-3xl font-700 sm:text-4xl">{t("pricing.title")}</h2>
-              <p className="mt-3 text-muted-foreground">{t("pricing.subtitle")}</p>
+            <div className="mb-14 text-center">
+              <h2 className="font-syne text-3xl font-800 sm:text-4xl lg:text-5xl text-white">{t("pricing.title")}</h2>
+              <p className="mt-3 text-white/50">{t("pricing.subtitle")}</p>
             </div>
             <PricingCards
               starterFeatures={t.raw("pricing.starter.features") as string[]}
@@ -245,35 +246,32 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* ── 05. TESTIMONIALS — page-cro: social proof before final CTA, editorial pull-quote style ── */}
+        {/* ── TESTIMONIALS ── */}
         <section id="testimonials" className="relative py-24 overflow-hidden">
-          <div className="absolute top-0 left-4 section-num select-none">05</div>
           <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-14">
-              <div className="label-tag mb-5">Kundenstimmen</div>
-              <h2 className="font-syne text-3xl font-700 sm:text-4xl">{t("testimonials.title")}</h2>
+            <div className="mb-14 text-center">
+              <h2 className="font-syne text-3xl font-800 sm:text-4xl text-white">{t("testimonials.title")}</h2>
             </div>
-            <div className="grid gap-5 md:grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-3">
               {(t.raw("testimonials.items") as Array<{ quote: string; author: string; role: string }>).map((item, i) => (
-                <div key={item.author} className="rounded-xl border border-border/60 bg-card p-6 card-hover relative overflow-hidden">
-                  {/* large decorative quote mark */}
-                  <div className="absolute -top-2 -right-1 font-syne text-8xl font-800 text-primary/6 leading-none select-none">"</div>
+                <div key={item.author} className="rounded-2xl border border-white/8 bg-white/4 p-6 relative overflow-hidden hover:border-white/15 transition-all duration-200">
+                  <div className="absolute -top-3 -right-1 font-syne text-8xl font-800 text-white/4 leading-none select-none">&ldquo;</div>
                   <div className="flex gap-0.5 mb-4">
                     {[...Array(5)].map((_, j) => (
-                      <Star key={j} className="h-3.5 w-3.5 fill-warning text-warning" />
+                      <Star key={j} className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-sm leading-relaxed text-muted-foreground mb-5">&ldquo;{item.quote}&rdquo;</p>
-                  <div className="flex items-center gap-3 pt-4 border-t border-border/50">
+                  <p className="text-sm leading-relaxed text-white/60 mb-5">&ldquo;{item.quote}&rdquo;</p>
+                  <div className="flex items-center gap-3 pt-4 border-t border-white/8">
                     <div
-                      className="flex h-9 w-9 items-center justify-center rounded-lg text-xs font-bold shrink-0 font-syne"
-                      style={{ background: `hsl(${(i * 60 + 160) % 360}, 50%, 35%)`, color: `hsl(${(i * 60 + 160) % 360}, 80%, 90%)` }}
+                      className="flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold shrink-0 font-syne"
+                      style={{ background: `hsl(${(i * 60 + 200) % 360}, 55%, 30%)`, color: `hsl(${(i * 60 + 200) % 360}, 80%, 88%)` }}
                     >
                       {item.author[0]}
                     </div>
                     <div>
-                      <p className="font-syne font-700 text-sm">{item.author}</p>
-                      <p className="font-jetbrains text-[10px] text-muted-foreground tracking-wide">{item.role}</p>
+                      <p className="font-syne font-700 text-white text-sm">{item.author}</p>
+                      <p className="font-jetbrains text-[10px] text-white/40 tracking-wide">{item.role}</p>
                     </div>
                   </div>
                 </div>
@@ -282,16 +280,14 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* ── FAQ — page-cro: objection handling before final CTA (highest-impact section) ── */}
-        <section className="relative py-24 bg-card/30 border-y border-border/50 overflow-hidden">
-          <div className="absolute top-0 right-4 section-num select-none">06</div>
+        {/* ── FAQ ── */}
+        <section id="faq" className="relative py-24 border-y border-white/6 overflow-hidden">
           <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-12 text-center">
-              <div className="label-tag inline-flex mb-5">Häufige Fragen</div>
-              <h2 className="font-syne text-3xl font-700 sm:text-4xl">Noch Fragen? Wir antworten.</h2>
-              <p className="mt-3 text-muted-foreground">Genau wie deine Kunden — nur schneller.</p>
+            <div className="mb-14 text-center">
+              <h2 className="font-syne text-3xl font-800 sm:text-4xl lg:text-5xl text-white">FAQs</h2>
+              <p className="mt-3 text-white/50">Schnelle Antworten auf häufige Fragen.</p>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-2">
               {[
                 {
                   q: "Funktioniert das wirklich automatisch — ohne dass ich selbst eingreife?",
@@ -307,19 +303,21 @@ export default function LandingPage() {
                 },
                 {
                   q: "Was passiert nach den 7 kostenlosen Tagen?",
-                  a: "Du entscheidest, ob du weitermachst. Keine automatische Verlängerung ohne deine Zustimmung, keine versteckten Kosten. Starter ab 49€/Monat — im Vergleich zu 1.200€ durchschnittlichem Mehrertrag.",
+                  a: "Du entscheidest, ob du weitermachst. Keine automatische Verlängerung ohne deine Zustimmung, keine versteckten Kosten. Starter ab 49€/Monat.",
                 },
                 {
                   q: "Funktioniert das auch mit Instagram, nicht nur WhatsApp?",
                   a: "Ja — beide Kanäle sind von Anfang an dabei. WhatsApp, Instagram Direct Messages, alles in einem Dashboard. Pro-Plan schaltet beide Kanäle frei.",
                 },
               ].map((faq, i) => (
-                <details key={i} className="group rounded-xl border border-border/60 bg-card overflow-hidden">
-                  <summary className="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer font-syne font-700 text-sm list-none hover:bg-card/80 transition-colors">
+                <details key={i} className="group rounded-2xl border border-white/8 bg-white/4 overflow-hidden hover:border-white/15 transition-colors">
+                  <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-syne font-700 text-white text-sm list-none">
                     {faq.q}
-                    <span className="shrink-0 text-primary font-jetbrains text-lg leading-none group-open:rotate-45 transition-transform duration-200">+</span>
+                    <span className="shrink-0 flex h-8 w-8 items-center justify-center rounded-lg border border-white/12 bg-white/6 text-white/60 group-open:rotate-45 transition-transform duration-200 text-base font-normal">
+                      ↗
+                    </span>
                   </summary>
-                  <div className="px-6 pb-5 text-sm text-muted-foreground leading-relaxed border-t border-border/40 pt-4">
+                  <div className="px-6 pb-5 text-sm text-white/50 leading-relaxed border-t border-white/6 pt-4">
                     {faq.a}
                   </div>
                 </details>
@@ -328,59 +326,52 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* ── FINAL CTA — page-cro: after social proof, risk-free, high contrast ── */}
-        <section className="py-24 bg-card/40 border-t border-border/50">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            {/* big mint glow behind */}
-            <div className="relative">
-              <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-64 bg-primary/5 blur-3xl rounded-full" />
-              <div className="relative">
-                <div className="label-tag inline-flex mb-6">
-                  <Zap className="h-3 w-3" /> Jetzt starten — kostenlos
-                </div>
-                <h2 className="font-syne text-4xl font-800 sm:text-5xl lg:text-6xl tracking-tight">
-                  {t("cta.title")}
-                </h2>
-                <p className="mt-5 text-lg text-muted-foreground max-w-xl mx-auto">{t("cta.subtitle")}</p>
-                <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <Link href="/register">
-                    <Button size="lg" className="h-13 px-10 text-base font-semibold gap-2 bg-cta hover:bg-cta/90 text-white shadow-xl shadow-orange-600/25 hover:-translate-y-0.5 transition-all">
-                      {t("cta.button")} <ArrowRight className="h-4 w-4" />
-                    </Button>
-                  </Link>
-                </div>
-                <p className="mt-4 text-sm text-muted-foreground">Keine Kreditkarte · 7 Tage gratis · danach ab 49€/Monat</p>
-              </div>
+        {/* ── FINAL CTA ── */}
+        <section className="py-28 relative overflow-hidden">
+          {/* strong center orb */}
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 80% at 50% 50%, rgba(37,99,235,0.18) 0%, rgba(139,92,246,0.12) 50%, transparent 80%)" }} />
+          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="font-syne font-800 tracking-tight text-white" style={{ fontSize: "clamp(2.2rem, 6vw, 4.5rem)" }}>
+              {t("cta.title")}
+            </h2>
+            <p className="mt-5 text-lg text-white/50 max-w-xl mx-auto">{t("cta.subtitle")}</p>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="/register">
+                <Button size="lg" className="rounded-full h-13 px-10 text-base font-semibold gap-2 bg-white hover:bg-white/92 text-[#07070E] shadow-2xl hover:-translate-y-0.5 transition-all">
+                  {t("cta.button")} <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
             </div>
+            <p className="mt-4 text-sm text-white/30">Keine Kreditkarte · 7 Tage gratis · danach ab 49€/Monat</p>
           </div>
         </section>
       </main>
 
-      {/* ── Sticky mobile CTA bar — page-cro: always-visible CTA on mobile ── */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl px-4 py-3 flex items-center gap-3 shadow-2xl shadow-black/40">
+      {/* ── Sticky mobile CTA ── */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden border-t border-white/8 bg-[#07070E]/95 backdrop-blur-xl px-4 py-3 flex items-center gap-3">
         <div className="flex-1 min-w-0">
-          <p className="font-syne font-700 text-sm leading-tight">7 Tage kostenlos</p>
-          <p className="font-jetbrains text-[10px] text-muted-foreground">Keine Kreditkarte · sofort live</p>
+          <p className="font-syne font-700 text-sm text-white leading-tight">7 Tage kostenlos</p>
+          <p className="font-jetbrains text-[10px] text-white/40">Keine Kreditkarte · sofort live</p>
         </div>
         <Link href="/register">
-          <Button size="sm" className="bg-cta hover:bg-cta/90 text-white font-semibold px-5 shrink-0 shadow-md shadow-orange-600/25">
+          <Button size="sm" className="rounded-full bg-white hover:bg-white/90 text-[#07070E] font-semibold px-5 shrink-0">
             Starten <ArrowRight className="h-3.5 w-3.5 ml-1" />
           </Button>
         </Link>
       </div>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-border/50 py-14 bg-card/30">
+      <footer className="border-t border-white/6 py-14 bg-white/2">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-4">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary shadow-sm">
-                  <Zap className="h-3.5 w-3.5 text-white" />
+                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 border border-white/15">
+                  <span className="text-white text-xs font-bold">R</span>
                 </div>
-                <span className="font-bold">{tc("appName")}</span>
+                <span className="font-syne font-700 text-white">{tc("appName")}</span>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">KI-Automatisierung für lokale Businesses.</p>
+              <p className="text-sm text-white/40 leading-relaxed">KI-Automatisierung für lokale Businesses.</p>
             </div>
             {[
               { title: t("footer.product"), links: [t("footer.features"), t("footer.pricing")] },
@@ -388,20 +379,20 @@ export default function LandingPage() {
               { title: t("footer.legal"),   links: [t("footer.privacy"), t("footer.terms"), t("footer.imprint")] },
             ].map((col) => (
               <div key={col.title}>
-                <h4 className="font-semibold mb-3 text-sm">{col.title}</h4>
+                <h4 className="font-syne font-700 mb-3 text-sm text-white/80">{col.title}</h4>
                 <ul className="space-y-2">
                   {col.links.map((l) => (
-                    <li key={l}><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">{l}</a></li>
+                    <li key={l}><a href="#" className="text-sm text-white/40 hover:text-white/80 transition-colors">{l}</a></li>
                   ))}
                 </ul>
               </div>
             ))}
           </div>
-          <div className="mt-12 pt-8 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+          <div className="mt-12 pt-8 border-t border-white/6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/30">
             <p>&copy; {new Date().getFullYear()} {tc("appName")}. {t("footer.copyright")}</p>
             <div className="flex items-center gap-1">
               <span>Powered by</span>
-              <Brain className="h-3.5 w-3.5 text-primary mx-1" />
+              <Brain className="h-3.5 w-3.5 text-white/40 mx-1" />
               <span>AI</span>
             </div>
           </div>

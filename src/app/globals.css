@@ -180,9 +180,12 @@
     background-clip: text;
   }
 
-  /* Hero radial glow */
+  /* Colorful orb hero glow — vivid blue left + vivid purple/pink right */
   .hero-glow {
-    background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0, 230, 118, 0.08) 0%, transparent 70%);
+    background:
+      radial-gradient(ellipse 72% 85% at 18% 52%, rgba(37, 99, 235, 0.72) 0%, rgba(37, 99, 235, 0.28) 45%, transparent 68%),
+      radial-gradient(ellipse 65% 78% at 80% 48%, rgba(147, 51, 234, 0.68) 0%, rgba(168, 85, 247, 0.25) 45%, transparent 68%),
+      radial-gradient(ellipse 50% 60% at 62% 42%, rgba(219, 39, 119, 0.45) 0%, transparent 58%);
   }
 
   /* Editorial section number — large background number */
