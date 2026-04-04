@@ -32,7 +32,7 @@ export default function RegisterPage() {
       options: { data: { business_name: businessName } },
     });
     if (error) { setError(error.message); setLoading(false); }
-    else router.push("/dashboard");
+    else router.push("/verify-email");
   };
 
   const inputStyle = {
