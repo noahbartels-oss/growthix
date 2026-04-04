@@ -3,16 +3,18 @@ import { LanguageSwitcher } from "@/components/language-switcher";
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background">
-      {/* background decoration */}
-      <div className="absolute inset-0 mesh-bg opacity-40" />
-      <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-primary/8 blur-3xl" />
-      <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-primary/5 blur-3xl" />
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden" style={{ background: "#080810" }}>
+      {/* orbs — same as landing page */}
+      <div className="absolute inset-0 hero-glow opacity-60" />
+      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 130% 100% at 50% 50%, transparent 30%, rgba(8,8,16,0.95) 100%)" }} />
 
       {/* top bar */}
-      <div className="absolute top-4 left-0 right-0 flex items-center justify-between px-6">
-        <Link href="/" className="flex items-center gap-2 font-bold text-sm">
-          ReplyFlow AI
+      <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-6 py-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+        <Link href="/" className="flex items-center gap-2">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full" style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.18)" }}>
+            <span className="text-white text-[10px] font-bold">R</span>
+          </div>
+          <span className="font-syne text-sm font-700 text-white">ReplyFlow AI</span>
         </Link>
         <LanguageSwitcher />
       </div>

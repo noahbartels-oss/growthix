@@ -3,14 +3,12 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/navigation";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { createClient } from "@/lib/supabase/client";
-import { Zap, Mail, Lock, Building2, ArrowRight, Check, Star } from "lucide-react";
+import { Mail, Lock, Building2, ArrowRight, Check, Star } from "lucide-react";
 
 const perks = [
-  "7 Tage kostenlos testen",
-  "Keine Kreditkarte nötig",
+  "7 Tage kostenlos",
+  "Keine Kreditkarte",
   "Jederzeit kündbar",
 ];
 
@@ -37,67 +35,73 @@ export default function RegisterPage() {
     else router.push("/dashboard");
   };
 
+  const inputStyle = {
+    width: "100%",
+    background: "rgba(255,255,255,0.05)",
+    border: "1px solid rgba(255,255,255,0.12)",
+    borderRadius: "0.75rem",
+    padding: "0.65rem 0.875rem 0.65rem 2.5rem",
+    color: "#fff",
+    fontSize: "0.875rem",
+    outline: "none",
+  } as React.CSSProperties;
+
   return (
-    <div className="rounded-2xl border border-border/80 bg-[#F7F6FF] shadow-2xl shadow-black/40 p-8 animate-fade-up">
+    <div className="animate-fade-up rounded-2xl p-8" style={{ background: "#13131f", border: "1px solid rgba(255,255,255,0.08)" }}>
       {/* header */}
       <div className="text-center mb-6">
-        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary shadow-lg shadow-primary/30">
-          <Zap className="h-6 w-6 text-primary-foreground" />
-        </div>
-        {/* signup-flow-cro: set time expectation + outcome promise */}
-        <h1 className="font-syne text-2xl font-700 text-[#0D0C18]">In 2 Minuten live</h1>
-        <p className="mt-1.5 text-sm text-[#6B6894]">Konto erstellen und erste KI-Antwort starten</p>
-        {/* social proof near signup form */}
-        <div className="flex items-center justify-center gap-1.5 mt-3">
-          {[...Array(5)].map((_, i) => (
-            <Star key={i} className="h-3.5 w-3.5 fill-warning text-warning" />
-          ))}
-          <span className="text-xs text-[#6B6894] ml-1">4,9 · 500+ Businesses</span>
+        <h1 className="font-syne text-2xl font-700 text-white">{t("registerTitle")}</h1>
+        <p className="mt-1.5 text-sm" style={{ color: "rgba(255,255,255,0.45)" }}>Konto erstellen und erste KI-Antwort starten</p>
+        {/* star rating */}
+        <div className="flex items-center justify-center gap-1 mt-3">
+          {[...Array(5)].map((_, i) => <Star key={i} className="h-3 w-3 fill-yellow-400 text-yellow-400" />)}
+          <span className="text-xs ml-1" style={{ color: "rgba(255,255,255,0.4)" }}>4,9 · 500+ Businesses</span>
         </div>
       </div>
 
       {/* perks */}
-      <div className="flex justify-center gap-3 mb-6 flex-wrap">
+      <div className="flex justify-center gap-4 mb-6 flex-wrap">
         {perks.map((p) => (
-          <span key={p} className="flex items-center gap-1.5 text-xs text-[#6B6894]">
-            <Check className="h-3 w-3 text-primary" />{p}
+          <span key={p} className="flex items-center gap-1 text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>
+            <Check className="h-3 w-3" style={{ color: "rgba(255,255,255,0.5)" }} />{p}
           </span>
         ))}
       </div>
 
       <form onSubmit={handleRegister} className="space-y-4">
         {error && (
-          <div className="rounded-xl bg-destructive/8 border border-destructive/20 px-4 py-3 text-sm text-destructive">
+          <div className="rounded-xl px-4 py-3 text-sm" style={{ background: "rgba(255,67,58,0.1)", border: "1px solid rgba(255,67,58,0.25)", color: "#ff453a" }}>
             {error}
           </div>
         )}
 
-        {/* signup-flow-cro: business name optional — can collect in onboarding, reduces friction */}
+        {/* Business name */}
         <div className="space-y-1.5">
           <div className="flex items-center justify-between">
-            <label className="text-sm font-medium text-[#0D0C18]">{t("businessName")}</label>
-            <span className="text-xs text-[#A8A6C0]">Optional</span>
+            <label className="text-sm font-medium text-white/70">{t("businessName")}</label>
+            <span className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>Optional</span>
           </div>
           <div className="relative">
-            <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#6B6894]" />
-            <Input
+            <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4" style={{ color: "rgba(255,255,255,0.3)" }} />
+            <input
               type="text"
               placeholder="Salon Schön"
-              className="pl-9 bg-white border-[#D4D2E8] text-[#0D0C18] placeholder:text-[#A8A6C0] focus-visible:ring-primary"
+              style={inputStyle}
               value={businessName}
               onChange={(e) => setBusinessName(e.target.value)}
             />
           </div>
         </div>
 
+        {/* Email */}
         <div className="space-y-1.5">
-          <label className="text-sm font-medium text-[#0D0C18]">{t("email")}</label>
+          <label className="text-sm font-medium text-white/70">{t("email")}</label>
           <div className="relative">
-            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#6B6894]" />
-            <Input
+            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4" style={{ color: "rgba(255,255,255,0.3)" }} />
+            <input
               type="email"
               placeholder="name@example.com"
-              className="pl-9 bg-white border-[#D4D2E8] text-[#0D0C18] placeholder:text-[#A8A6C0] focus-visible:ring-primary"
+              style={inputStyle}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -105,44 +109,46 @@ export default function RegisterPage() {
           </div>
         </div>
 
+        {/* Password */}
         <div className="space-y-1.5">
-          <label className="text-sm font-medium text-[#0D0C18]">{t("password")}</label>
+          <label className="text-sm font-medium text-white/70">{t("password")}</label>
           <div className="relative">
-            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#6B6894]" />
-            <Input
+            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4" style={{ color: "rgba(255,255,255,0.3)" }} />
+            <input
               type="password"
-              className="pl-9 bg-white border-[#D4D2E8] text-[#0D0C18] focus-visible:ring-primary"
+              style={inputStyle}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
               minLength={6}
             />
           </div>
-          <p className="text-xs text-[#6B6894]">Mindestens 6 Zeichen</p>
+          <p className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>Mindestens 6 Zeichen</p>
         </div>
 
-        <Button
+        <button
           type="submit"
-          className="w-full h-11 font-semibold gap-2 bg-cta hover:bg-cta/90 text-white shadow-lg shadow-orange-600/20 mt-2"
           disabled={loading}
+          className="w-full flex items-center justify-center gap-2 rounded-full py-2.5 text-sm font-semibold text-[#080810] transition-all hover:opacity-90 mt-2"
+          style={{ background: "#ffffff" }}
         >
           {loading ? (
-            <span className="flex items-center gap-2">
-              <span className="h-4 w-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+            <>
+              <span className="h-4 w-4 rounded-full border-2 border-black/20 border-t-black/60 animate-spin" />
               Konto erstellen...
-            </span>
+            </>
           ) : (
             <>
               {t("registerButton")}
               <ArrowRight className="h-4 w-4" />
             </>
           )}
-        </Button>
+        </button>
       </form>
 
-      <p className="mt-5 text-center text-sm text-[#6B6894]">
+      <p className="mt-5 text-center text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>
         {t("hasAccount")}{" "}
-        <Link href="/login" className="text-primary font-semibold hover:underline">
+        <Link href="/login" className="font-semibold text-white hover:opacity-80 transition-opacity">
           {t("loginButton")}
         </Link>
       </p>
