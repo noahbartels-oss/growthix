@@ -13,12 +13,12 @@
 
 :root {
   /* ── Surfaces ── */
-  --background:           #07070E;
-  --foreground:           #EEEAF8;
-  --card:                 #0D0C18;
-  --card-foreground:      #EEEAF8;
-  --popover:              #0D0C18;
-  --popover-foreground:   #EEEAF8;
+  --background:           #080810;
+  --foreground:           #FFFFFF;
+  --card:                 #13131f;
+  --card-foreground:      #FFFFFF;
+  --popover:              #13131f;
+  --popover-foreground:   #FFFFFF;
 
   /* ── Brand ── */
   --primary:              #00E676;   /* neon mint — WhatsApp-adjacent, memorable */
@@ -180,12 +180,11 @@
     background-clip: text;
   }
 
-  /* Colorful orb hero glow — vivid blue left + vivid purple/pink right */
+  /* Colorful orb hero glow — matches reference exactly */
   .hero-glow {
     background:
-      radial-gradient(ellipse 72% 85% at 18% 52%, rgba(37, 99, 235, 0.72) 0%, rgba(37, 99, 235, 0.28) 45%, transparent 68%),
-      radial-gradient(ellipse 65% 78% at 80% 48%, rgba(147, 51, 234, 0.68) 0%, rgba(168, 85, 247, 0.25) 45%, transparent 68%),
-      radial-gradient(ellipse 50% 60% at 62% 42%, rgba(219, 39, 119, 0.45) 0%, transparent 58%);
+      radial-gradient(circle 520px at 28% 52%, rgba(29, 78, 216, 0.85) 0%, rgba(29, 78, 216, 0.4) 40%, transparent 70%),
+      radial-gradient(circle 420px at 70% 44%, rgba(219, 39, 119, 0.80) 0%, rgba(168, 85, 247, 0.5) 35%, transparent 68%);
   }
 
   /* Editorial section number — large background number */
