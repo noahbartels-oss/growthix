@@ -6,7 +6,7 @@ import { PricingCards } from "@/components/paypal/pricing-cards";
 
 const planFeatures = {
   starter: ["1 WhatsApp-Nummer", "500 AI-Antworten/Monat", "Terminbuchung", "Basis-Analytik", "E-Mail-Support"],
-  pro: ["2 WhatsApp-Nummern", "Unbegrenzte AI-Antworten", "Instagram Integration", "Erweiterte Analytik", "Prioritäts-Support", "Eigenes AI-Training"],
+  pro: ["2 WhatsApp-Nummern", "Unbegrenzte AI-Antworten", "Erweiterte Analytik", "Prioritäts-Support", "Eigenes AI-Training"],
 };
 
 export default async function BillingPage() {

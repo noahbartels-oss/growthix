@@ -10,7 +10,6 @@ import {
   ArrowRight,
   Brain,
   Clock,
-  Smartphone,
   Phone,
 } from "lucide-react";
 
@@ -73,7 +72,7 @@ export default function DashboardPage() {
           <div className="flex-1">
             <p className="font-semibold">Verbinde deinen ersten Kanal</p>
             <p className="text-sm text-muted-foreground mt-1">
-              Schließe WhatsApp oder Instagram an — danach beantwortet die KI automatisch alle Nachrichten und bucht Termine für dich.
+              Schließe WhatsApp an — danach beantwortet die KI automatisch alle Nachrichten und bucht Termine für dich.
             </p>
             <div className="flex flex-wrap gap-3 mt-4">
               <Link
@@ -82,13 +81,6 @@ export default function DashboardPage() {
               >
                 <Phone className="h-4 w-4" />
                 WhatsApp verbinden
-              </Link>
-              <Link
-                href="/dashboard/settings"
-                className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 text-white text-sm font-medium px-4 py-2 transition-opacity"
-              >
-                <Smartphone className="h-4 w-4" />
-                Instagram verbinden
               </Link>
             </div>
           </div>

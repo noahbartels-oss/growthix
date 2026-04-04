@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  Building2, Brain, Radio, User, Check, Phone, Smartphone,
+  Building2, Brain, Radio, User, Check, Phone,
   Crown, Copy, ExternalLink, X, Loader2, AlertCircle,
 } from "lucide-react";
 
@@ -35,7 +35,7 @@ function Hint({ children }: { children: React.ReactNode }) {
 }
 
 /* ── types ── */
-interface Channel { id: string; type: "whatsapp" | "instagram"; external_id: string; status: string; }
+interface Channel { id: string; type: "whatsapp"; external_id: string; status: string; }
 
 /* ── Modal: connect WhatsApp ── */
 function WhatsAppModal({ onClose, onConnected }: { onClose: () => void; onConnected: (ch: Channel) => void }) {
@@ -170,138 +170,6 @@ function WhatsAppModal({ onClose, onConnected }: { onClose: () => void; onConnec
   );
 }
 
-/* ── Modal: connect Instagram ── */
-function InstagramModal({ onClose, onConnected }: { onClose: () => void; onConnected: (ch: Channel) => void }) {
-  const [handle, setHandle]  = useState("");
-  const [token, setToken]    = useState("");
-  const [step, setStep]      = useState<"form" | "done">("form");
-  const [saving, setSaving]  = useState(false);
-  const [err, setErr]        = useState("");
-
-  const save = async () => {
-    if (!handle.trim()) { setErr("Bitte gib deinen Instagram-Handle ein."); return; }
-    setSaving(true);
-    setErr("");
-    const res = await fetch("/api/channels", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ type: "instagram", external_id: handle.trim().replace(/^@/, ""), access_token: token.trim() || undefined }),
-    });
-    const data = await res.json();
-    if (!res.ok) { setErr(data.error ?? "Fehler"); setSaving(false); return; }
-    onConnected(data);
-    setStep("done");
-    setSaving(false);
-  };
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ background: "rgba(0,0,0,0.7)" }}>
-      <div className="w-full max-w-md rounded-2xl bg-card border border-border/60 p-6 relative">
-        <button onClick={onClose} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground">
-          <X className="h-4 w-4" />
-        </button>
-
-        {step === "form" ? (
-          <>
-            <div className="flex items-center gap-3 mb-5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: "rgba(219,39,119,0.1)" }}>
-                <Smartphone className="h-5 w-5 text-pink-500" />
-              </div>
-              <div>
-                <h3 className="font-syne font-700 text-base">Instagram verbinden</h3>
-                <p className="text-xs text-muted-foreground">Via Meta Instagram Graph API</p>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <div>
-                <Label>Instagram Business Handle</Label>
-                <Input
-                  placeholder="@dein_business"
-                  value={handle}
-                  onChange={(e) => setHandle(e.target.value)}
-                />
-                <Hint>Dein Instagram Business- oder Creator-Account</Hint>
-              </div>
-
-              <div>
-                <Label>
-                  Access Token{" "}
-                  <span className="text-muted-foreground font-normal">(optional, für automatisches Antworten)</span>
-                </Label>
-                <Input
-                  type="password"
-                  placeholder="EAAxxxx..."
-                  value={token}
-                  onChange={(e) => setToken(e.target.value)}
-                />
-                <Hint>
-                  Bekommst du im{" "}
-                  <a
-                    href="https://developers.facebook.com/apps"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    Meta Developer Portal
-                  </a>
-                  {" "}unter deiner App → Instagram → Access Token
-                </Hint>
-              </div>
-
-              {/* Requirements */}
-              <div className="rounded-xl bg-muted/30 border border-border/40 p-4 space-y-2">
-                <p className="text-xs font-medium text-foreground">Voraussetzungen:</p>
-                {[
-                  "Instagram Business- oder Creator-Account",
-                  "Facebook-Seite, die mit Instagram verknüpft ist",
-                  "Meta Developer App mit instagram_manage_messages-Berechtigung",
-                ].map((req) => (
-                  <div key={req} className="flex items-start gap-2 text-xs text-muted-foreground">
-                    <Check className="h-3 w-3 text-primary mt-0.5 shrink-0" />
-                    {req}
-                  </div>
-                ))}
-              </div>
-
-              {err && (
-                <div className="flex items-center gap-2 text-sm text-destructive bg-destructive/8 border border-destructive/20 rounded-lg px-3 py-2">
-                  <AlertCircle className="h-4 w-4 shrink-0" />
-                  {err}
-                </div>
-              )}
-
-              <div className="flex gap-3">
-                <Button onClick={onClose} variant="outline" className="flex-1">Abbrechen</Button>
-                <Button onClick={save} disabled={saving} className="flex-1 gap-2">
-                  {saving && <Loader2 className="h-4 w-4 animate-spin" />}
-                  Verbinden
-                </Button>
-              </div>
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="flex items-center gap-3 mb-5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: "rgba(219,39,119,0.1)" }}>
-                <Check className="h-5 w-5 text-pink-500" />
-              </div>
-              <div>
-                <h3 className="font-syne font-700 text-base">Instagram verbunden!</h3>
-                <p className="text-xs text-muted-foreground">@{handle.replace(/^@/, "")}</p>
-              </div>
-            </div>
-            <p className="text-sm text-muted-foreground mb-5">
-              Dein Instagram-Account ist gespeichert. Sobald dein Access Token aktiv ist, beantwortet die KI automatisch alle eingehenden Nachrichten.
-            </p>
-            <Button onClick={onClose} className="w-full">Fertig</Button>
-          </>
-        )}
-      </div>
-    </div>
-  );
-}
-
 /* ── Main Settings Page ── */
 export default function SettingsPage() {
   const t  = useTranslations("settings");
@@ -324,7 +192,6 @@ export default function SettingsPage() {
 
   const [channels,     setChannels]     = useState<Channel[]>([]);
   const [showWA,       setShowWA]       = useState(false);
-  const [showIG,       setShowIG]       = useState(false);
   const [disconnecting, setDisconnecting] = useState<string | null>(null);
 
   // Load settings + channels
@@ -379,7 +246,6 @@ export default function SettingsPage() {
   };
 
   const waChannel = channels.find((c) => c.type === "whatsapp");
-  const igChannel = channels.find((c) => c.type === "instagram");
 
   if (loadingData) {
     return (
@@ -541,45 +407,6 @@ export default function SettingsPage() {
             </div>
           </div>
 
-          {/* Instagram */}
-          <div className={`flex items-center justify-between rounded-xl border p-4 gap-3 ${igChannel ? "border-pink-500/30 bg-pink-500/5" : "border-dashed border-border bg-muted/10"}`}>
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-pink-500/10 shrink-0">
-                <Smartphone className="h-5 w-5 text-pink-600" />
-              </div>
-              <div>
-                <p className="font-medium text-sm">Instagram</p>
-                {igChannel
-                  ? <p className="text-xs text-muted-foreground">@{igChannel.external_id}</p>
-                  : <p className="text-xs text-muted-foreground">{t("channels.notConnected")}</p>
-                }
-              </div>
-            </div>
-            <div className="flex items-center gap-2 shrink-0">
-              {igChannel ? (
-                <>
-                  <span className="flex items-center gap-1.5 text-xs font-medium text-success bg-success/10 px-2.5 py-1 rounded-full">
-                    <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse" />
-                    {t("channels.connected")}
-                  </span>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="text-xs h-8"
-                    disabled={disconnecting === igChannel.id}
-                    onClick={() => disconnect(igChannel.id)}
-                  >
-                    {disconnecting === igChannel.id ? <Loader2 className="h-3 w-3 animate-spin" /> : t("channels.disconnect")}
-                  </Button>
-                </>
-              ) : (
-                <Button size="sm" className="gap-1.5 text-xs h-8 shrink-0 shadow-md shadow-primary/20" onClick={() => setShowIG(true)}>
-                  <Smartphone className="h-3 w-3" />
-                  {t("channels.connect")}
-                </Button>
-              )}
-            </div>
-          </div>
         </div>
       </Section>
 
@@ -628,15 +455,6 @@ export default function SettingsPage() {
           onConnected={(ch) => {
             setChannels((prev) => [...prev.filter((c) => c.type !== "whatsapp"), ch]);
             setShowWA(false);
-          }}
-        />
-      )}
-      {showIG && (
-        <InstagramModal
-          onClose={() => setShowIG(false)}
-          onConnected={(ch) => {
-            setChannels((prev) => [...prev.filter((c) => c.type !== "instagram"), ch]);
-            setShowIG(false);
           }}
         />
       )}

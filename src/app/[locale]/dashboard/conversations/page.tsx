@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Input } from "@/components/ui/input";
-import { Search, Phone, Smartphone } from "lucide-react";
+import { Search, Phone } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 
-type Channel = "all" | "whatsapp" | "instagram";
+type Channel = "all" | "whatsapp";
 
 export default function ConversationsPage() {
   const t = useTranslations("conversations");
@@ -32,7 +32,7 @@ export default function ConversationsPage() {
           </div>
           {/* filter tabs */}
           <div className="flex gap-1 bg-muted/50 rounded-lg p-0.5">
-            {(["all", "whatsapp", "instagram"] as Channel[]).map((ch) => (
+            {(["all", "whatsapp"] as Channel[]).map((ch) => (
               <button
                 key={ch}
                 onClick={() => setFilter(ch)}
@@ -55,7 +55,7 @@ export default function ConversationsPage() {
           </div>
           <p className="text-sm font-medium">Noch keine Gespräche</p>
           <p className="text-xs mt-1 opacity-60 leading-relaxed">
-            Verbinde WhatsApp oder Instagram um Nachrichten zu empfangen.
+            Verbinde WhatsApp um Nachrichten zu empfangen.
           </p>
           <div className="flex flex-col gap-2 mt-5 w-full">
             <Link
@@ -64,13 +64,6 @@ export default function ConversationsPage() {
             >
               <Phone className="h-3.5 w-3.5" />
               WhatsApp verbinden
-            </Link>
-            <Link
-              href="/dashboard/settings"
-              className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 text-white text-xs font-medium px-3 py-2 transition-opacity"
-            >
-              <Smartphone className="h-3.5 w-3.5" />
-              Instagram verbinden
             </Link>
           </div>
         </div>

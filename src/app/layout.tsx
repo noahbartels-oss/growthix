@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "ReplyFlow AI",
   description:
-    "AI antwortet automatisch auf WhatsApp & Instagram Nachrichten und verwandelt sie in Termine.",
+    "AI antwortet automatisch auf WhatsApp-Nachrichten und verwandelt sie in Termine.",
 };
 
 export default function RootLayout({

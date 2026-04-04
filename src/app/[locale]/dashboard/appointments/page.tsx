@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
-import { CalendarCheck, Plus, Phone, Smartphone } from "lucide-react";
+import { CalendarCheck, Plus, Phone } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 
 type TabFilter = "upcoming" | "past" | "cancelled";
@@ -57,7 +57,7 @@ export default function AppointmentsPage() {
         <CalendarCheck className="h-12 w-12 mb-4 opacity-20" />
         <p className="text-sm font-medium mb-1">Noch keine Termine</p>
         <p className="text-xs opacity-60 max-w-xs leading-relaxed">
-          Sobald die KI über WhatsApp oder Instagram einen Termin bucht, erscheint er hier automatisch.
+          Sobald die KI über WhatsApp einen Termin bucht, erscheint er hier automatisch.
         </p>
         <div className="flex flex-wrap gap-3 mt-6 justify-center">
           <Link
@@ -66,13 +66,6 @@ export default function AppointmentsPage() {
           >
             <Phone className="h-4 w-4" />
             WhatsApp verbinden
-          </Link>
-          <Link
-            href="/dashboard/settings"
-            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 text-white text-sm font-medium px-4 py-2 transition-opacity"
-          >
-            <Smartphone className="h-4 w-4" />
-            Instagram verbinden
           </Link>
         </div>
       </div>

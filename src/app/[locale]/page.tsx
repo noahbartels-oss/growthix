@@ -22,7 +22,7 @@ const faqs = [
   { q: "Funktioniert das wirklich automatisch, ohne dass ich selbst eingreife?", a: "Ja. Die KI antwortet eigenständig auf jede Nachricht, 24/7. Du kannst jede Antwort vorher freigeben oder sie vollautomatisch laufen lassen." },
   { q: "Was kostet mich eine falsche KI-Antwort — kann das meiner Marke schaden?", a: "Die KI antwortet nur auf Basis deiner eigenen Texte. Du hast immer die Kontrolle: Antworten prüfen, anpassen oder manuell übernehmen." },
   { q: "Was passiert nach den 7 kostenlosen Tagen?", a: "Du entscheidest, ob du weitermachst. Keine automatische Verlängerung, keine versteckten Kosten. Starter ab 49€/Monat." },
-  { q: "Funktioniert das auch mit Instagram, nicht nur WhatsApp?", a: "Ja — beide Kanäle sind dabei. WhatsApp und Instagram Direct Messages, alles in einem Dashboard. Pro-Plan schaltet beide Kanäle frei." },
+  { q: "Welche WhatsApp-Nummern werden unterstützt?", a: "Jede Nummer die über Twilio WhatsApp Business aktiviert ist. In unter 5 Minuten eingerichtet." },
 ];
 
 export default function LandingPage() {
@@ -90,13 +90,13 @@ export default function LandingPage() {
               Dein 24/7 Mitarbeiter für
               <br />
               <span style={{ background: "linear-gradient(135deg, #a78bfa 0%, #f472b6 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                WhatsApp &amp; Instagram.
+                WhatsApp.
               </span>
             </h1>
 
             {/* subtitle */}
             <p className="animate-fade-up delay-200 mt-6 text-base text-white/55 leading-relaxed max-w-xl mx-auto">
-              Antwortet automatisch auf WhatsApp &amp; Instagram und bucht Termine direkt in deinen Kalender.
+              Antwortet automatisch auf WhatsApp-Nachrichten und bucht Termine direkt in deinen Kalender.
               Durchschnittlich <strong className="text-white/85">3,2× mehr Buchungen</strong> ab Tag 1.
             </p>
 
@@ -179,7 +179,7 @@ export default function LandingPage() {
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {[
-                { step: "01", title: "Business verbinden", desc: "WhatsApp & Instagram in unter 5 Minuten verbinden." },
+                { step: "01", title: "WhatsApp verbinden", desc: "Deine WhatsApp-Nummer in unter 5 Minuten einrichten." },
                 { step: "02", title: "KI einrichten",      desc: "Erkläre der KI dein Business, Dienstleistungen und Öffnungszeiten." },
                 { step: "03", title: "Termine fließen",    desc: "KI antwortet sofort und bucht Termine automatisch in deinen Kalender." },
               ].map((s, i) => (
