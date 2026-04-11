@@ -1,242 +1,600 @@
-import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Button } from "@/components/ui/button";
-import { LanguageSwitcher } from "@/components/language-switcher";
-import { PricingCards } from "@/components/paypal/pricing-cards";
 import {
-  MessageSquare, CalendarCheck, Clock, BarChart3, Brain,
-  Layers, ArrowRight, Star, TrendingUp, Users, Shield, ArrowUpRight,
+  FileText, Zap, Download, CheckCircle, Star,
+  Clock, Shield, Sparkles, ArrowRight,
 } from "lucide-react";
 
-const featureIcons = [MessageSquare, CalendarCheck, Clock, BarChart3, Brain, Layers];
-const featureKeys = ["autoReply", "booking", "available", "analytics", "personalized", "multichannel"] as const;
+const steps = [
+  {
+    num: "01",
+    icon: FileText,
+    title: "Deine Daten eingeben",
+    desc: "Name, Zielstelle und deine Fähigkeiten – in 2 Minuten ausgefüllt, kein Aufwand.",
+  },
+  {
+    num: "02",
+    icon: Zap,
+    title: "KI generiert deinen Brief",
+    desc: "Unsere KI schreibt in unter 60 Sekunden einen professionellen, individuellen Brief.",
+  },
+  {
+    num: "03",
+    icon: Download,
+    title: "Freischalten & senden",
+    desc: "Für nur 7 € den vollen Brief herunterladen und sofort abschicken.",
+  },
+];
 
-const marqueeItems = [
-  "Friseursalon", "Kosmetikstudio", "Coaching", "Restaurant",
-  "Physiotherapie", "Yoga Studio", "Nagelstudio", "Tattoo Studio",
-  "Personal Training", "Zahnarztpraxis", "Massage", "Hundesalon",
+const features = [
+  {
+    icon: Sparkles,
+    title: "Wirklich individuell",
+    desc: "Kein generisches Copy-Paste. Der Brief wird auf deine Angaben und die spezifische Stelle zugeschnitten.",
+  },
+  {
+    icon: Clock,
+    title: "60 Sekunden",
+    desc: "Daten eingeben, warten – und schon hast du deinen fertigen Brief. Kein langes Warten.",
+  },
+  {
+    icon: Shield,
+    title: "Kein Abo nötig",
+    desc: "Einmal zahlen, einmal nutzen. 7 € pro Brief. Kein Monatsabo, keine versteckten Kosten.",
+  },
+  {
+    icon: CheckCircle,
+    title: "Professionelles Deutsch",
+    desc: "Keine Rechtschreibfehler, professionelle Formulierungen, überzeugender Aufbau.",
+  },
+];
+
+const testimonials = [
+  {
+    text: "Ich hatte keine Lust mehr auf Bewerbungsschreiben. In 2 Minuten hatte ich genau das, was ich brauchte.",
+    name: "Tobias K.",
+    role: "Eingeladen zum Vorstellungsgespräch",
+  },
+  {
+    text: "Als Studentin ohne viel Erfahrung hat mir die KI geholfen, meine Stärken überzeugend zu formulieren.",
+    name: "Jana W.",
+    role: "Praktikumsplatz bekommen",
+  },
+  {
+    text: "Ich schreibe Bewerbungen jetzt in 5 Minuten. 7 € für einen professionellen Brief – absolut fair.",
+    name: "Michael S.",
+    role: "Jobwechsel erfolgreich",
+  },
 ];
 
 const faqs = [
-  { q: "Wie schnell kann ich loslegen?", a: "In unter 5 Minuten. WhatsApp verbinden, dein Business beschreiben — die KI antwortet sofort auf alle Nachrichten." },
-  { q: "Funktioniert das wirklich automatisch, ohne dass ich selbst eingreife?", a: "Ja. Die KI antwortet eigenständig auf jede Nachricht, 24/7. Du kannst jede Antwort vorher freigeben oder sie vollautomatisch laufen lassen." },
-  { q: "Was kostet mich eine falsche KI-Antwort — kann das meiner Marke schaden?", a: "Die KI antwortet nur auf Basis deiner eigenen Texte. Du hast immer die Kontrolle: Antworten prüfen, anpassen oder manuell übernehmen." },
-  { q: "Was passiert nach den 7 kostenlosen Tagen?", a: "Du entscheidest, ob du weitermachst. Keine automatische Verlängerung, keine versteckten Kosten. Starter ab 49€/Monat." },
-  { q: "Welche WhatsApp-Nummern werden unterstützt?", a: "Jede Nummer die über Twilio WhatsApp Business aktiviert ist. In unter 5 Minuten eingerichtet." },
+  {
+    q: "Wie gut ist das Ergebnis wirklich?",
+    a: "Die KI erstellt individuelle Texte, die auf deine Angaben und die spezifische Stelle zugeschnitten sind – kein generischer Standardtext. Die meisten Nutzer verwenden das Ergebnis direkt oder mit minimalen Anpassungen.",
+  },
+  {
+    q: "Muss ich mich registrieren?",
+    a: "Nein. Kein Account, keine E-Mail-Adresse. Du gibst deine Daten ein, der Brief wird generiert, du zahlst 7 € und lädst ihn sofort herunter.",
+  },
+  {
+    q: "Kann ich den Brief bearbeiten?",
+    a: "Ja. Du kannst ihn nach dem Download in Word oder einem anderen Textverarbeitungsprogramm öffnen und beliebig anpassen.",
+  },
+  {
+    q: "Was passiert mit meinen Daten?",
+    a: "Deine Angaben werden nur zur Generierung des Briefes verwendet. Wir verkaufen keine Daten.",
+  },
+  {
+    q: "Für welche Stellen funktioniert das?",
+    a: "Für praktisch jede Stelle – von der Ausbildung bis zur Führungsposition, Bürojob bis Handwerk. Die KI passt sich deinen Angaben an.",
+  },
 ];
 
 export default function LandingPage() {
-  const t  = useTranslations("landing");
-  const tc = useTranslations("common");
-
   return (
-    <div className="flex flex-col min-h-screen overflow-x-hidden" style={{ background: "#080810" }}>
+    <div style={{ background: "#080810", minHeight: "100vh", color: "#fff" }}>
 
       {/* ── Navbar ── */}
-      <header className="sticky top-0 z-50 w-full backdrop-blur-xl" style={{ background: "rgba(8,8,16,0.88)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
+      <header
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 50,
+          backdropFilter: "blur(20px)",
+          background: "rgba(8,8,16,0.9)",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          padding: "0 1.5rem",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "1100px",
+            margin: "0 auto",
+            height: "60px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
           {/* Logo */}
-          <div className="flex items-center gap-2.5">
-            <div className="flex h-7 w-7 items-center justify-center rounded-full" style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.18)" }}>
-              <span className="text-white text-xs font-bold">R</span>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <div
+              style={{
+                width: "28px",
+                height: "28px",
+                borderRadius: "8px",
+                background: "linear-gradient(135deg, #7c3aed, #a855f7)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <FileText style={{ width: "14px", height: "14px", color: "#fff" }} />
             </div>
-            <span className="font-syne text-[15px] font-700 tracking-tight text-white">{tc("appName")}</span>
+            <span style={{ fontWeight: 800, fontSize: "0.95rem", letterSpacing: "-0.02em" }}>
+              BewerbungsKI
+            </span>
           </div>
-          {/* Nav links */}
-          <nav className="hidden md:flex items-center gap-8 text-sm">
-            {["features", "pricing", "testimonials", "faq"].map((id) => (
-              <a key={id} href={`#${id}`} className="text-white/50 hover:text-white transition-colors capitalize">
-                {id === "faq" ? "FAQ" : id === "testimonials" ? "Kunden" : id.charAt(0).toUpperCase() + id.slice(1)}
-              </a>
-            ))}
+
+          {/* Nav */}
+          <nav style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}>
+            <a
+              href="#wie-es-funktioniert"
+              style={{
+                fontSize: "0.83rem",
+                color: "rgba(255,255,255,0.5)",
+                textDecoration: "none",
+                padding: "0.4rem 0.75rem",
+              }}
+            >
+              So funktionierts
+            </a>
+            <a
+              href="#preis"
+              style={{
+                fontSize: "0.83rem",
+                color: "rgba(255,255,255,0.5)",
+                textDecoration: "none",
+                padding: "0.4rem 0.75rem",
+              }}
+            >
+              Preis
+            </a>
+            <Link href="/erstellen">
+              <button
+                style={{
+                  marginLeft: "0.5rem",
+                  padding: "0.45rem 1.1rem",
+                  borderRadius: "999px",
+                  background: "rgba(255,255,255,0.12)",
+                  border: "1px solid rgba(255,255,255,0.2)",
+                  color: "#fff",
+                  fontSize: "0.83rem",
+                  fontWeight: 600,
+                  cursor: "pointer",
+                }}
+              >
+                Jetzt testen →
+              </button>
+            </Link>
           </nav>
-          {/* Auth buttons */}
-          <div className="flex items-center gap-2">
-            <LanguageSwitcher />
-            <Link href="/login">
-              <button className="px-4 py-1.5 text-sm text-white/65 hover:text-white transition-colors rounded-full" style={{ border: "1px solid rgba(255,255,255,0.14)", background: "rgba(255,255,255,0.04)" }}>
-                {tc("login")}
-              </button>
-            </Link>
-            <Link href="/register">
-              <button className="px-4 py-1.5 text-sm font-semibold text-white rounded-full transition-all hover:opacity-90" style={{ background: "rgba(255,255,255,0.18)", border: "1px solid rgba(255,255,255,0.28)" }}>
-                {tc("register")}
-              </button>
-            </Link>
-          </div>
         </div>
       </header>
 
-      <main className="flex-1">
+      <main>
+        {/* ── Hero ── */}
+        <section
+          style={{
+            padding: "5rem 1.5rem 4rem",
+            textAlign: "center",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -60%)",
+              width: "600px",
+              height: "400px",
+              background: "radial-gradient(ellipse, rgba(124,58,237,0.18) 0%, transparent 70%)",
+              pointerEvents: "none",
+            }}
+          />
+          <div style={{ maxWidth: "740px", margin: "0 auto", position: "relative" }}>
 
-        {/* ── HERO ── */}
-        <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden">
-          {/* orbs */}
-          <div className="absolute inset-0 hero-glow" />
-          {/* dark vignette */}
-          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 130% 100% at 50% 50%, transparent 30%, rgba(8,8,16,0.92) 100%)" }} />
-          {/* bottom fade */}
-          <div className="absolute bottom-0 left-0 right-0 h-32" style={{ background: "linear-gradient(to bottom, transparent, rgba(8,8,16,1))" }} />
-
-          <div className="relative mx-auto max-w-4xl px-6 lg:px-8 text-center py-24">
-            {/* trust badge */}
-            <div className="animate-fade-up inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full" style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)" }}>
-              {[...Array(5)].map((_, i) => <Star key={i} className="h-3 w-3 fill-yellow-400 text-yellow-400" />)}
-              <span className="text-xs text-white/70 ml-0.5">4,9 · 500+ zufriedene Businesses</span>
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.4rem",
+                padding: "0.35rem 1rem",
+                borderRadius: "999px",
+                background: "rgba(124,58,237,0.12)",
+                border: "1px solid rgba(124,58,237,0.3)",
+                marginBottom: "1.75rem",
+              }}
+            >
+              <Sparkles style={{ width: "12px", height: "12px", color: "#a78bfa" }} />
+              <span style={{ fontSize: "0.78rem", color: "#c4b5fd", fontWeight: 500 }}>
+                KI-generiert · Individuell · Sofort fertig
+              </span>
             </div>
 
-            {/* headline — exact reference sizing */}
-            <h1 className="animate-fade-up delay-100 font-syne font-800 text-white leading-[1.0] tracking-tight" style={{ fontSize: "clamp(3rem, 9vw, 6rem)" }}>
-              Dein 24/7 Mitarbeiter für
+            <h1
+              style={{
+                fontSize: "clamp(2.75rem, 8vw, 5.25rem)",
+                fontWeight: 900,
+                lineHeight: 1.04,
+                letterSpacing: "-0.035em",
+                marginBottom: "1.25rem",
+              }}
+            >
+              Bewerbungsschreiben
               <br />
-              <span style={{ background: "linear-gradient(135deg, #a78bfa 0%, #f472b6 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                WhatsApp.
+              <span
+                style={{
+                  background: "linear-gradient(135deg, #a78bfa 0%, #f472b6 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                in 60 Sekunden.
               </span>
             </h1>
 
-            {/* subtitle */}
-            <p className="animate-fade-up delay-200 mt-6 text-base text-white/55 leading-relaxed max-w-xl mx-auto">
-              Antwortet automatisch auf WhatsApp-Nachrichten und bucht Termine direkt in deinen Kalender.
-              Durchschnittlich <strong className="text-white/85">3,2× mehr Buchungen</strong> ab Tag 1.
+            <p
+              style={{
+                fontSize: "1.05rem",
+                color: "rgba(255,255,255,0.52)",
+                lineHeight: 1.68,
+                maxWidth: "500px",
+                margin: "0 auto 2.25rem",
+              }}
+            >
+              KI schreibt deinen{" "}
+              <strong style={{ color: "rgba(255,255,255,0.82)" }}>individuellen</strong>{" "}
+              Bewerbungsbrief – professionell formuliert, auf die Stelle zugeschnitten.
+              Kein Abo, kein Aufwand.
             </p>
 
-            {/* CTAs — exact reference pill style */}
-            <div className="animate-fade-up delay-300 mt-8 flex items-center justify-center gap-3">
-              <Link href="/register">
-                <button className="px-6 py-2.5 rounded-full text-sm font-semibold text-[#080810] transition-all hover:scale-[1.03]" style={{ background: "#ffffff" }}>
-                  7 Tage kostenlos testen
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem" }}>
+              <Link href="/erstellen">
+                <button
+                  style={{
+                    padding: "0.9rem 2.5rem",
+                    borderRadius: "999px",
+                    background: "#ffffff",
+                    color: "#080810",
+                    fontSize: "1rem",
+                    fontWeight: 700,
+                    cursor: "pointer",
+                    border: "none",
+                    boxShadow: "0 0 50px rgba(167,139,250,0.3)",
+                  }}
+                >
+                  Kostenlos erstellen →
                 </button>
               </Link>
-              <Link href="/login">
-                <button className="px-6 py-2.5 rounded-full text-sm font-medium text-white/80 transition-all hover:text-white hover:border-white/40" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.18)" }}>
-                  Demo ansehen
-                </button>
-              </Link>
+              <p style={{ fontSize: "0.76rem", color: "rgba(255,255,255,0.25)" }}>
+                Kostenlos testen · Nur 7 € zum Download · Keine Anmeldung
+              </p>
             </div>
-
-            {/* trust micro */}
-            <p className="animate-fade-up delay-400 mt-4 text-xs text-white/35 flex flex-wrap gap-x-5 gap-y-1 justify-center">
-              <span>Keine Kreditkarte</span>
-              <span>·</span>
-              <span>Setup in 1 Minute</span>
-              <span>·</span>
-              <span>Jederzeit kündbar</span>
-            </p>
-
-            {/* testimonial quote — like reference "Paving the way..." */}
-            <p className="animate-fade-up delay-500 mt-16 text-lg text-white/50 italic">
-              &ldquo;ReplyFlow hat unsere Buchungsrate in der ersten Woche verdoppelt.&rdquo;
-            </p>
           </div>
         </section>
 
-        {/* ── MARQUEE ── */}
-        <div className="py-4 overflow-hidden" style={{ borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)", background: "rgba(255,255,255,0.02)" }}>
-          <div className="flex gap-0">
-            {[...Array(2)].map((_, i) => (
-              <div key={i} className="animate-marquee flex shrink-0 gap-10 pr-10">
-                {marqueeItems.map((item) => (
-                  <span key={item} className="font-jetbrains text-xs text-white/25 whitespace-nowrap tracking-widest uppercase">{item}</span>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── FEATURES ── */}
-        <section id="features" className="relative py-24">
-          <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <div className="mb-14 text-center">
-              <h2 className="font-syne text-4xl font-800 text-white sm:text-5xl">{t("features.title")}</h2>
-              <p className="mt-3 text-white/48 max-w-lg mx-auto">{t("features.subtitle")}</p>
+        {/* ── How it works ── */}
+        <section
+          id="wie-es-funktioniert"
+          style={{ padding: "4.5rem 1.5rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}
+        >
+          <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
+            <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+              <h2
+                style={{
+                  fontSize: "clamp(1.75rem, 5vw, 2.75rem)",
+                  fontWeight: 800,
+                  letterSpacing: "-0.025em",
+                }}
+              >
+                So einfach gehts
+              </h2>
+              <p style={{ color: "rgba(255,255,255,0.42)", marginTop: "0.5rem" }}>
+                In 3 Schritten zum fertigen Bewerbungsschreiben
+              </p>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {featureKeys.map((key, i) => {
-                const Icon = featureIcons[i];
-                return (
-                  <div key={key} className="rounded-2xl p-6 group hover:scale-[1.01] transition-transform" style={{ background: "#13131f", border: "1px solid rgba(255,255,255,0.07)" }}>
-                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                      <Icon className="h-5 w-5 text-white/70" />
-                    </div>
-                    <h3 className="font-syne font-700 text-white mb-2">{t(`features.${key}.title`)}</h3>
-                    <p className="text-sm text-white/48 leading-relaxed mb-4">{t(`features.${key}.description`)}</p>
-                    <button className="flex items-center gap-1 text-xs text-white/40 hover:text-white/70 transition-colors">
-                      Mehr erfahren <ArrowRight className="h-3 w-3" />
-                    </button>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+                gap: "1rem",
+              }}
+            >
+              {steps.map((s) => (
+                <div
+                  key={s.num}
+                  style={{
+                    background: "#13131f",
+                    border: "1px solid rgba(255,255,255,0.07)",
+                    borderRadius: "1rem",
+                    padding: "1.5rem",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontWeight: 900,
+                      fontSize: "2.5rem",
+                      color: "rgba(255,255,255,0.05)",
+                      lineHeight: 1,
+                      marginBottom: "1rem",
+                    }}
+                  >
+                    {s.num}
                   </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* ── HOW IT WORKS ── */}
-        <section className="py-24" style={{ borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-          <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <div className="mb-14 text-center">
-              <h2 className="font-syne text-4xl font-800 text-white sm:text-5xl">In 3 Schritten live</h2>
-              <p className="mt-3 text-white/48">Einrichtung in unter 5 Minuten — kein technisches Wissen nötig</p>
-            </div>
-            <div className="grid gap-6 md:grid-cols-3">
-              {[
-                { step: "01", title: "WhatsApp verbinden", desc: "Deine WhatsApp-Nummer in unter 5 Minuten einrichten." },
-                { step: "02", title: "KI einrichten",      desc: "Erkläre der KI dein Business, Dienstleistungen und Öffnungszeiten." },
-                { step: "03", title: "Termine fließen",    desc: "KI antwortet sofort und bucht Termine automatisch in deinen Kalender." },
-              ].map((s, i) => (
-                <div key={s.step} className="relative rounded-2xl p-6" style={{ background: "#13131f", border: "1px solid rgba(255,255,255,0.07)" }}>
-                  <div className="font-syne text-5xl font-800 mb-4 leading-none" style={{ color: "rgba(255,255,255,0.06)" }}>{s.step}</div>
-                  <h3 className="font-syne font-700 text-white text-lg mb-2">{s.title}</h3>
-                  <p className="text-sm text-white/48 leading-relaxed">{s.desc}</p>
+                  <div
+                    style={{
+                      width: "36px",
+                      height: "36px",
+                      borderRadius: "10px",
+                      background: "rgba(124,58,237,0.14)",
+                      border: "1px solid rgba(124,58,237,0.24)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginBottom: "0.8rem",
+                    }}
+                  >
+                    <s.icon style={{ width: "16px", height: "16px", color: "#a78bfa" }} />
+                  </div>
+                  <h3 style={{ fontWeight: 700, marginBottom: "0.4rem", fontSize: "0.95rem" }}>
+                    {s.title}
+                  </h3>
+                  <p style={{ fontSize: "0.83rem", color: "rgba(255,255,255,0.43)", lineHeight: 1.65 }}>
+                    {s.desc}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── PRICING ── */}
-        <section id="pricing" className="py-24 relative overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(139,92,246,0.08) 0%, transparent 70%)" }} />
-          <div className="relative mx-auto max-w-5xl px-6 lg:px-8">
-            <div className="mb-14 text-center">
-              <h2 className="font-syne text-4xl font-800 text-white sm:text-5xl">{t("pricing.title")}</h2>
-              <p className="mt-3 text-white/48">{t("pricing.subtitle")}</p>
+        {/* ── Features ── */}
+        <section
+          style={{ padding: "4rem 1.5rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}
+        >
+          <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
+            <div style={{ textAlign: "center", marginBottom: "2.75rem" }}>
+              <h2
+                style={{
+                  fontSize: "clamp(1.75rem, 5vw, 2.75rem)",
+                  fontWeight: 800,
+                  letterSpacing: "-0.025em",
+                }}
+              >
+                Warum BewerbungsKI?
+              </h2>
+              <p style={{ color: "rgba(255,255,255,0.42)", marginTop: "0.5rem" }}>
+                Nicht irgendein Generator – sondern einer, der wirklich überzeugt.
+              </p>
             </div>
-            <PricingCards
-              starterFeatures={t.raw("pricing.starter.features") as string[]}
-              proFeatures={t.raw("pricing.pro.features") as string[]}
-              ctaText={t("pricing.cta")}
-              starterName={t("pricing.starter.name")}
-              starterDesc={t("pricing.starter.description")}
-              proName={t("pricing.pro.name")}
-              proDesc={t("pricing.pro.description")}
-              proBadge={t("pricing.pro.badge")}
-            />
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+                gap: "1rem",
+              }}
+            >
+              {features.map((f) => (
+                <div
+                  key={f.title}
+                  style={{
+                    background: "#13131f",
+                    border: "1px solid rgba(255,255,255,0.07)",
+                    borderRadius: "1rem",
+                    padding: "1.25rem",
+                  }}
+                >
+                  <f.icon
+                    style={{ width: "20px", height: "20px", color: "#a78bfa", marginBottom: "0.75rem" }}
+                  />
+                  <h3 style={{ fontWeight: 700, marginBottom: "0.35rem", fontSize: "0.92rem" }}>
+                    {f.title}
+                  </h3>
+                  <p style={{ fontSize: "0.81rem", color: "rgba(255,255,255,0.43)", lineHeight: 1.65 }}>
+                    {f.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* ── TESTIMONIALS ── */}
-        <section id="testimonials" className="py-24" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-          <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <div className="mb-14 text-center">
-              <h2 className="font-syne text-4xl font-800 text-white sm:text-5xl">{t("testimonials.title")}</h2>
-              <p className="mt-3 text-white/48">Was unsere Kunden sagen.</p>
+        {/* ── Pricing ── */}
+        <section
+          id="preis"
+          style={{ padding: "4.5rem 1.5rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}
+        >
+          <div style={{ maxWidth: "440px", margin: "0 auto", textAlign: "center" }}>
+            <h2
+              style={{
+                fontSize: "clamp(1.75rem, 5vw, 2.75rem)",
+                fontWeight: 800,
+                letterSpacing: "-0.025em",
+                marginBottom: "0.5rem",
+              }}
+            >
+              Einfacher Preis
+            </h2>
+            <p style={{ color: "rgba(255,255,255,0.42)", marginBottom: "2rem" }}>
+              Kein Abo. Kein Schnickschnack. Einfach fair.
+            </p>
+            <div
+              style={{
+                background: "#13131f",
+                border: "1px solid rgba(124,58,237,0.45)",
+                borderRadius: "1.25rem",
+                padding: "2rem",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  top: "-14px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  background: "linear-gradient(135deg, #7c3aed, #a855f7)",
+                  color: "#fff",
+                  fontSize: "0.72rem",
+                  fontWeight: 700,
+                  padding: "4px 18px",
+                  borderRadius: "999px",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Meistgenutzt
+              </div>
+              <div
+                style={{
+                  fontSize: "3.75rem",
+                  fontWeight: 900,
+                  letterSpacing: "-0.04em",
+                  lineHeight: 1,
+                  marginBottom: "0.25rem",
+                }}
+              >
+                7 €
+              </div>
+              <div
+                style={{
+                  fontSize: "0.83rem",
+                  color: "rgba(255,255,255,0.38)",
+                  marginBottom: "1.75rem",
+                }}
+              >
+                einmalig · pro Bewerbungsschreiben
+              </div>
+              <ul
+                style={{
+                  listStyle: "none",
+                  padding: 0,
+                  margin: "0 0 1.75rem 0",
+                  textAlign: "left",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.65rem",
+                }}
+              >
+                {[
+                  "Vollständiges Bewerbungsschreiben",
+                  "Individuell auf deine Stelle zugeschnitten",
+                  "Sofort als PDF herunterladen",
+                  "Kein Account erforderlich",
+                  "Beliebig anpassbar",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.6rem",
+                      fontSize: "0.85rem",
+                      color: "rgba(255,255,255,0.65)",
+                    }}
+                  >
+                    <CheckCircle
+                      style={{ width: "15px", height: "15px", color: "#a78bfa", flexShrink: 0 }}
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/erstellen" style={{ display: "block" }}>
+                <button
+                  style={{
+                    width: "100%",
+                    padding: "0.8rem",
+                    borderRadius: "0.75rem",
+                    background: "linear-gradient(135deg, #7c3aed, #a855f7)",
+                    color: "#fff",
+                    fontSize: "0.95rem",
+                    fontWeight: 700,
+                    cursor: "pointer",
+                    border: "none",
+                  }}
+                >
+                  Jetzt kostenlos erstellen →
+                </button>
+              </Link>
+              <p style={{ marginTop: "0.75rem", fontSize: "0.73rem", color: "rgba(255,255,255,0.28)" }}>
+                Erst ausprobieren, dann entscheiden
+              </p>
             </div>
-            <div className="grid gap-4 md:grid-cols-3">
-              {(t.raw("testimonials.items") as Array<{ quote: string; author: string; role: string }>).map((item, i) => (
-                <div key={item.author} className="rounded-2xl p-6 relative overflow-hidden" style={{ background: "#13131f", border: "1px solid rgba(255,255,255,0.07)" }}>
-                  <div className="absolute -top-4 -right-2 font-syne text-9xl font-800 leading-none select-none" style={{ color: "rgba(255,255,255,0.03)" }}>&ldquo;</div>
-                  <div className="flex gap-0.5 mb-4">
-                    {[...Array(5)].map((_, j) => <Star key={j} className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />)}
+          </div>
+        </section>
+
+        {/* ── Testimonials ── */}
+        <section
+          style={{ padding: "4rem 1.5rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}
+        >
+          <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
+            <h2
+              style={{
+                textAlign: "center",
+                fontSize: "clamp(1.75rem, 5vw, 2.5rem)",
+                fontWeight: 800,
+                letterSpacing: "-0.025em",
+                marginBottom: "2.5rem",
+              }}
+            >
+              Das sagen unsere Nutzer
+            </h2>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+                gap: "1rem",
+              }}
+            >
+              {testimonials.map((t) => (
+                <div
+                  key={t.name}
+                  style={{
+                    background: "#13131f",
+                    border: "1px solid rgba(255,255,255,0.07)",
+                    borderRadius: "1rem",
+                    padding: "1.5rem",
+                  }}
+                >
+                  <div style={{ display: "flex", gap: "2px", marginBottom: "1rem" }}>
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        style={{ width: "13px", height: "13px", fill: "#facc15", color: "#facc15" }}
+                      />
+                    ))}
                   </div>
-                  <p className="text-sm leading-relaxed text-white/55 mb-5 relative">&ldquo;{item.quote}&rdquo;</p>
-                  <div className="flex items-center gap-3 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
-                    <div className="flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold shrink-0 font-syne"
-                         style={{ background: `hsl(${(i*80+200)%360},50%,28%)`, color: `hsl(${(i*80+200)%360},80%,85%)` }}>
-                      {item.author[0]}
-                    </div>
-                    <div>
-                      <p className="font-syne font-700 text-white text-sm">{item.author}</p>
-                      <p className="font-jetbrains text-[10px] text-white/38 tracking-wide">{item.role}</p>
+                  <p
+                    style={{
+                      fontSize: "0.875rem",
+                      color: "rgba(255,255,255,0.58)",
+                      lineHeight: 1.7,
+                      marginBottom: "1.25rem",
+                    }}
+                  >
+                    &ldquo;{t.text}&rdquo;
+                  </p>
+                  <div
+                    style={{
+                      borderTop: "1px solid rgba(255,255,255,0.06)",
+                      paddingTop: "0.75rem",
+                    }}
+                  >
+                    <div style={{ fontWeight: 700, fontSize: "0.875rem" }}>{t.name}</div>
+                    <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.33)", marginTop: "0.1rem" }}>
+                      {t.role}
                     </div>
                   </div>
                 </div>
@@ -246,22 +604,65 @@ export default function LandingPage() {
         </section>
 
         {/* ── FAQ ── */}
-        <section id="faq" className="py-24" style={{ borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-          <div className="mx-auto max-w-3xl px-6 lg:px-8">
-            <div className="mb-10 text-center">
-              <h2 className="font-syne text-4xl font-800 text-white sm:text-5xl">FAQs</h2>
-              <p className="mt-3 text-white/48">Schnelle Antworten auf häufige Fragen zu ReplyFlow AI.</p>
-            </div>
-            <div className="space-y-2">
+        <section
+          style={{ padding: "4rem 1.5rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}
+        >
+          <div style={{ maxWidth: "660px", margin: "0 auto" }}>
+            <h2
+              style={{
+                textAlign: "center",
+                fontSize: "clamp(1.75rem, 5vw, 2.5rem)",
+                fontWeight: 800,
+                letterSpacing: "-0.025em",
+                marginBottom: "2.5rem",
+              }}
+            >
+              Häufige Fragen
+            </h2>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
               {faqs.map((faq, i) => (
-                <details key={i} className="group rounded-2xl overflow-hidden" style={{ background: "#13131f", border: "1px solid rgba(255,255,255,0.07)" }}>
-                  <summary className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer text-white text-sm font-medium list-none hover:bg-white/[0.02] transition-colors">
-                    <span className="font-syne font-600">{faq.q}</span>
-                    <span className="shrink-0 flex h-7 w-7 items-center justify-center rounded-lg text-white/50 group-open:rotate-45 transition-transform duration-200 text-base" style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                      <ArrowUpRight className="h-3.5 w-3.5" />
-                    </span>
+                <details
+                  key={i}
+                  style={{
+                    background: "#13131f",
+                    border: "1px solid rgba(255,255,255,0.07)",
+                    borderRadius: "0.875rem",
+                    overflow: "hidden",
+                  }}
+                >
+                  <summary
+                    style={{
+                      padding: "1rem 1.25rem",
+                      cursor: "pointer",
+                      fontWeight: 600,
+                      fontSize: "0.9rem",
+                      listStyle: "none",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      gap: "1rem",
+                    }}
+                  >
+                    <span>{faq.q}</span>
+                    <ArrowRight
+                      style={{
+                        width: "14px",
+                        height: "14px",
+                        color: "rgba(255,255,255,0.35)",
+                        flexShrink: 0,
+                      }}
+                    />
                   </summary>
-                  <div className="px-5 pb-4 text-sm text-white/45 leading-relaxed" style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "0.875rem" }}>
+                  <div
+                    style={{
+                      padding: "0 1.25rem 1rem",
+                      fontSize: "0.84rem",
+                      color: "rgba(255,255,255,0.48)",
+                      lineHeight: 1.72,
+                      borderTop: "1px solid rgba(255,255,255,0.05)",
+                      paddingTop: "0.875rem",
+                    }}
+                  >
                     {faq.a}
                   </div>
                 </details>
@@ -270,75 +671,102 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* ── FINAL CTA ── */}
-        <section className="py-28 relative overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 80% at 50% 50%, rgba(29,78,216,0.18) 0%, rgba(219,39,119,0.10) 55%, transparent 80%)" }} />
-          <div className="relative mx-auto max-w-3xl px-6 lg:px-8 text-center">
-            <h2 className="font-syne font-800 text-white tracking-tight" style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}>
-              {t("cta.title")}
+        {/* ── Final CTA ── */}
+        <section
+          style={{
+            padding: "5rem 1.5rem",
+            borderTop: "1px solid rgba(255,255,255,0.06)",
+            textAlign: "center",
+          }}
+        >
+          <div style={{ maxWidth: "480px", margin: "0 auto", position: "relative" }}>
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background:
+                  "radial-gradient(ellipse 80% 80% at 50% 50%, rgba(124,58,237,0.14) 0%, transparent 70%)",
+                pointerEvents: "none",
+              }}
+            />
+            <h2
+              style={{
+                fontSize: "clamp(2rem, 6vw, 3rem)",
+                fontWeight: 900,
+                letterSpacing: "-0.035em",
+                marginBottom: "1rem",
+                position: "relative",
+              }}
+            >
+              Dein nächster Job
+              <br />
+              beginnt hier.
             </h2>
-            <p className="mt-5 text-base text-white/45 max-w-md mx-auto">{t("cta.subtitle")}</p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link href="/register">
-                <button className="px-8 py-3 rounded-full text-sm font-semibold text-[#080810] transition-all hover:scale-[1.03] shadow-2xl" style={{ background: "#ffffff" }}>
-                  {t("cta.button")} →
-                </button>
-              </Link>
-            </div>
-            <p className="mt-4 text-xs text-white/28">Keine Kreditkarte · 7 Tage gratis · danach ab 49€/Monat</p>
+            <p
+              style={{
+                color: "rgba(255,255,255,0.43)",
+                marginBottom: "2rem",
+                lineHeight: 1.68,
+                position: "relative",
+              }}
+            >
+              Erstelle jetzt kostenlos deinen Bewerbungsbrief. Nur 7 €, wenn er dir gefällt.
+            </p>
+            <Link href="/erstellen">
+              <button
+                style={{
+                  padding: "0.9rem 2.75rem",
+                  borderRadius: "999px",
+                  background: "#fff",
+                  color: "#080810",
+                  fontSize: "1rem",
+                  fontWeight: 700,
+                  cursor: "pointer",
+                  border: "none",
+                  position: "relative",
+                }}
+              >
+                Kostenlos erstellen →
+              </button>
+            </Link>
           </div>
         </section>
       </main>
 
-      {/* ── Sticky mobile CTA ── */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden px-4 py-3 flex items-center gap-3" style={{ background: "rgba(8,8,16,0.97)", backdropFilter: "blur(20px)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-        <div className="flex-1 min-w-0">
-          <p className="font-syne font-700 text-sm text-white leading-tight">7 Tage kostenlos</p>
-          <p className="font-jetbrains text-[10px] text-white/38">Keine Kreditkarte · sofort live</p>
-        </div>
-        <Link href="/register">
-          <button className="px-5 py-2 rounded-full text-sm font-semibold text-[#080810] shrink-0" style={{ background: "#ffffff" }}>
-            Starten →
-          </button>
-        </Link>
-      </div>
-
       {/* ── Footer ── */}
-      <footer className="py-14" style={{ borderTop: "1px solid rgba(255,255,255,0.05)", background: "rgba(255,255,255,0.01)" }}>
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-4">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="flex h-7 w-7 items-center justify-center rounded-full" style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.14)" }}>
-                  <span className="text-white text-xs font-bold">R</span>
-                </div>
-                <span className="font-syne font-700 text-white">{tc("appName")}</span>
-              </div>
-              <p className="text-sm text-white/35 leading-relaxed">KI-Automatisierung für lokale Businesses.</p>
-            </div>
-            {[
-              { title: t("footer.product"), links: [t("footer.features"), t("footer.pricing")] },
-              { title: t("footer.company"), links: [t("footer.about"), t("footer.blog")] },
-              { title: t("footer.legal"),   links: [t("footer.privacy"), t("footer.terms"), t("footer.imprint")] },
-            ].map((col) => (
-              <div key={col.title}>
-                <h4 className="font-syne font-700 mb-3 text-sm text-white/65">{col.title}</h4>
-                <ul className="space-y-2">
-                  {col.links.map((l) => (
-                    <li key={l}><a href="#" className="text-sm text-white/35 hover:text-white/65 transition-colors">{l}</a></li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+      <footer
+        style={{
+          borderTop: "1px solid rgba(255,255,255,0.06)",
+          padding: "2rem 1.5rem",
+          textAlign: "center",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", marginBottom: "0.75rem" }}>
+          <div
+            style={{
+              width: "22px",
+              height: "22px",
+              borderRadius: "6px",
+              background: "linear-gradient(135deg, #7c3aed, #a855f7)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <FileText style={{ width: "11px", height: "11px", color: "#fff" }} />
           </div>
-          <div className="mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/25" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-            <p>&copy; {new Date().getFullYear()} {tc("appName")}. {t("footer.copyright")}</p>
-            <div className="flex items-center gap-1.5">
-              <Brain className="h-3.5 w-3.5 text-white/35" />
-              <span>Powered by AI</span>
-            </div>
-          </div>
+          <span style={{ fontWeight: 700, fontSize: "0.85rem" }}>BewerbungsKI</span>
         </div>
+        <p style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.22)" }}>
+          &copy; {new Date().getFullYear()} BewerbungsKI &middot;{" "}
+          <a href="#" style={{ color: "rgba(255,255,255,0.32)", textDecoration: "none" }}>
+            Datenschutz
+          </a>{" "}
+          &middot;{" "}
+          <a href="#" style={{ color: "rgba(255,255,255,0.32)", textDecoration: "none" }}>
+            Impressum
+          </a>
+        </p>
       </footer>
     </div>
   );

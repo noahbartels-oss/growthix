@@ -117,6 +117,19 @@ create policy "Users can manage own appointments" on appointments
 create policy "Users can manage own channels" on channels
   for all using (business_id in (select id from businesses where user_id = auth.uid()));
 
+-- BewerbungsKI: Documents table (no auth required, UUID = access token)
+create table if not exists documents (
+  id uuid default gen_random_uuid() primary key,
+  session_id text not null,
+  type text not null default 'bewerbungsschreiben',
+  input_data jsonb not null default '{}',
+  content text not null,
+  is_paid boolean not null default false,
+  paypal_order_id text,
+  created_at timestamptz default now()
+);
+-- No RLS on documents: service role used from API routes, UUID acts as access token
+
 -- Auto-create business on user signup (trigger)
 create or replace function public.handle_new_user()
 returns trigger as $$

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ReplyFlow AI",
+  title: "BewerbungsKI – Bewerbungsschreiben in 60 Sekunden",
   description:
-    "AI antwortet automatisch auf WhatsApp-Nachrichten und verwandelt sie in Termine.",
+    "KI schreibt deinen individuellen Bewerbungsbrief in unter 60 Sekunden. Professionell, auf die Stelle zugeschnitten. Nur 7 € zum Download.",
 };
 
 export default function RootLayout({
