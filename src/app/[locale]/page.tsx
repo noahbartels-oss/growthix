@@ -1,359 +1,261 @@
 import { Link } from "@/i18n/navigation";
 import {
-  FileText, Zap, Download, CheckCircle, Star,
-  Clock, Shield, Sparkles, ArrowRight,
+  FileText, Zap, Shield, CheckCircle, Download, Star,
+  ArrowUpRight, Sparkles,
 } from "lucide-react";
 
-const steps = [
-  {
-    num: "01",
-    icon: FileText,
-    title: "Deine Daten eingeben",
-    desc: "Name, Zielstelle und deine Fähigkeiten – in 2 Minuten ausgefüllt, kein Aufwand.",
-  },
-  {
-    num: "02",
-    icon: Zap,
-    title: "KI generiert deinen Brief",
-    desc: "Unsere KI schreibt in unter 60 Sekunden einen professionellen, individuellen Brief.",
-  },
-  {
-    num: "03",
-    icon: Download,
-    title: "Freischalten & senden",
-    desc: "Für nur 7 € den vollen Brief herunterladen und sofort abschicken.",
-  },
+/* ─── Content ─────────────────────────────────────────────────────────── */
+
+const featureIcons = [FileText, Zap, Shield, CheckCircle, Star, Download];
+const features = [
+  { title: "Wirklich individuell",   desc: "Kein Copy-Paste. Jeder Brief wird auf deine Angaben und die spezifische Stelle zugeschnitten." },
+  { title: "60 Sekunden",            desc: "Daten eingeben – und in unter einer Minute hast du deinen fertigen Brief. Kein Warten." },
+  { title: "Kein Abo nötig",         desc: "Einmalig 7 € pro Brief. Kein Monatsabo, keine Falle, keine versteckten Kosten." },
+  { title: "Professionelles Deutsch",desc: "Keine Rechtschreibfehler, keine Floskeln. Sauberer, überzeugender Bewerbungsstil." },
+  { title: "Keine Anmeldung",        desc: "Direkt loslegen. Kein Account, keine E-Mail-Adresse nötig." },
+  { title: "Sofort als PDF",          desc: "Nach der Zahlung direkt herunterladen und versenden – kein weiterer Schritt." },
 ];
 
-const features = [
-  {
-    icon: Sparkles,
-    title: "Wirklich individuell",
-    desc: "Kein generisches Copy-Paste. Der Brief wird auf deine Angaben und die spezifische Stelle zugeschnitten.",
-  },
-  {
-    icon: Clock,
-    title: "60 Sekunden",
-    desc: "Daten eingeben, warten – und schon hast du deinen fertigen Brief. Kein langes Warten.",
-  },
-  {
-    icon: Shield,
-    title: "Kein Abo nötig",
-    desc: "Einmal zahlen, einmal nutzen. 7 € pro Brief. Kein Monatsabo, keine versteckten Kosten.",
-  },
-  {
-    icon: CheckCircle,
-    title: "Professionelles Deutsch",
-    desc: "Keine Rechtschreibfehler, professionelle Formulierungen, überzeugender Aufbau.",
-  },
+const marqueeItems = [
+  "Software Engineer", "Marketing Manager", "UX Designer", "Vertrieb",
+  "HR Manager", "Buchhalter", "Projektmanager", "Ingenieur",
+  "Pflegefachkraft", "Lehrer", "Jurist", "Controller",
 ];
 
 const testimonials = [
   {
-    text: "Ich hatte keine Lust mehr auf Bewerbungsschreiben. In 2 Minuten hatte ich genau das, was ich brauchte.",
-    name: "Tobias K.",
-    role: "Eingeladen zum Vorstellungsgespräch",
+    quote: "Ich hatte keine Lust mehr auf Bewerbungsschreiben. In 2 Minuten hatte ich genau das, was ich brauchte.",
+    author: "Tobias K.", role: "Eingeladen zum Vorstellungsgespräch",
   },
   {
-    text: "Als Studentin ohne viel Erfahrung hat mir die KI geholfen, meine Stärken überzeugend zu formulieren.",
-    name: "Jana W.",
-    role: "Praktikumsplatz bekommen",
+    quote: "Als Studentin ohne viel Erfahrung hat mir die KI geholfen, meine Stärken überzeugend zu formulieren.",
+    author: "Jana W.", role: "Praktikumsplatz bekommen",
   },
   {
-    text: "Ich schreibe Bewerbungen jetzt in 5 Minuten. 7 € für einen professionellen Brief – absolut fair.",
-    name: "Michael S.",
-    role: "Jobwechsel erfolgreich",
+    quote: "7 € für einen professionellen Brief – absolut fair. Ich nutze es jetzt für jede Bewerbung.",
+    author: "Michael S.", role: "Jobwechsel erfolgreich",
   },
 ];
 
 const faqs = [
-  {
-    q: "Wie gut ist das Ergebnis wirklich?",
-    a: "Die KI erstellt individuelle Texte, die auf deine Angaben und die spezifische Stelle zugeschnitten sind – kein generischer Standardtext. Die meisten Nutzer verwenden das Ergebnis direkt oder mit minimalen Anpassungen.",
-  },
-  {
-    q: "Muss ich mich registrieren?",
-    a: "Nein. Kein Account, keine E-Mail-Adresse. Du gibst deine Daten ein, der Brief wird generiert, du zahlst 7 € und lädst ihn sofort herunter.",
-  },
-  {
-    q: "Kann ich den Brief bearbeiten?",
-    a: "Ja. Du kannst ihn nach dem Download in Word oder einem anderen Textverarbeitungsprogramm öffnen und beliebig anpassen.",
-  },
-  {
-    q: "Was passiert mit meinen Daten?",
-    a: "Deine Angaben werden nur zur Generierung des Briefes verwendet. Wir verkaufen keine Daten.",
-  },
-  {
-    q: "Für welche Stellen funktioniert das?",
-    a: "Für praktisch jede Stelle – von der Ausbildung bis zur Führungsposition, Bürojob bis Handwerk. Die KI passt sich deinen Angaben an.",
-  },
+  { q: "Wie gut ist das Ergebnis wirklich?",
+    a: "Die KI erstellt individuelle Texte auf Basis deiner Angaben und der Stelle – kein generischer Standardtext. Die meisten Nutzer verwenden das Ergebnis direkt oder mit minimalen Anpassungen." },
+  { q: "Muss ich mich registrieren?",
+    a: "Nein. Kein Account, keine E-Mail. Du gibst deine Daten ein, der Brief wird generiert, du zahlst 7 € und lädst ihn sofort herunter." },
+  { q: "Kann ich den Brief bearbeiten?",
+    a: "Ja. Du kannst ihn nach dem Download in Word oder einem anderen Textverarbeitungsprogramm öffnen und beliebig anpassen." },
+  { q: "Was passiert mit meinen Daten?",
+    a: "Deine Angaben werden nur zur Generierung des Briefes verwendet und danach nicht weiterverwendet." },
+  { q: "Für welche Stellen funktioniert das?",
+    a: "Für praktisch jede Stelle – von der Ausbildung bis zur Führungsposition. Die KI passt sich deinen Angaben an." },
 ];
+
+/* ─── Component ────────────────────────────────────────────────────────── */
 
 export default function LandingPage() {
   return (
-    <div style={{ background: "#080810", minHeight: "100vh", color: "#fff" }}>
+    <div className="flex flex-col min-h-screen overflow-x-hidden" style={{ background: "#080810" }}>
 
       {/* ── Navbar ── */}
       <header
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 50,
-          backdropFilter: "blur(20px)",
-          background: "rgba(8,8,16,0.9)",
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
-          padding: "0 1.5rem",
-        }}
+        className="sticky top-0 z-50 w-full backdrop-blur-xl"
+        style={{ background: "rgba(8,8,16,0.88)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}
       >
-        <div
-          style={{
-            maxWidth: "1100px",
-            margin: "0 auto",
-            height: "60px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
           {/* Logo */}
-          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <div className="flex items-center gap-2.5">
             <div
-              style={{
-                width: "28px",
-                height: "28px",
-                borderRadius: "8px",
-                background: "linear-gradient(135deg, #7c3aed, #a855f7)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
+              className="flex h-7 w-7 items-center justify-center rounded-lg"
+              style={{ background: "rgba(0,230,118,0.12)", border: "1px solid rgba(0,230,118,0.25)" }}
             >
-              <FileText style={{ width: "14px", height: "14px", color: "#fff" }} />
+              <FileText className="h-3.5 w-3.5" style={{ color: "var(--primary)" }} />
             </div>
-            <span style={{ fontWeight: 800, fontSize: "0.95rem", letterSpacing: "-0.02em" }}>
+            <span className="font-syne text-[15px] font-bold tracking-tight text-white">
               BewerbungsKI
             </span>
           </div>
 
-          {/* Nav */}
-          <nav style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}>
-            <a
-              href="#wie-es-funktioniert"
-              style={{
-                fontSize: "0.83rem",
-                color: "rgba(255,255,255,0.5)",
-                textDecoration: "none",
-                padding: "0.4rem 0.75rem",
-              }}
-            >
-              So funktionierts
-            </a>
-            <a
-              href="#preis"
-              style={{
-                fontSize: "0.83rem",
-                color: "rgba(255,255,255,0.5)",
-                textDecoration: "none",
-                padding: "0.4rem 0.75rem",
-              }}
-            >
-              Preis
-            </a>
-            <Link href="/erstellen">
-              <button
-                style={{
-                  marginLeft: "0.5rem",
-                  padding: "0.45rem 1.1rem",
-                  borderRadius: "999px",
-                  background: "rgba(255,255,255,0.12)",
-                  border: "1px solid rgba(255,255,255,0.2)",
-                  color: "#fff",
-                  fontSize: "0.83rem",
-                  fontWeight: 600,
-                  cursor: "pointer",
-                }}
+          {/* Nav links */}
+          <nav className="hidden md:flex items-center gap-8 text-sm">
+            {[
+              { href: "#wie-es-funktioniert", label: "So funktionierts" },
+              { href: "#preis",                label: "Preis" },
+              { href: "#faq",                  label: "FAQ" },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-white/50 hover:text-white transition-colors"
               >
-                Jetzt testen →
-              </button>
-            </Link>
+                {item.label}
+              </a>
+            ))}
           </nav>
+
+          {/* CTA */}
+          <Link href="/erstellen">
+            <button
+              className="px-5 py-2 rounded-full text-sm font-semibold transition-all hover:opacity-90 active:scale-95"
+              style={{ background: "var(--primary)", color: "#080810" }}
+            >
+              Jetzt testen →
+            </button>
+          </Link>
         </div>
       </header>
 
-      <main>
+      <main className="flex-1">
+
         {/* ── Hero ── */}
-        <section
-          style={{
-            padding: "5rem 1.5rem 4rem",
-            textAlign: "center",
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
+        <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden">
+          {/* Mint glow — distinctive vs purple AI clichés */}
           <div
+            className="absolute inset-0"
             style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -60%)",
-              width: "600px",
-              height: "400px",
-              background: "radial-gradient(ellipse, rgba(124,58,237,0.18) 0%, transparent 70%)",
-              pointerEvents: "none",
+              background:
+                "radial-gradient(circle 580px at 28% 55%, rgba(0,230,118,0.14) 0%, transparent 65%)," +
+                "radial-gradient(circle 420px at 72% 38%, rgba(0,180,90,0.09) 0%, transparent 65%)",
             }}
           />
-          <div style={{ maxWidth: "740px", margin: "0 auto", position: "relative" }}>
+          <div
+            className="absolute inset-0"
+            style={{ background: "radial-gradient(ellipse 130% 100% at 50% 50%, transparent 30%, rgba(8,8,16,0.94) 100%)" }}
+          />
+          <div
+            className="absolute bottom-0 left-0 right-0 h-32"
+            style={{ background: "linear-gradient(to bottom, transparent, rgba(8,8,16,1))" }}
+          />
 
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.4rem",
-                padding: "0.35rem 1rem",
-                borderRadius: "999px",
-                background: "rgba(124,58,237,0.12)",
-                border: "1px solid rgba(124,58,237,0.3)",
-                marginBottom: "1.75rem",
-              }}
-            >
-              <Sparkles style={{ width: "12px", height: "12px", color: "#a78bfa" }} />
-              <span style={{ fontSize: "0.78rem", color: "#c4b5fd", fontWeight: 500 }}>
-                KI-generiert · Individuell · Sofort fertig
+          <div className="relative mx-auto max-w-4xl px-6 lg:px-8 text-center py-24">
+
+            {/* Badge */}
+            <div className="animate-fade-up inline-flex items-center gap-2 mb-8">
+              <span className="label-tag">
+                <Sparkles className="h-3 w-3" />
+                KI-generiert · 60 Sekunden · Nur 7€
               </span>
             </div>
 
+            {/* Headline */}
             <h1
-              style={{
-                fontSize: "clamp(2.75rem, 8vw, 5.25rem)",
-                fontWeight: 900,
-                lineHeight: 1.04,
-                letterSpacing: "-0.035em",
-                marginBottom: "1.25rem",
-              }}
+              className="animate-fade-up delay-100 font-syne font-black text-white leading-none tracking-tight"
+              style={{ fontSize: "clamp(3rem, 9vw, 6rem)" }}
             >
               Bewerbungsschreiben
               <br />
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #a78bfa 0%, #f472b6 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                in 60 Sekunden.
-              </span>
+              <span className="gradient-text">in 60 Sekunden.</span>
             </h1>
 
-            <p
-              style={{
-                fontSize: "1.05rem",
-                color: "rgba(255,255,255,0.52)",
-                lineHeight: 1.68,
-                maxWidth: "500px",
-                margin: "0 auto 2.25rem",
-              }}
-            >
+            {/* Subtitle */}
+            <p className="animate-fade-up delay-200 mt-6 text-base text-white/55 leading-relaxed max-w-xl mx-auto">
               KI schreibt deinen{" "}
-              <strong style={{ color: "rgba(255,255,255,0.82)" }}>individuellen</strong>{" "}
-              Bewerbungsbrief – professionell formuliert, auf die Stelle zugeschnitten.
+              <strong className="text-white/85">individuellen</strong> Bewerbungsbrief –
+              professionell formuliert, auf die Stelle zugeschnitten.
               Kein Abo, kein Aufwand.
             </p>
 
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem" }}>
+            {/* CTAs */}
+            <div className="animate-fade-up delay-300 mt-8 flex items-center justify-center gap-3 flex-wrap">
               <Link href="/erstellen">
                 <button
-                  style={{
-                    padding: "0.9rem 2.5rem",
-                    borderRadius: "999px",
-                    background: "#ffffff",
-                    color: "#080810",
-                    fontSize: "1rem",
-                    fontWeight: 700,
-                    cursor: "pointer",
-                    border: "none",
-                    boxShadow: "0 0 50px rgba(167,139,250,0.3)",
-                  }}
+                  className="px-6 py-2.5 rounded-full text-sm font-semibold transition-all hover:scale-[1.03] active:scale-95"
+                  style={{ background: "var(--primary)", color: "#080810" }}
                 >
                   Kostenlos erstellen →
                 </button>
               </Link>
-              <p style={{ fontSize: "0.76rem", color: "rgba(255,255,255,0.25)" }}>
-                Kostenlos testen · Nur 7 € zum Download · Keine Anmeldung
-              </p>
+              <a href="#wie-es-funktioniert">
+                <button
+                  className="px-6 py-2.5 rounded-full text-sm font-medium text-white/80 transition-all hover:text-white"
+                  style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.18)" }}
+                >
+                  So funktionierts
+                </button>
+              </a>
             </div>
+
+            {/* Trust signals */}
+            <p className="animate-fade-up delay-400 mt-4 font-jetbrains text-xs text-white/30 flex flex-wrap gap-x-5 gap-y-1 justify-center">
+              <span>Kostenlos testen</span>
+              <span>·</span>
+              <span>Nur 7 € zum Download</span>
+              <span>·</span>
+              <span>Keine Anmeldung</span>
+            </p>
+
+            {/* Pull quote */}
+            <p className="animate-fade-up delay-500 mt-16 text-lg text-white/40 italic font-syne">
+              &ldquo;In 2 Minuten mein bestes Bewerbungsschreiben aller Zeiten.&rdquo;
+            </p>
           </div>
         </section>
+
+        {/* ── Marquee — job categories ── */}
+        <div
+          className="py-4 overflow-hidden"
+          style={{
+            borderTop: "1px solid rgba(255,255,255,0.05)",
+            borderBottom: "1px solid rgba(255,255,255,0.05)",
+            background: "rgba(0,230,118,0.02)",
+          }}
+        >
+          <div className="flex gap-0">
+            {[...Array(2)].map((_, i) => (
+              <div key={i} className="animate-marquee flex shrink-0 gap-10 pr-10">
+                {marqueeItems.map((item) => (
+                  <span
+                    key={item}
+                    className="font-jetbrains text-xs whitespace-nowrap tracking-widest uppercase"
+                    style={{ color: "var(--primary)", opacity: 0.28 }}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* ── How it works ── */}
         <section
           id="wie-es-funktioniert"
-          style={{ padding: "4.5rem 1.5rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}
+          className="relative py-24 mesh-bg"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
         >
-          <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-              <h2
-                style={{
-                  fontSize: "clamp(1.75rem, 5vw, 2.75rem)",
-                  fontWeight: 800,
-                  letterSpacing: "-0.025em",
-                }}
-              >
-                So einfach gehts
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="mb-14 text-center">
+              <h2 className="font-syne text-4xl font-black text-white sm:text-5xl">
+                In 3 Schritten fertig
               </h2>
-              <p style={{ color: "rgba(255,255,255,0.42)", marginTop: "0.5rem" }}>
-                In 3 Schritten zum fertigen Bewerbungsschreiben
+              <p className="mt-3 text-white/48 max-w-md mx-auto">
+                Kein Aufwand – einfach Daten eingeben und der Brief ist fertig
               </p>
             </div>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-                gap: "1rem",
-              }}
-            >
-              {steps.map((s) => (
+            <div className="grid gap-4 md:grid-cols-3">
+              {[
+                { num: "01", title: "Daten eingeben",    desc: "Name, Zielstelle und deine Skills – 2 Minuten, kein technisches Wissen nötig." },
+                { num: "02", title: "KI generiert Brief", desc: "GPT-4 schreibt in unter 60 Sekunden einen professionellen, individuellen Brief." },
+                { num: "03", title: "Herunterladen",      desc: "7 € einmalig – sofort als PDF herunterladen und direkt versenden." },
+              ].map((s) => (
                 <div
                   key={s.num}
-                  style={{
-                    background: "#13131f",
-                    border: "1px solid rgba(255,255,255,0.07)",
-                    borderRadius: "1rem",
-                    padding: "1.5rem",
-                  }}
+                  className="relative rounded-2xl p-6 overflow-hidden card-hover"
+                  style={{ background: "#13131f", border: "1px solid rgba(255,255,255,0.07)" }}
                 >
-                  <div
-                    style={{
-                      fontWeight: 900,
-                      fontSize: "2.5rem",
-                      color: "rgba(255,255,255,0.05)",
-                      lineHeight: 1,
-                      marginBottom: "1rem",
-                    }}
-                  >
+                  {/* Big background number */}
+                  <div className="section-num absolute -top-4 -left-2 select-none">
                     {s.num}
                   </div>
-                  <div
-                    style={{
-                      width: "36px",
-                      height: "36px",
-                      borderRadius: "10px",
-                      background: "rgba(124,58,237,0.14)",
-                      border: "1px solid rgba(124,58,237,0.24)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      marginBottom: "0.8rem",
-                    }}
-                  >
-                    <s.icon style={{ width: "16px", height: "16px", color: "#a78bfa" }} />
+                  <div className="relative">
+                    <span
+                      className="font-jetbrains text-[10px] tracking-widest uppercase"
+                      style={{ color: "var(--primary)", opacity: 0.7 }}
+                    >
+                      Schritt {s.num}
+                    </span>
+                    <h3 className="font-syne font-bold text-white text-lg mt-2 mb-2">{s.title}</h3>
+                    <p className="text-sm text-white/48 leading-relaxed">{s.desc}</p>
                   </div>
-                  <h3 style={{ fontWeight: 700, marginBottom: "0.4rem", fontSize: "0.95rem" }}>
-                    {s.title}
-                  </h3>
-                  <p style={{ fontSize: "0.83rem", color: "rgba(255,255,255,0.43)", lineHeight: 1.65 }}>
-                    {s.desc}
-                  </p>
                 </div>
               ))}
             </div>
@@ -362,51 +264,42 @@ export default function LandingPage() {
 
         {/* ── Features ── */}
         <section
-          style={{ padding: "4rem 1.5rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}
+          id="features"
+          className="relative py-24"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
         >
-          <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: "2.75rem" }}>
-              <h2
-                style={{
-                  fontSize: "clamp(1.75rem, 5vw, 2.75rem)",
-                  fontWeight: 800,
-                  letterSpacing: "-0.025em",
-                }}
-              >
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="mb-14 text-center">
+              <h2 className="font-syne text-4xl font-black text-white sm:text-5xl">
                 Warum BewerbungsKI?
               </h2>
-              <p style={{ color: "rgba(255,255,255,0.42)", marginTop: "0.5rem" }}>
+              <p className="mt-3 text-white/48 max-w-lg mx-auto">
                 Nicht irgendein Generator – sondern einer, der wirklich überzeugt.
               </p>
             </div>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
-                gap: "1rem",
-              }}
-            >
-              {features.map((f) => (
-                <div
-                  key={f.title}
-                  style={{
-                    background: "#13131f",
-                    border: "1px solid rgba(255,255,255,0.07)",
-                    borderRadius: "1rem",
-                    padding: "1.25rem",
-                  }}
-                >
-                  <f.icon
-                    style={{ width: "20px", height: "20px", color: "#a78bfa", marginBottom: "0.75rem" }}
-                  />
-                  <h3 style={{ fontWeight: 700, marginBottom: "0.35rem", fontSize: "0.92rem" }}>
-                    {f.title}
-                  </h3>
-                  <p style={{ fontSize: "0.81rem", color: "rgba(255,255,255,0.43)", lineHeight: 1.65 }}>
-                    {f.desc}
-                  </p>
-                </div>
-              ))}
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {features.map((f, i) => {
+                const Icon = featureIcons[i];
+                return (
+                  <div
+                    key={f.title}
+                    className="rounded-2xl p-6 group card-hover"
+                    style={{ background: "#13131f", border: "1px solid rgba(255,255,255,0.07)" }}
+                  >
+                    <div
+                      className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl"
+                      style={{
+                        background: "rgba(0,230,118,0.08)",
+                        border: "1px solid rgba(0,230,118,0.18)",
+                      }}
+                    >
+                      <Icon className="h-5 w-5" style={{ color: "var(--primary)" }} />
+                    </div>
+                    <h3 className="font-syne font-bold text-white mb-2">{f.title}</h3>
+                    <p className="text-sm text-white/48 leading-relaxed">{f.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -414,79 +307,45 @@ export default function LandingPage() {
         {/* ── Pricing ── */}
         <section
           id="preis"
-          style={{ padding: "4.5rem 1.5rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}
+          className="py-24 relative overflow-hidden"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
         >
-          <div style={{ maxWidth: "440px", margin: "0 auto", textAlign: "center" }}>
-            <h2
-              style={{
-                fontSize: "clamp(1.75rem, 5vw, 2.75rem)",
-                fontWeight: 800,
-                letterSpacing: "-0.025em",
-                marginBottom: "0.5rem",
-              }}
-            >
-              Einfacher Preis
-            </h2>
-            <p style={{ color: "rgba(255,255,255,0.42)", marginBottom: "2rem" }}>
-              Kein Abo. Kein Schnickschnack. Einfach fair.
-            </p>
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,230,118,0.07) 0%, transparent 70%)",
+            }}
+          />
+          <div className="relative mx-auto max-w-md px-6 lg:px-8">
+            <div className="mb-14 text-center">
+              <h2 className="font-syne text-4xl font-black text-white sm:text-5xl">
+                Einfacher Preis
+              </h2>
+              <p className="mt-3 text-white/48">Kein Abo. Kein Schnickschnack. Einfach fair.</p>
+            </div>
             <div
+              className="rounded-2xl p-8 relative"
               style={{
                 background: "#13131f",
-                border: "1px solid rgba(124,58,237,0.45)",
-                borderRadius: "1.25rem",
-                padding: "2rem",
-                position: "relative",
+                border: "1px solid rgba(0,230,118,0.32)",
               }}
             >
-              <div
-                style={{
-                  position: "absolute",
-                  top: "-14px",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  background: "linear-gradient(135deg, #7c3aed, #a855f7)",
-                  color: "#fff",
-                  fontSize: "0.72rem",
-                  fontWeight: 700,
-                  padding: "4px 18px",
-                  borderRadius: "999px",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                Meistgenutzt
+              {/* Featured badge */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span className="label-tag">Meistgenutzt</span>
               </div>
-              <div
-                style={{
-                  fontSize: "3.75rem",
-                  fontWeight: 900,
-                  letterSpacing: "-0.04em",
-                  lineHeight: 1,
-                  marginBottom: "0.25rem",
-                }}
-              >
-                7 €
+
+              {/* Price */}
+              <div className="mb-6">
+                <div className="flex items-end gap-2">
+                  <span className="font-syne font-black text-5xl text-white leading-none">7 €</span>
+                  <span className="text-white/40 text-sm pb-2">einmalig · pro Brief</span>
+                </div>
               </div>
-              <div
-                style={{
-                  fontSize: "0.83rem",
-                  color: "rgba(255,255,255,0.38)",
-                  marginBottom: "1.75rem",
-                }}
-              >
-                einmalig · pro Bewerbungsschreiben
-              </div>
-              <ul
-                style={{
-                  listStyle: "none",
-                  padding: 0,
-                  margin: "0 0 1.75rem 0",
-                  textAlign: "left",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "0.65rem",
-                }}
-              >
+
+              {/* Feature list */}
+              <ul className="space-y-3 mb-8">
                 {[
                   "Vollständiges Bewerbungsschreiben",
                   "Individuell auf deine Stelle zugeschnitten",
@@ -494,42 +353,23 @@ export default function LandingPage() {
                   "Kein Account erforderlich",
                   "Beliebig anpassbar",
                 ].map((item) => (
-                  <li
-                    key={item}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "0.6rem",
-                      fontSize: "0.85rem",
-                      color: "rgba(255,255,255,0.65)",
-                    }}
-                  >
-                    <CheckCircle
-                      style={{ width: "15px", height: "15px", color: "#a78bfa", flexShrink: 0 }}
-                    />
+                  <li key={item} className="flex items-center gap-3 text-sm text-white/65">
+                    <CheckCircle className="h-4 w-4 shrink-0" style={{ color: "var(--primary)" }} />
                     {item}
                   </li>
                 ))}
               </ul>
-              <Link href="/erstellen" style={{ display: "block" }}>
+
+              <Link href="/erstellen" className="block">
                 <button
-                  style={{
-                    width: "100%",
-                    padding: "0.8rem",
-                    borderRadius: "0.75rem",
-                    background: "linear-gradient(135deg, #7c3aed, #a855f7)",
-                    color: "#fff",
-                    fontSize: "0.95rem",
-                    fontWeight: 700,
-                    cursor: "pointer",
-                    border: "none",
-                  }}
+                  className="w-full py-3 rounded-xl text-sm font-semibold transition-all hover:opacity-90 active:scale-[0.98]"
+                  style={{ background: "var(--primary)", color: "#080810" }}
                 >
                   Jetzt kostenlos erstellen →
                 </button>
               </Link>
-              <p style={{ marginTop: "0.75rem", fontSize: "0.73rem", color: "rgba(255,255,255,0.28)" }}>
-                Erst ausprobieren, dann entscheiden
+              <p className="mt-3 text-center font-jetbrains text-xs text-white/28">
+                Erst ausprobieren — dann entscheiden
               </p>
             </div>
           </div>
@@ -537,64 +377,57 @@ export default function LandingPage() {
 
         {/* ── Testimonials ── */}
         <section
-          style={{ padding: "4rem 1.5rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}
+          id="testimonials"
+          className="py-24"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
         >
-          <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
-            <h2
-              style={{
-                textAlign: "center",
-                fontSize: "clamp(1.75rem, 5vw, 2.5rem)",
-                fontWeight: 800,
-                letterSpacing: "-0.025em",
-                marginBottom: "2.5rem",
-              }}
-            >
-              Das sagen unsere Nutzer
-            </h2>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-                gap: "1rem",
-              }}
-            >
-              {testimonials.map((t) => (
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="mb-14 text-center">
+              <h2 className="font-syne text-4xl font-black text-white sm:text-5xl">
+                Das sagen unsere Nutzer
+              </h2>
+            </div>
+            <div className="grid gap-4 md:grid-cols-3">
+              {testimonials.map((item) => (
                 <div
-                  key={t.name}
-                  style={{
-                    background: "#13131f",
-                    border: "1px solid rgba(255,255,255,0.07)",
-                    borderRadius: "1rem",
-                    padding: "1.5rem",
-                  }}
+                  key={item.author}
+                  className="rounded-2xl p-6 relative overflow-hidden"
+                  style={{ background: "#13131f", border: "1px solid rgba(255,255,255,0.07)" }}
                 >
-                  <div style={{ display: "flex", gap: "2px", marginBottom: "1rem" }}>
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        style={{ width: "13px", height: "13px", fill: "#facc15", color: "#facc15" }}
-                      />
+                  {/* Decorative quote mark */}
+                  <div
+                    className="absolute -top-4 -right-2 font-syne text-9xl font-black leading-none select-none"
+                    style={{ color: "rgba(0,230,118,0.05)" }}
+                  >
+                    &ldquo;
+                  </div>
+                  <div className="flex gap-0.5 mb-4">
+                    {[...Array(5)].map((_, j) => (
+                      <Star key={j} className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <p
-                    style={{
-                      fontSize: "0.875rem",
-                      color: "rgba(255,255,255,0.58)",
-                      lineHeight: 1.7,
-                      marginBottom: "1.25rem",
-                    }}
-                  >
-                    &ldquo;{t.text}&rdquo;
+                  <p className="text-sm leading-relaxed text-white/55 mb-5 relative">
+                    &ldquo;{item.quote}&rdquo;
                   </p>
                   <div
-                    style={{
-                      borderTop: "1px solid rgba(255,255,255,0.06)",
-                      paddingTop: "0.75rem",
-                    }}
+                    className="flex items-center gap-3 pt-4"
+                    style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
                   >
-                    <div style={{ fontWeight: 700, fontSize: "0.875rem" }}>{t.name}</div>
-                    <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.33)", marginTop: "0.1rem" }}>
-                      {t.role}
+                    <div
+                      className="flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold shrink-0 font-syne"
+                      style={{
+                        background: "rgba(0,230,118,0.1)",
+                        color: "rgba(0,230,118,0.9)",
+                        border: "1px solid rgba(0,230,118,0.2)",
+                      }}
+                    >
+                      {item.author[0]}
+                    </div>
+                    <div>
+                      <p className="font-syne font-bold text-white text-sm">{item.author}</p>
+                      <p className="font-jetbrains text-[10px] text-white/38 tracking-wide">
+                        {item.role}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -605,60 +438,39 @@ export default function LandingPage() {
 
         {/* ── FAQ ── */}
         <section
-          style={{ padding: "4rem 1.5rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}
+          id="faq"
+          className="py-24"
+          style={{
+            borderTop: "1px solid rgba(255,255,255,0.05)",
+            borderBottom: "1px solid rgba(255,255,255,0.05)",
+          }}
         >
-          <div style={{ maxWidth: "660px", margin: "0 auto" }}>
-            <h2
-              style={{
-                textAlign: "center",
-                fontSize: "clamp(1.75rem, 5vw, 2.5rem)",
-                fontWeight: 800,
-                letterSpacing: "-0.025em",
-                marginBottom: "2.5rem",
-              }}
-            >
-              Häufige Fragen
-            </h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+          <div className="mx-auto max-w-3xl px-6 lg:px-8">
+            <div className="mb-10 text-center">
+              <h2 className="font-syne text-4xl font-black text-white sm:text-5xl">FAQs</h2>
+            </div>
+            <div className="space-y-2">
               {faqs.map((faq, i) => (
                 <details
                   key={i}
-                  style={{
-                    background: "#13131f",
-                    border: "1px solid rgba(255,255,255,0.07)",
-                    borderRadius: "0.875rem",
-                    overflow: "hidden",
-                  }}
+                  className="group rounded-2xl overflow-hidden"
+                  style={{ background: "#13131f", border: "1px solid rgba(255,255,255,0.07)" }}
                 >
-                  <summary
-                    style={{
-                      padding: "1rem 1.25rem",
-                      cursor: "pointer",
-                      fontWeight: 600,
-                      fontSize: "0.9rem",
-                      listStyle: "none",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      gap: "1rem",
-                    }}
-                  >
-                    <span>{faq.q}</span>
-                    <ArrowRight
+                  <summary className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer text-white text-sm font-medium list-none hover:bg-white/[0.02] transition-colors">
+                    <span className="font-syne font-semibold">{faq.q}</span>
+                    <span
+                      className="shrink-0 flex h-7 w-7 items-center justify-center rounded-lg text-white/50 group-open:rotate-45 transition-transform duration-200"
                       style={{
-                        width: "14px",
-                        height: "14px",
-                        color: "rgba(255,255,255,0.35)",
-                        flexShrink: 0,
+                        background: "rgba(255,255,255,0.07)",
+                        border: "1px solid rgba(255,255,255,0.1)",
                       }}
-                    />
+                    >
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                    </span>
                   </summary>
                   <div
+                    className="px-5 pb-4 text-sm text-white/45 leading-relaxed"
                     style={{
-                      padding: "0 1.25rem 1rem",
-                      fontSize: "0.84rem",
-                      color: "rgba(255,255,255,0.48)",
-                      lineHeight: 1.72,
                       borderTop: "1px solid rgba(255,255,255,0.05)",
                       paddingTop: "0.875rem",
                     }}
@@ -672,101 +484,114 @@ export default function LandingPage() {
         </section>
 
         {/* ── Final CTA ── */}
-        <section
-          style={{
-            padding: "5rem 1.5rem",
-            borderTop: "1px solid rgba(255,255,255,0.06)",
-            textAlign: "center",
-          }}
-        >
-          <div style={{ maxWidth: "480px", margin: "0 auto", position: "relative" }}>
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background:
-                  "radial-gradient(ellipse 80% 80% at 50% 50%, rgba(124,58,237,0.14) 0%, transparent 70%)",
-                pointerEvents: "none",
-              }}
-            />
+        <section className="py-28 relative overflow-hidden">
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse 70% 80% at 50% 50%, rgba(0,230,118,0.09) 0%, rgba(0,180,90,0.05) 55%, transparent 80%)",
+            }}
+          />
+          <div className="relative mx-auto max-w-3xl px-6 lg:px-8 text-center">
             <h2
-              style={{
-                fontSize: "clamp(2rem, 6vw, 3rem)",
-                fontWeight: 900,
-                letterSpacing: "-0.035em",
-                marginBottom: "1rem",
-                position: "relative",
-              }}
+              className="font-syne font-black text-white tracking-tight"
+              style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}
             >
               Dein nächster Job
               <br />
               beginnt hier.
             </h2>
-            <p
-              style={{
-                color: "rgba(255,255,255,0.43)",
-                marginBottom: "2rem",
-                lineHeight: 1.68,
-                position: "relative",
-              }}
-            >
-              Erstelle jetzt kostenlos deinen Bewerbungsbrief. Nur 7 €, wenn er dir gefällt.
+            <p className="mt-5 text-base text-white/45 max-w-md mx-auto">
+              Erstelle jetzt kostenlos deinen Bewerbungsbrief.
+              Nur 7 €, wenn er dir gefällt.
             </p>
-            <Link href="/erstellen">
-              <button
-                style={{
-                  padding: "0.9rem 2.75rem",
-                  borderRadius: "999px",
-                  background: "#fff",
-                  color: "#080810",
-                  fontSize: "1rem",
-                  fontWeight: 700,
-                  cursor: "pointer",
-                  border: "none",
-                  position: "relative",
-                }}
-              >
-                Kostenlos erstellen →
-              </button>
-            </Link>
+            <div className="mt-8">
+              <Link href="/erstellen">
+                <button
+                  className="px-8 py-3 rounded-full text-sm font-semibold text-[#080810] transition-all hover:scale-[1.03] shadow-2xl"
+                  style={{ background: "var(--primary)" }}
+                >
+                  Kostenlos erstellen →
+                </button>
+              </Link>
+            </div>
+            <p className="mt-4 font-jetbrains text-xs text-white/28">
+              Keine Anmeldung · Kostenlos testen · Nur 7 € zum Download
+            </p>
           </div>
         </section>
       </main>
 
-      {/* ── Footer ── */}
-      <footer
+      {/* ── Sticky mobile CTA ── */}
+      <div
+        className="fixed bottom-0 left-0 right-0 z-40 md:hidden px-4 py-3 flex items-center gap-3"
         style={{
+          background: "rgba(8,8,16,0.97)",
+          backdropFilter: "blur(20px)",
           borderTop: "1px solid rgba(255,255,255,0.06)",
-          padding: "2rem 1.5rem",
-          textAlign: "center",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", marginBottom: "0.75rem" }}>
-          <div
-            style={{
-              width: "22px",
-              height: "22px",
-              borderRadius: "6px",
-              background: "linear-gradient(135deg, #7c3aed, #a855f7)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <FileText style={{ width: "11px", height: "11px", color: "#fff" }} />
-          </div>
-          <span style={{ fontWeight: 700, fontSize: "0.85rem" }}>BewerbungsKI</span>
+        <div className="flex-1 min-w-0">
+          <p className="font-syne font-bold text-sm text-white leading-tight">
+            Bewerbungsschreiben erstellen
+          </p>
+          <p className="font-jetbrains text-[10px] text-white/38">
+            Kostenlos testen · nur 7 € zum Download
+          </p>
         </div>
-        <p style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.22)" }}>
-          &copy; {new Date().getFullYear()} BewerbungsKI &middot;{" "}
-          <a href="#" style={{ color: "rgba(255,255,255,0.32)", textDecoration: "none" }}>
-            Datenschutz
-          </a>{" "}
-          &middot;{" "}
-          <a href="#" style={{ color: "rgba(255,255,255,0.32)", textDecoration: "none" }}>
-            Impressum
-          </a>
-        </p>
+        <Link href="/erstellen">
+          <button
+            className="px-5 py-2 rounded-full text-sm font-semibold text-[#080810] shrink-0"
+            style={{ background: "var(--primary)" }}
+          >
+            Starten →
+          </button>
+        </Link>
+      </div>
+
+      {/* ── Footer ── */}
+      <footer
+        className="py-12"
+        style={{
+          borderTop: "1px solid rgba(255,255,255,0.05)",
+          background: "rgba(255,255,255,0.01)",
+        }}
+      >
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+            {/* Brand */}
+            <div className="flex items-center gap-2.5">
+              <div
+                className="flex h-7 w-7 items-center justify-center rounded-lg"
+                style={{
+                  background: "rgba(0,230,118,0.12)",
+                  border: "1px solid rgba(0,230,118,0.2)",
+                }}
+              >
+                <FileText className="h-3.5 w-3.5" style={{ color: "var(--primary)" }} />
+              </div>
+              <span className="font-syne font-bold text-white">BewerbungsKI</span>
+            </div>
+            {/* Legal links */}
+            <div className="flex items-center gap-6">
+              {["Datenschutz", "Impressum", "AGB"].map((l) => (
+                <a
+                  key={l}
+                  href="#"
+                  className="text-sm text-white/35 hover:text-white/65 transition-colors"
+                >
+                  {l}
+                </a>
+              ))}
+            </div>
+          </div>
+          <div
+            className="mt-8 pt-8 text-center font-jetbrains text-sm text-white/22"
+            style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
+          >
+            &copy; {new Date().getFullYear()} BewerbungsKI · Alle Rechte vorbehalten.
+          </div>
+        </div>
       </footer>
     </div>
   );
