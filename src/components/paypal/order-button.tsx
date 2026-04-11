@@ -12,7 +12,7 @@ interface PayPalOrderButtonProps {
 export function PayPalOrderButton({
   documentId,
   onSuccess,
-  amount = "7.00",
+  amount = "6.99",
 }: PayPalOrderButtonProps) {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);

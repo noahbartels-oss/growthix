@@ -54,14 +54,14 @@ const faqs = [
 
 export default function LandingPage() {
   return (
-    <div className="flex flex-col min-h-screen overflow-x-hidden" style={{ background: "#080810" }}>
+    <div className="flex flex-col min-h-screen" style={{ background: "#080810", overflowX: "hidden", maxWidth: "100vw" }}>
 
       {/* ── Navbar ── */}
       <header
         className="sticky top-0 z-50 w-full backdrop-blur-xl"
         style={{ background: "rgba(8,8,16,0.88)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}
       >
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
+        <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" style={{ minWidth: 0 }}>
           {/* Logo */}
           <div className="flex items-center gap-2.5">
             <div
@@ -126,20 +126,25 @@ export default function LandingPage() {
             style={{ background: "linear-gradient(to bottom, transparent, rgba(8,8,16,1))" }}
           />
 
-          <div className="relative mx-auto max-w-4xl px-6 lg:px-8 text-center py-24">
+          <div className="relative mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8 text-center py-24" style={{ boxSizing: "border-box" }}>
 
             {/* Badge */}
             <div className="animate-fade-up inline-flex items-center gap-2 mb-8">
               <span className="label-tag">
                 <Sparkles className="h-3 w-3" />
-                KI-generiert · 60 Sekunden · Nur 7€
+                KI-generiert · 60 Sekunden · Nur 6,99 €
               </span>
             </div>
 
             {/* Headline */}
             <h1
               className="animate-fade-up delay-100 font-syne font-black text-white leading-none tracking-tight"
-              style={{ fontSize: "clamp(3rem, 9vw, 6rem)" }}
+              style={{
+                fontSize: "clamp(1.6rem, 5.5vw, 5.5rem)",
+                overflowWrap: "break-word",
+                wordBreak: "break-word",
+                hyphens: "auto",
+              }}
             >
               Bewerbungsschreiben
               <br />
@@ -178,7 +183,7 @@ export default function LandingPage() {
             <p className="animate-fade-up delay-400 mt-4 font-jetbrains text-xs text-white/30 flex flex-wrap gap-x-5 gap-y-1 justify-center">
               <span>Kostenlos testen</span>
               <span>·</span>
-              <span>Nur 7 € zum Download</span>
+              <span>Nur 6,99 € zum Download</span>
               <span>·</span>
               <span>Keine Anmeldung</span>
             </p>
@@ -339,8 +344,8 @@ export default function LandingPage() {
               {/* Price */}
               <div className="mb-6">
                 <div className="flex items-end gap-2">
-                  <span className="font-syne font-black text-5xl text-white leading-none">7 €</span>
-                  <span className="text-white/40 text-sm pb-2">einmalig · pro Brief</span>
+                  <span className="font-syne font-black text-5xl text-white leading-none">6,99 €</span>
+                  <span className="text-white/40 text-sm pb-2">einmalig · pro Brief · kein Abo</span>
                 </div>
               </div>
 
@@ -503,7 +508,7 @@ export default function LandingPage() {
             </h2>
             <p className="mt-5 text-base text-white/45 max-w-md mx-auto">
               Erstelle jetzt kostenlos deinen Bewerbungsbrief.
-              Nur 7 €, wenn er dir gefällt.
+              Nur 6,99 €, wenn er dir gefällt.
             </p>
             <div className="mt-8">
               <Link href="/erstellen">
@@ -516,7 +521,7 @@ export default function LandingPage() {
               </Link>
             </div>
             <p className="mt-4 font-jetbrains text-xs text-white/28">
-              Keine Anmeldung · Kostenlos testen · Nur 7 € zum Download
+              Keine Anmeldung · Kostenlos testen · Nur 6,99 € zum Download
             </p>
           </div>
         </section>
@@ -536,7 +541,7 @@ export default function LandingPage() {
             Bewerbungsschreiben erstellen
           </p>
           <p className="font-jetbrains text-[10px] text-white/38">
-            Kostenlos testen · nur 7 € zum Download
+            Kostenlos testen · nur 6,99 € zum Download
           </p>
         </div>
         <Link href="/erstellen">

@@ -264,7 +264,7 @@ export default function ErgebnisPage() {
                     Brief freischalten
                   </p>
                   <p style={{ color: "#666", fontSize: "0.82rem", lineHeight: 1.55, marginBottom: "1.25rem" }}>
-                    Einmalig <strong style={{ color: "#111" }}>7 €</strong> — vollständig als PDF herunterladen.
+                    Einmalig <strong style={{ color: "#111" }}>6,99 €</strong> — vollständig als PDF herunterladen.
                     Kein Abo, keine weiteren Kosten.
                   </p>
 
