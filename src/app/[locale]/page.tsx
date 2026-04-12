@@ -148,7 +148,7 @@ export default function LandingPage() {
               }}
             >
               <span style={{ display: "block", textAlign: "center", color: "#fff" }}>Bewerbungs</span>
-              <span style={{ display: "block", textAlign: "center" }} className="gradient-text">schreiben.</span>
+              <span style={{ display: "block", textAlign: "center" }} className="gradient-text">schreiben</span>
             </h1>
 
             {/* Subtitle — "in 60 Sekunden" lives here now */}
@@ -265,6 +265,209 @@ export default function LandingPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ── Letter Preview ── */}
+        <section
+          className="relative py-24"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
+        >
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="mb-14 text-center">
+              <h2 className="font-syne text-4xl font-black text-white sm:text-5xl">
+                So sieht dein Brief aus
+              </h2>
+              <p className="mt-3 text-white/48 max-w-lg mx-auto">
+                Professionell, klar strukturiert, auf deine Stelle zugeschnitten — kein generischer Text.
+              </p>
+            </div>
+
+            <div className="relative mx-auto max-w-2xl">
+              {/* Glow behind the paper */}
+              <div
+                className="absolute -inset-4 rounded-3xl pointer-events-none"
+                style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,230,118,0.08) 0%, transparent 70%)" }}
+              />
+              {/* Paper card */}
+              <div
+                className="relative rounded-2xl overflow-hidden"
+                style={{
+                  background: "#FAFAF8",
+                  boxShadow: "0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06)",
+                }}
+              >
+                {/* Green top stripe */}
+                <div style={{ height: "3px", background: "linear-gradient(90deg, #00E676, rgba(0,230,118,0.3))" }} />
+
+                {/* Blurred top section — sender info */}
+                <div style={{ padding: "2rem 2.5rem 0", fontFamily: "Georgia, serif", color: "#1a1a1a" }}>
+                  <div style={{ filter: "blur(4px)", userSelect: "none", marginBottom: "1.5rem" }}>
+                    <p style={{ fontSize: "0.82rem", lineHeight: 1.7, color: "#444" }}>
+                      Max Mustermann · Musterstraße 12 · 80333 München<br />
+                      max.mustermann@email.de · +49 176 12345678
+                    </p>
+                    <p style={{ fontSize: "0.82rem", color: "#666", marginTop: "0.75rem" }}>
+                      Siemens AG · z. Hd. Personalabteilung<br />
+                      Werner-von-Siemens-Straße 1 · 80333 München
+                    </p>
+                    <p style={{ fontSize: "0.82rem", color: "#888", marginTop: "0.75rem" }}>München, 12. April 2026</p>
+                  </div>
+
+                  <p style={{ fontWeight: 700, fontSize: "0.95rem", marginBottom: "1rem", color: "#111" }}>
+                    Bewerbung als Software Engineer (m/w/d) – Stellenanzeige vom 08.04.2026
+                  </p>
+
+                  <p style={{ fontSize: "0.88rem", marginBottom: "0.75rem", color: "#222" }}>
+                    Sehr geehrte Damen und Herren,
+                  </p>
+
+                  <p style={{ fontSize: "0.88rem", lineHeight: 1.8, marginBottom: "0.75rem", color: "#333" }}>
+                    mit großem Interesse habe ich Ihre Stellenausschreibung für die Position als Software Engineer
+                    gelesen. Die Kombination aus anspruchsvollen technischen Projekten und dem Fokus auf nachhaltige
+                    Lösungen bei Siemens entspricht genau dem, wonach ich in meiner nächsten beruflichen Station suche.
+                  </p>
+
+                  <p style={{ fontSize: "0.88rem", lineHeight: 1.8, marginBottom: "0.75rem", color: "#333" }}>
+                    In meiner bisherigen Tätigkeit als Full-Stack-Entwickler bei der TechStart GmbH konnte ich
+                    fundierte Kenntnisse in React, TypeScript und Node.js aufbauen. Ich habe eigenverantwortlich
+                    ein Microservices-Projekt geleitet, das die Ladezeit unserer Hauptanwendung um 40 % reduziert hat.
+                    Meine Erfahrung mit agilen Methoden und Teamarbeit hat mich gelehrt, komplexe Anforderungen
+                    strukturiert umzusetzen.
+                  </p>
+
+                  {/* Fade overlay for paywall effect */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: 0, left: 0, right: 0,
+                      height: "55%",
+                      background: "linear-gradient(to bottom, transparent 0%, rgba(250,250,248,0.96) 50%, #FAFAF8 100%)",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "flex-end",
+                      paddingBottom: "2rem",
+                    }}
+                  >
+                    <Link href="/erstellen">
+                      <button
+                        className="px-6 py-2.5 rounded-full text-sm font-semibold transition-all hover:scale-[1.03]"
+                        style={{ background: "var(--primary)", color: "#080810", fontFamily: "Manrope, sans-serif" }}
+                      >
+                        Deinen Brief erstellen →
+                      </button>
+                    </Link>
+                    <p style={{ marginTop: "0.5rem", fontFamily: "monospace", fontSize: "0.7rem", color: "#aaa" }}>
+                      Kostenlos testen · nur 6,99 € zum Download
+                    </p>
+                  </div>
+                </div>
+                <div style={{ height: "280px" }} />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Comparison Table ── */}
+        <section
+          className="relative py-24"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
+        >
+          <div className="mx-auto max-w-4xl px-6 lg:px-8">
+            <div className="mb-14 text-center">
+              <h2 className="font-syne text-4xl font-black text-white sm:text-5xl">
+                Warum nicht einfach ChatGPT?
+              </h2>
+              <p className="mt-3 text-white/48 max-w-lg mx-auto">
+                ChatGPT kann vieles — aber ein professionelles deutsches Bewerbungsschreiben ist eine Wissenschaft für sich.
+              </p>
+            </div>
+
+            <div
+              className="rounded-2xl overflow-hidden"
+              style={{ border: "1px solid rgba(255,255,255,0.08)" }}
+            >
+              {/* Table header */}
+              <div
+                className="grid"
+                style={{
+                  gridTemplateColumns: "1fr 1fr 1fr 1fr",
+                  background: "#13131f",
+                  borderBottom: "1px solid rgba(255,255,255,0.08)",
+                  padding: "0.875rem 1.25rem",
+                }}
+              >
+                <div className="font-jetbrains text-[10px] tracking-widest uppercase text-white/35">Funktion</div>
+                <div className="font-syne font-bold text-sm text-center" style={{ color: "var(--primary)" }}>BewerbungsKI</div>
+                <div className="font-syne font-bold text-sm text-center text-white/50">ChatGPT</div>
+                <div className="font-syne font-bold text-sm text-center text-white/50">Lebenslauf.de</div>
+              </div>
+
+              {/* Rows */}
+              {[
+                ["Auf Stelle & Unternehmen zugeschnitten", true, false, false],
+                ["Deutsches Bewerbungsformat korrekt", true, false, true],
+                ["Fertig in unter 60 Sekunden", true, false, false],
+                ["Kein Account nötig", true, false, false],
+                ["Kein Prompt-Tuning erforderlich", true, false, true],
+                ["Einmalpreis 6,99 € – kein Abo", true, false, false],
+                ["Sofort als PDF herunterladen", true, false, true],
+              ].map(([label, bewKI, chatGPT, lebenslauf], i) => (
+                <div
+                  key={i}
+                  className="grid items-center"
+                  style={{
+                    gridTemplateColumns: "1fr 1fr 1fr 1fr",
+                    padding: "0.875rem 1.25rem",
+                    background: i % 2 === 0 ? "rgba(255,255,255,0.01)" : "transparent",
+                    borderBottom: i < 6 ? "1px solid rgba(255,255,255,0.04)" : "none",
+                  }}
+                >
+                  <span className="text-sm text-white/65">{label as string}</span>
+                  <div className="flex justify-center">
+                    {bewKI ? (
+                      <div
+                        className="flex h-6 w-6 items-center justify-center rounded-full"
+                        style={{ background: "rgba(0,230,118,0.15)", border: "1px solid rgba(0,230,118,0.3)" }}
+                      >
+                        <CheckCircle className="h-3.5 w-3.5" style={{ color: "var(--primary)" }} />
+                      </div>
+                    ) : (
+                      <span className="text-white/20 text-lg font-bold">—</span>
+                    )}
+                  </div>
+                  <div className="flex justify-center">
+                    {chatGPT ? (
+                      <div
+                        className="flex h-6 w-6 items-center justify-center rounded-full"
+                        style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
+                      >
+                        <CheckCircle className="h-3.5 w-3.5 text-white/40" />
+                      </div>
+                    ) : (
+                      <span className="text-white/20 text-lg font-bold">—</span>
+                    )}
+                  </div>
+                  <div className="flex justify-center">
+                    {lebenslauf ? (
+                      <div
+                        className="flex h-6 w-6 items-center justify-center rounded-full"
+                        style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
+                      >
+                        <CheckCircle className="h-3.5 w-3.5 text-white/40" />
+                      </div>
+                    ) : (
+                      <span className="text-white/20 text-lg font-bold">—</span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-4 text-center font-jetbrains text-xs text-white/25">
+              Stand April 2026 · basierend auf kostenlosem / Standard-Funktionsumfang der jeweiligen Tools
+            </p>
           </div>
         </section>
 
