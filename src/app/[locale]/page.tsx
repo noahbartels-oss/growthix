@@ -138,12 +138,17 @@ export default function LandingPage() {
 
             {/* Headline */}
             <h1
-              className="animate-fade-up delay-100 font-syne font-black tracking-tight text-center"
-              style={{ fontSize: "clamp(2.6rem, 9vw, 7rem)", lineHeight: 1.0 }}
+              className="animate-fade-up delay-100 font-syne font-black tracking-tight"
+              style={{
+                fontSize: "clamp(2.8rem, 11vw, 8rem)",
+                lineHeight: 1.0,
+                textAlign: "center",
+                width: "100%",
+                display: "block",
+              }}
             >
-              <span className="text-white">Bewerbungs</span>
-              <wbr />
-              <span className="gradient-text">schreiben.</span>
+              <span style={{ display: "block", textAlign: "center", color: "#fff" }}>Bewerbungs</span>
+              <span style={{ display: "block", textAlign: "center" }} className="gradient-text">schreiben.</span>
             </h1>
 
             {/* Subtitle — "in 60 Sekunden" lives here now */}
