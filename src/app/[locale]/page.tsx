@@ -140,8 +140,8 @@ export default function LandingPage() {
             <h1
               className="animate-fade-up delay-100 font-syne font-black tracking-tight"
               style={{
-                fontSize: "clamp(2.8rem, 11vw, 8rem)",
-                lineHeight: 1.0,
+                fontSize: "clamp(2.4rem, 7.5vw, 5.5rem)",
+                lineHeight: 1.15,
                 textAlign: "center",
                 width: "100%",
                 display: "block",
