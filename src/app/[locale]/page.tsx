@@ -138,7 +138,7 @@ export default function LandingPage() {
 
             {/* Headline */}
             <h1
-              className="animate-fade-up delay-100 font-syne font-black text-white tracking-tight"
+              className="animate-fade-up delay-100 font-syne font-black text-white tracking-tight text-center"
               style={{ fontSize: "clamp(3rem, 10vw, 7.5rem)", lineHeight: 0.95 }}
             >
               Bewerbungs
