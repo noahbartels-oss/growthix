@@ -138,23 +138,19 @@ export default function LandingPage() {
 
             {/* Headline */}
             <h1
-              className="animate-fade-up delay-100 font-syne font-black text-white leading-none tracking-tight"
-              style={{
-                fontSize: "clamp(1.6rem, 5.5vw, 5.5rem)",
-                overflowWrap: "break-word",
-                wordBreak: "break-word",
-                hyphens: "auto",
-              }}
+              className="animate-fade-up delay-100 font-syne font-black text-white tracking-tight"
+              style={{ fontSize: "clamp(3rem, 10vw, 7.5rem)", lineHeight: 0.95 }}
             >
-              Bewerbungsschreiben
+              Bewerbungs
               <br />
-              <span className="gradient-text">in 60 Sekunden.</span>
+              <span className="gradient-text">schreiben.</span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="animate-fade-up delay-200 mt-6 text-base text-white/55 leading-relaxed max-w-xl mx-auto">
+            {/* Subtitle — "in 60 Sekunden" lives here now */}
+            <p className="animate-fade-up delay-200 mt-7 text-base text-white/55 leading-relaxed max-w-xl mx-auto">
               KI schreibt deinen{" "}
-              <strong className="text-white/85">individuellen</strong> Bewerbungsbrief –
+              <strong className="text-white/85">individuellen</strong> Bewerbungsbrief{" "}
+              <strong className="text-white/85">in 60 Sekunden</strong> –
               professionell formuliert, auf die Stelle zugeschnitten.
               Kein Abo, kein Aufwand.
             </p>
