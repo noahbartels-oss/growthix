@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
+const UUID_RE    = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const ORDERID_RE = /^[A-Z0-9]{17}$/; // PayPal order IDs are 17 uppercase alphanumeric chars
+
 function getSupabase() {
   return createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -10,13 +13,21 @@ function getSupabase() {
 
 export async function POST(req: NextRequest) {
   try {
-    const { documentId, orderId } = await req.json();
+    const body = await req.json();
+    const documentId = typeof body.documentId === "string" ? body.documentId.trim() : "";
+    const orderId    = typeof body.orderId    === "string" ? body.orderId.trim()    : "";
 
     if (!documentId || !orderId) {
       return NextResponse.json({ error: "Fehlende Parameter" }, { status: 400 });
     }
+    if (!UUID_RE.test(documentId)) {
+      return NextResponse.json({ error: "Ungültige Dokument-ID" }, { status: 400 });
+    }
+    if (!ORDERID_RE.test(orderId)) {
+      return NextResponse.json({ error: "Ungültige Order-ID" }, { status: 400 });
+    }
 
-    // Verify PayPal order is COMPLETED
+    /* ── Verify with PayPal ── */
     const base =
       process.env.PAYPAL_MODE === "live"
         ? "https://api-m.paypal.com"
@@ -26,7 +37,7 @@ export async function POST(req: NextRequest) {
       `${process.env.PAYPAL_CLIENT_ID}:${process.env.PAYPAL_CLIENT_SECRET}`
     ).toString("base64");
 
-    const ppRes = await fetch(`${base}/v2/checkout/orders/${orderId}`, {
+    const ppRes = await fetch(`${base}/v2/checkout/orders/${encodeURIComponent(orderId)}`, {
       headers: { Authorization: `Basic ${auth}` },
     });
 
@@ -39,7 +50,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Zahlung nicht abgeschlossen" }, { status: 400 });
     }
 
+    /* ── Check order not already used ── */
     const supabase = getSupabase();
+    const { data: existing } = await supabase
+      .from("documents")
+      .select("id")
+      .eq("paypal_order_id", orderId)
+      .single();
+
+    if (existing) {
+      return NextResponse.json({ error: "Order bereits verwendet" }, { status: 409 });
+    }
+
     const { error } = await supabase
       .from("documents")
       .update({ is_paid: true, paypal_order_id: orderId })

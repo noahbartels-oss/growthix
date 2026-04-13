@@ -137,6 +137,17 @@ const baseInput: React.CSSProperties = {
   boxSizing: "border-box",
 };
 
+const baseSelect: React.CSSProperties = {
+  ...baseInput,
+  background: "#13131f",
+  padding: "0.55rem 0.75rem",
+  borderRadius: "0.375rem",
+  border: "1px solid rgba(255,255,255,0.18)",
+  borderBottom: "1px solid rgba(255,255,255,0.18)",
+  cursor: "pointer",
+  appearance: "none" as const,
+};
+
 const baseLabel: React.CSSProperties = {
   display: "block", fontFamily: "'JetBrains Mono',monospace",
   fontSize: "0.65rem", fontWeight: 500, letterSpacing: "0.12em",
@@ -386,23 +397,21 @@ export default function ErstellenPage() {
 
                   <div>
                     <label style={baseLabel}>Aktuelle Situation *</label>
-                    <select className="bki-input" value={form.situation} onChange={setEv("situation")}
-                      style={{ ...baseInput, cursor: "pointer", appearance: "none" }}>
-                      <option value="employed">Berufstätig (Jobwechsel)</option>
-                      <option value="student">Student / Studentin</option>
-                      <option value="apprentice">Auszubildende / r</option>
-                      <option value="seeking">Arbeitssuchend</option>
+                    <select className="bki-input" value={form.situation} onChange={setEv("situation")} style={baseSelect}>
+                      <option value="employed" style={{ background: "#13131f", color: "#fff" }}>Berufstätig (Jobwechsel)</option>
+                      <option value="student"   style={{ background: "#13131f", color: "#fff" }}>Student / Studentin</option>
+                      <option value="apprentice" style={{ background: "#13131f", color: "#fff" }}>Auszubildende/r</option>
+                      <option value="seeking"   style={{ background: "#13131f", color: "#fff" }}>Arbeitssuchend</option>
                     </select>
                   </div>
 
                   <div>
                     <label style={baseLabel}>Berufserfahrung</label>
-                    <select className="bki-input" value={form.experience} onChange={setEv("experience")}
-                      style={{ ...baseInput, cursor: "pointer", appearance: "none" }}>
-                      <option value="none">Keine Erfahrung</option>
-                      <option value="1-2">1–2 Jahre</option>
-                      <option value="3-5">3–5 Jahre</option>
-                      <option value="5plus">Mehr als 5 Jahre</option>
+                    <select className="bki-input" value={form.experience} onChange={setEv("experience")} style={baseSelect}>
+                      <option value="none"  style={{ background: "#13131f", color: "#fff" }}>Keine Erfahrung</option>
+                      <option value="1-2"   style={{ background: "#13131f", color: "#fff" }}>1–2 Jahre</option>
+                      <option value="3-5"   style={{ background: "#13131f", color: "#fff" }}>3–5 Jahre</option>
+                      <option value="5plus" style={{ background: "#13131f", color: "#fff" }}>Mehr als 5 Jahre</option>
                     </select>
                   </div>
 
