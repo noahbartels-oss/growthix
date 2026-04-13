@@ -50,62 +50,99 @@ const COMPANIES: Record<string, string[]> = {
 const ALL_SKILLS = [
   // Programmierung
   "Python","Java","JavaScript","TypeScript","C++","C#","C","PHP","Ruby",
-  "Swift","Kotlin","Go","Rust","Scala","R","MATLAB","VBA","Bash/Shell","PowerShell",
+  "Swift","Kotlin","Go","Rust","Scala","R","MATLAB","VBA","Bash/Shell","PowerShell","Perl","Delphi",
   // Web
   "HTML","CSS","React","Angular","Vue.js","Next.js","Svelte","jQuery",
-  "Bootstrap","Tailwind CSS","SASS/SCSS","Node.js","REST API","GraphQL",
+  "Bootstrap","Tailwind CSS","SASS/SCSS","Node.js","REST API","GraphQL","WebSockets","Webpack","Vite",
   // Backend / Frameworks
-  "Django","Flask","FastAPI","Spring Boot",".NET","ASP.NET","Laravel",
+  "Django","Flask","FastAPI","Spring Boot",".NET","ASP.NET","Laravel","Express.js","NestJS","Symfony",
   // Datenbanken
   "SQL","MySQL","PostgreSQL","Oracle DB","Microsoft SQL Server",
-  "MongoDB","Redis","Elasticsearch","SQLite",
+  "MongoDB","Redis","Elasticsearch","SQLite","MariaDB","Cassandra","Firebase",
   // Cloud & DevOps
   "AWS","Microsoft Azure","Google Cloud (GCP)","Docker","Kubernetes",
   "Terraform","Ansible","Jenkins","GitLab CI/CD","GitHub Actions","Linux","Git","SVN",
+  "CI/CD","Monitoring","Prometheus","Grafana","Nginx","Apache",
   // Microsoft Office
   "Microsoft Excel","Microsoft Word","Microsoft PowerPoint","Microsoft Outlook",
-  "Microsoft Teams","Microsoft SharePoint","Microsoft Access","Microsoft 365",
+  "Microsoft Teams","Microsoft SharePoint","Microsoft Access","Microsoft 365","Microsoft Visio","OneNote",
   // ERP / CRM
-  "SAP","SAP S/4HANA","SAP HR","SAP FI/CO","Salesforce","Dynamics 365",
-  "Oracle ERP","HubSpot","Navision / Business Central","Odoo","DATEV","Lexware",
-  // Design
+  "SAP","SAP S/4HANA","SAP HR","SAP FI/CO","SAP MM","SAP SD","SAP WM",
+  "Salesforce","Dynamics 365","Oracle ERP","HubSpot","Navision / Business Central","Odoo","DATEV","Lexware","Sage",
+  // Design & Medien
   "Adobe Photoshop","Adobe Illustrator","Adobe InDesign","Adobe Premiere Pro",
-  "Adobe After Effects","Figma","Sketch","Canva","InVision",
+  "Adobe After Effects","Adobe XD","Figma","Sketch","Canva","InVision","Blender","Cinema 4D","DaVinci Resolve",
+  "Videobearbeitung","Fotografie","Bildbearbeitung","Grafikdesign","UX Design","UI Design","Webdesign",
   // CAD / Technik
-  "AutoCAD","SolidWorks","CATIA","Inventor","Revit","SketchUp","MATLAB/Simulink",
+  "AutoCAD","SolidWorks","CATIA","Inventor","Revit","SketchUp","MATLAB/Simulink","EPLAN","CADDY","Creo",
   // Daten & BI
   "Tableau","Power BI","QlikView","Looker","SPSS","SAS","Alteryx",
-  "Machine Learning","Deep Learning","TensorFlow","PyTorch","Pandas","NumPy",
+  "Machine Learning","Deep Learning","TensorFlow","PyTorch","Pandas","NumPy","scikit-learn","Data Science",
   // Projektmanagement
   "Scrum","Agile","Kanban","PRINCE2","PMP","Jira","Confluence",
-  "Trello","Asana","Monday.com","MS Project",
-  // Marketing
-  "Google Analytics","Google Ads","Meta Ads","LinkedIn Ads","SEO","SEM",
-  "Content Marketing","E-Mail-Marketing","Social Media Marketing","Mailchimp",
+  "Trello","Asana","Monday.com","MS Project","Projektplanung","Risikomanagement","Stakeholder-Management",
+  // Marketing & Kommunikation
+  "Google Analytics","Google Ads","Meta Ads","LinkedIn Ads","SEO","SEM","TikTok Ads",
+  "Content Marketing","E-Mail-Marketing","Social Media Marketing","Mailchimp","HubSpot Marketing",
+  "Texten","Copywriting","PR","Pressearbeit","Eventmanagement","Messe","Marktforschung","Produktmarketing",
   // Rechnungswesen / Finanzen
-  "Buchführung","Finanzbuchhaltung","Controlling","Jahresabschluss",
+  "Buchführung","Finanzbuchhaltung","Controlling","Jahresabschluss","Bilanzierung",
   "Lohnbuchhaltung","Kostenrechnung","Wirtschaftsprüfung","Interne Revision",
-  // HR
+  "Treasury","Liquiditätsplanung","Budgetplanung","Kreditanalyse","Steuerrecht","Umsatzsteuer",
+  // HR & Personal
   "Recruiting","Personalwesen","Onboarding","Employer Branding","Arbeitsrecht","Payroll",
+  "Personalentwicklung","Talentmanagement","Mitarbeitergespräche","Coaching","Ausbildungsbetreuung",
   // Vertrieb / Einkauf
-  "B2B-Vertrieb","B2C-Vertrieb","Key Account Management","Kaltakquise",
-  "Einkauf","Supply Chain Management","Logistik","Zollabwicklung",
+  "B2B-Vertrieb","B2C-Vertrieb","Key Account Management","Kaltakquise","Telesales",
+  "Einkauf","Supply Chain Management","Logistik","Zollabwicklung","Warehousing","Disposition",
+  "Verhandlungsführung","Angebotserstellung","CRM-Pflege",
+  // Kundenservice & Kommunikation
+  "Kundenbetreuung","Call Center","Beschwerdemanagement","Ticketsystem","Zendesk","Freshdesk",
+  "Technischer Support","Helpdesk","ITIL","Servicedesk","After-Sales",
   // Qualität / Prozesse
-  "Qualitätsmanagement","ISO 9001","Lean Management","Six Sigma","Kaizen",
+  "Qualitätsmanagement","ISO 9001","ISO 14001","ISO 27001","Lean Management","Six Sigma","Kaizen",
+  "Prozessoptimierung","Auditierung","FMEA","8D-Methode","KVP",
+  // Handwerk & Technik
+  "Elektroinstallation","SPS-Programmierung","Steuerungstechnik","Automatisierungstechnik",
+  "Hydraulik","Pneumatik","CNC-Programmierung","Schweißen (MAG/MIG/WIG)","Instandhaltung",
+  "Gebäudetechnik","Klimatechnik","Sanitärinstallation","Heizungstechnik","Kältetechnik",
+  "Schlosserarbeiten","Zerspanungstechnik","Messtechnik","Prüftechnik","Hochspannungstechnik",
+  // Gesundheit & Pflege
+  "Krankenpflege","Altenpflege","Pflegedokumentation","Medikamentengabe","Wundversorgung",
+  "Erste Hilfe","Notfallmedizin","OP-Assistenz","Physiotherapie","Ergotherapie","Logopädie",
+  "Medizinische Fachangestellte","Praxismanagement","Abrechnung (EBM/GOÄ)","Arztassistenz",
+  // Gastronomie & Hotellerie
+  "Küche / Kochen","HACCP","Barista","Barkeeper","Servicefachkraft","Eventgastronomie",
+  "Rezeption","Housekeeping","Reservierungssysteme","Revenue Management","F&B Management",
+  // Soziales & Pädagogik
+  "Sozialpädagogik","Sozialarbeit","Beratung","Gruppenleitung","Krisenintervention",
+  "Kindererziehung","Kindergartenpädagogik","Schulbegleitung","Inklusionspädagogik",
+  "Jugendarbeit","Suchtberatung","Eingliederungshilfe",
+  // Recht & Compliance
+  "Vertragsrecht","Handelsrecht","Gesellschaftsrecht","Arbeitsrecht","Datenschutz (DSGVO)",
+  "Compliance","Geldwäscheprävention","Vergaberecht","Öffentliches Recht","Steuerstrafrecht",
+  // Immobilien & Bau
+  "Immobilienvermittlung","Mietrecht","Wohnungswirtschaft","Bauleitung","Bauplanung",
+  "Kalkulation","Ausschreibung","VOB","Facility Management","Gebäudeverwaltung",
+  // Logistik & Transport
+  "Lagerlogistik","Kommissionierung","Gabelstapler","LKW-Führerschein (CE)","Tourenplanung",
+  "Sendungsverfolgung","Gefahrguttransport (ADR)","Importabwicklung","Exportabwicklung",
+  // Sicherheit
+  "Bewachung","Objektschutz","Personenschutz","Veranstaltungsschutz","Brandschutz",
+  "Arbeitssicherheit","Sicherheitsbeauftragter",
   // Soft Skills
   "Teamfähigkeit","Kommunikationsstärke","Führungskompetenz","Problemlösungskompetenz",
   "Analytisches Denken","Kreativität","Selbstständiges Arbeiten","Zuverlässigkeit",
   "Flexibilität","Belastbarkeit","Lernbereitschaft","Empathie",
   "Verhandlungsgeschick","Präsentationstechnik","Zeitmanagement","Kundenorientierung",
+  "Konfliktlösung","Eigeninitiative","Organisationstalent","Detailgenauigkeit",
   // Sprachen
   "Englisch (fließend)","Englisch (verhandlungssicher)","Englisch (Grundkenntnisse)",
-  "Deutsch (Muttersprache)","Französisch","Spanisch","Italienisch","Russisch",
-  "Chinesisch","Arabisch","Türkisch","Niederländisch","Polnisch","Portugiesisch",
-  // Branche
-  "Elektrotechnik","Mechatronik","Maschinenbau","Bauingenieurwesen","Architektur",
-  "Umwelttechnik","Energietechnik","Pädagogik","Didaktik","Pflege","Erste Hilfe",
-  "Medizin","Recht","Vertragsrecht","Handelsrecht",
+  "Deutsch (Muttersprache)","Deutsch (C1/C2)","Französisch","Spanisch","Italienisch","Russisch",
+  "Chinesisch (Mandarin)","Arabisch","Türkisch","Niederländisch","Polnisch","Portugiesisch",
+  "Kroatisch","Serbisch","Rumänisch","Ungarisch","Tschechisch","Griechisch","Japanisch","Koreanisch",
 ];
+
 
 /* ── Typen ───────────────────────────────────────────────────────────── */
 
