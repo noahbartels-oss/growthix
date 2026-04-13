@@ -1,237 +1,46 @@
 {
-  "common": {
-    "appName": "ReplyFlow AI",
-    "getStarted": "Get Started",
-    "login": "Log In",
-    "register": "Sign Up",
-    "logout": "Log Out",
-    "dashboard": "Dashboard",
-    "settings": "Settings",
-    "save": "Save",
-    "cancel": "Cancel",
-    "delete": "Delete",
-    "edit": "Edit",
-    "loading": "Loading...",
-    "search": "Search...",
-    "noResults": "No results",
-    "back": "Back"
+  "nav": { "howItWorks": "How it works", "price": "Pricing", "faq": "FAQ", "cta": "Try now →" },
+  "hero": {
+    "badge": "AI-generated · 60 seconds · Only €6.99",
+    "sub": "AI writes your individual cover letter in 60 seconds – professionally written, tailored to the position. No subscription, no hassle.",
+    "cta": "Create for free →", "cta2": "How it works",
+    "t1": "Free to try", "t2": "Only €6.99 to download", "t3": "No registration",
+    "quote": "My best cover letter ever in just 2 minutes."
   },
-  "landing": {
-    "hero": {
-      "title": "More Replies. More Appointments. More Revenue.",
-      "subtitle": "AI automatically responds to WhatsApp & Instagram messages and turns them into appointments — 24/7, zero effort.",
-      "cta": "Try for Free",
-      "secondaryCta": "Watch Demo"
-    },
-    "features": {
-      "title": "Everything You Need",
-      "subtitle": "ReplyFlow AI handles your customer communication — smart, fast, and around the clock.",
-      "autoReply": {
-        "title": "Auto Replies",
-        "description": "AI instantly generates the right response to customer inquiries via WhatsApp and Instagram."
-      },
-      "booking": {
-        "title": "In-Chat Booking",
-        "description": "Customers can book appointments directly in the chat — no extra app or website needed."
-      },
-      "available": {
-        "title": "24/7 Available",
-        "description": "Your virtual assistant never sleeps. No customer is ever lost."
-      },
-      "analytics": {
-        "title": "Real-Time Analytics",
-        "description": "Track conversations, conversions, and appointments in one clear dashboard."
-      },
-      "personalized": {
-        "title": "Personalized AI",
-        "description": "The AI learns your business style and responds like you — just faster."
-      },
-      "multichannel": {
-        "title": "Multi-Channel",
-        "description": "WhatsApp, Instagram, and more — all united in one platform."
-      }
-    },
-    "pricing": {
-      "title": "Simple Pricing",
-      "subtitle": "Choose the plan that fits your business.",
-      "starter": {
-        "name": "Starter",
-        "price": "49",
-        "period": "/month",
-        "description": "Perfect to get started",
-        "features": [
-          "1 WhatsApp number",
-          "500 AI replies/month",
-          "Appointment booking",
-          "Basic analytics",
-          "Email support"
-        ]
-      },
-      "pro": {
-        "name": "Pro",
-        "price": "79",
-        "period": "/month",
-        "description": "For growing businesses",
-        "features": [
-          "2 WhatsApp numbers",
-          "Unlimited AI replies",
-          "Instagram integration",
-          "Advanced analytics",
-          "Priority support",
-          "Custom AI training"
-        ],
-        "badge": "Popular"
-      },
-      "cta": "Choose Plan"
-    },
-    "testimonials": {
-      "title": "What Our Customers Say",
-      "items": [
-        {
-          "quote": "Since using ReplyFlow, we never miss a customer inquiry. Our bookings increased by 40%!",
-          "author": "Sarah M.",
-          "role": "Beauty Studio Owner"
-        },
-        {
-          "quote": "The AI responds faster and friendlier than we ever could. My customers love it.",
-          "author": "Marco K.",
-          "role": "Master Hairstylist"
-        },
-        {
-          "quote": "Finally, I can focus on my coaching instead of answering messages.",
-          "author": "Lisa T.",
-          "role": "Life Coach"
-        }
-      ]
-    },
-    "cta": {
-      "title": "Ready to Win More Customers?",
-      "subtitle": "Start for free and experience how AI transforms your business.",
-      "button": "Start 14-Day Free Trial"
-    },
-    "footer": {
-      "product": "Product",
-      "features": "Features",
-      "pricing": "Pricing",
-      "company": "Company",
-      "about": "About",
-      "blog": "Blog",
-      "legal": "Legal",
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service",
-      "imprint": "Imprint",
-      "copyright": "All rights reserved."
-    }
+  "steps": { "title": "Done in 3 steps", "sub": "No effort – just enter your details and the letter is ready" },
+  "preview": { "title": "This is what your letter looks like", "sub": "Professional, clearly structured, tailored to your position — no generic text.", "cta": "Create your letter →", "trust": "Free to try · only €6.99 to download" },
+  "compare": { "title": "Why not just use ChatGPT?", "sub": "ChatGPT can do a lot — but a professional German cover letter is a science of its own.", "note": "As of April 2026 · based on free / standard features of each tool" },
+  "features": { "title": "Why BewerbungsKI?", "sub": "Not just any generator – one that actually convinces." },
+  "pricing": { "title": "Simple pricing", "sub": "No subscription. No frills. Simply fair.", "period": "one-time · per letter · no subscription", "cta": "Create for free →", "trust": "Try first — then decide" },
+  "testimonials": { "title": "What our users say" },
+  "faq": { "title": "FAQs" },
+  "finalCta": { "title": "Your next job", "title2": "starts here.", "sub": "Create your cover letter for free now. Only €6.99 if you like it.", "cta": "Create for free →", "trust": "No registration · Free to try · Only €6.99 to download" },
+  "mobile": { "title": "Create cover letter", "sub": "Free to try · only €6.99 to download", "cta": "Start →" },
+  "form": {
+    "s1label": "Step 01", "s1title": "Your details", "s1sub": "So the AI can write an individual letter.",
+    "nameLabel": "Full name", "namePh": "John Doe",
+    "sitLabel": "Current situation", "sitEmployed": "Employed (career change)", "sitStudent": "Student", "sitApprentice": "Apprentice / Trainee", "sitSeeking": "Job seeker",
+    "expLabel": "Work experience", "expNone": "No experience", "exp12": "1–2 years", "exp35": "3–5 years", "exp5plus": "More than 5 years",
+    "skillsLabel": "Skills & knowledge", "skillsSub": "(multiple possible)", "skillsSearch": "Search and add a skill …",
+    "extraLabel": "What makes you special?", "extraSub": "(optional)", "extraPh": "Own project, 3 languages, …",
+    "nextBtn": "Next: the position", "errorStep1": "Please enter your name and select at least one skill.",
+    "s2label": "Step 02", "s2title": "The position", "s2sub": "The more you provide, the better the letter.",
+    "countryLabel": "Country", "countryDe": "Germany", "countryAt": "Austria",
+    "companyLabel": "Company", "companyPh": "Search for a company …",
+    "posLabel": "Position / Role", "posPh": "Junior Software Engineer",
+    "jobLabel": "Job description", "jobSub": "(recommended)", "jobPh": "Paste requirements from the job listing …",
+    "motLabel": "Personal motivation", "motSub": "(optional)", "motPh": "Why do you want this specific position?",
+    "errorStep2": "Please enter a company and position.",
+    "backBtn": "Back", "genBtn": "Create letter ✨",
+    "loadTitle": "AI is writing your letter …", "loadSub": "GPT-4 · approx. 15–30 seconds",
+    "footer": "Free · Only €6.99 to download · No registration", "stepOf": "/"
   },
-  "auth": {
-    "loginTitle": "Welcome Back",
-    "loginSubtitle": "Sign in to continue",
-    "registerTitle": "Create Account",
-    "registerSubtitle": "Start free with ReplyFlow AI",
-    "email": "Email",
-    "password": "Password",
-    "confirmPassword": "Confirm Password",
-    "businessName": "Business Name",
-    "forgotPassword": "Forgot password?",
-    "noAccount": "Don't have an account?",
-    "hasAccount": "Already have an account?",
-    "loginButton": "Sign In",
-    "registerButton": "Sign Up",
-    "orContinueWith": "or continue with",
-    "google": "Google"
-  },
-  "dashboard": {
-    "overview": "Overview",
-    "conversations": "Conversations",
-    "appointments": "Appointments",
-    "billing": "Billing",
-    "settings": "Settings",
-    "welcome": "Welcome back",
-    "stats": {
-      "totalConversations": "Total Conversations",
-      "activeConversations": "Active Conversations",
-      "appointmentsBooked": "Appointments Booked",
-      "responseRate": "Response Rate"
-    },
-    "recentConversations": "Recent Conversations",
-    "upcomingAppointments": "Upcoming Appointments",
-    "noConversations": "No conversations yet",
-    "noAppointments": "No appointments yet"
-  },
-  "conversations": {
-    "title": "Conversations",
-    "searchPlaceholder": "Search conversations...",
-    "all": "All",
-    "whatsapp": "WhatsApp",
-    "instagram": "Instagram",
-    "noMessages": "No messages",
-    "typeMessage": "Type a message...",
-    "send": "Send",
-    "aiGenerated": "AI generated",
-    "customerInfo": "Customer Info",
-    "name": "Name",
-    "phone": "Phone",
-    "channel": "Channel",
-    "lastActive": "Last active"
-  },
-  "appointments": {
-    "title": "Appointments",
-    "newAppointment": "New Appointment",
-    "upcoming": "Upcoming",
-    "past": "Past",
-    "cancelled": "Cancelled",
-    "customer": "Customer",
-    "service": "Service",
-    "date": "Date",
-    "time": "Time",
-    "status": "Status",
-    "confirmed": "Confirmed",
-    "pending": "Pending",
-    "done": "Done",
-    "cancel": "Cancel",
-    "noAppointments": "No appointments"
-  },
-  "settings": {
-    "title": "Settings",
-    "business": {
-      "title": "Business Profile",
-      "name": "Business Name",
-      "type": "Industry",
-      "types": {
-        "hair_salon": "Hair Salon",
-        "beauty_studio": "Beauty Studio",
-        "coaching": "Coaching",
-        "other": "Other"
-      },
-      "address": "Address",
-      "phone": "Phone",
-      "email": "Email",
-      "website": "Website"
-    },
-    "ai": {
-      "title": "AI Configuration",
-      "personality": "AI Personality",
-      "personalityHelp": "Describe how the AI should respond",
-      "defaultPrompt": "You are a friendly assistant for a local business. Goal: Schedule appointments, respond briefly and clearly. If possible, suggest specific times.",
-      "services": "Services",
-      "servicesHelp": "List your services (one per line)",
-      "hours": "Business Hours",
-      "language": "Response Language"
-    },
-    "channels": {
-      "title": "Channels",
-      "whatsapp": "WhatsApp",
-      "instagram": "Instagram",
-      "connected": "Connected",
-      "notConnected": "Not connected",
-      "connect": "Connect",
-      "disconnect": "Disconnect"
-    },
-    "account": {
-      "title": "Account",
-      "plan": "Current Plan",
-      "upgrade": "Upgrade",
-      "deleteAccount": "Delete Account"
-    }
+  "result": {
+    "loading": "Loading letter …", "error": "Error:", "newLetter": "← Create new letter",
+    "downloadBtn": "Download as PDF",
+    "successTitle": "Payment successful – letter unlocked!", "successSub": "Click \"Download as PDF\" above or print directly.",
+    "lockTitle": "Unlock letter", "lockDesc": "One-time {price} — download the full PDF. No subscription, no further costs.",
+    "lockTrust": "SECURE VIA PAYPAL · IMMEDIATE ACCESS",
+    "downloadBtn2": "Download as PDF", "newLetterBtn": "Create new letter", "newLetterLink": "← Create new letter"
   }
 }

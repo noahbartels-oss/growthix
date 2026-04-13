@@ -267,8 +267,7 @@ function SkillSelect({
   }, []);
 
   const filtered = ALL_SKILLS
-    .filter(s => s.toLowerCase().includes(query.toLowerCase()) && !value.includes(s))
-    .slice(0, 20);
+    .filter(s => s.toLowerCase().includes(query.toLowerCase()) && !value.includes(s));
 
   function add(skill: string) {
     onChange([...value, skill]);

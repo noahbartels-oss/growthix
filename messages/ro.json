@@ -1,0 +1,46 @@
+{
+  "nav": { "howItWorks": "Cum funcționează", "price": "Preț", "faq": "FAQ", "cta": "Încearcă →" },
+  "hero": {
+    "badge": "Generat de IA · 60 secunde · Doar 6,99 €",
+    "sub": "IA scrie scrisoarea ta de intenție individuală în 60 de secunde – profesional, adaptată poziției. Fără abonament, fără efort.",
+    "cta": "Creează gratuit →", "cta2": "Cum funcționează",
+    "t1": "Încearcă gratuit", "t2": "Doar 6,99 € pentru descărcare", "t3": "Fără înregistrare",
+    "quote": "Cea mai bună scrisoare de intenție din viața mea în 2 minute."
+  },
+  "steps": { "title": "Gata în 3 pași", "sub": "Fără efort – introduci datele și scrisoarea e gata" },
+  "preview": { "title": "Așa arată scrisoarea ta", "sub": "Profesională, clar structurată, adaptată poziției — fără text generic.", "cta": "Creează scrisoarea ta →", "trust": "Încearcă gratuit · doar 6,99 € pentru descărcare" },
+  "compare": { "title": "De ce nu simplu ChatGPT?", "sub": "ChatGPT poate mult — dar o scrisoare de intenție germană profesională este o știință în sine.", "note": "Date din aprilie 2026 · bazate pe funcționalitățile gratuite/standard ale fiecărui instrument" },
+  "features": { "title": "De ce BewerbungsKI?", "sub": "Nu orice generator – unul care convinge cu adevărat." },
+  "pricing": { "title": "Preț simplu", "sub": "Fără abonament. Fără artificii. Pur și simplu corect.", "period": "o singură dată · per scrisoare · fără abonament", "cta": "Creează gratuit →", "trust": "Încearcă mai întâi — apoi decide" },
+  "testimonials": { "title": "Ce spun utilizatorii noștri" },
+  "faq": { "title": "FAQ" },
+  "finalCta": { "title": "Următorul tău job", "title2": "începe aici.", "sub": "Creează acum gratuit scrisoarea ta de intenție. Doar 6,99 € dacă îți place.", "cta": "Creează gratuit →", "trust": "Fără înregistrare · Încearcă gratuit · Doar 6,99 € pentru descărcare" },
+  "mobile": { "title": "Creează scrisoare de intenție", "sub": "Încearcă gratuit · doar 6,99 €", "cta": "Start →" },
+  "form": {
+    "s1label": "Pasul 01", "s1title": "Datele tale", "s1sub": "Astfel IA poate scrie o scrisoare individuală.",
+    "nameLabel": "Nume complet", "namePh": "Ion Popescu",
+    "sitLabel": "Situația actuală", "sitEmployed": "Angajat (schimbare job)", "sitStudent": "Student/ă", "sitApprentice": "Ucenic/ă", "sitSeeking": "În căutarea unui loc de muncă",
+    "expLabel": "Experiență profesională", "expNone": "Fără experiență", "exp12": "1–2 ani", "exp35": "3–5 ani", "exp5plus": "Mai mult de 5 ani",
+    "skillsLabel": "Abilități și cunoștințe", "skillsSub": "(mai multe posibile)", "skillsSearch": "Caută și adaugă o abilitate …",
+    "extraLabel": "Ce te face special?", "extraSub": "(opțional)", "extraPh": "Proiect propriu, 3 limbi, …",
+    "nextBtn": "Urmează: poziția", "errorStep1": "Te rugăm să introduci numele și să selectezi cel puțin o abilitate.",
+    "s2label": "Pasul 02", "s2title": "Poziția", "s2sub": "Cu cât furnizezi mai multe informații, cu atât scrisoarea va fi mai bună.",
+    "countryLabel": "Țara", "countryDe": "Germania", "countryAt": "Austria",
+    "companyLabel": "Companie", "companyPh": "Caută o companie …",
+    "posLabel": "Poziție / Rol", "posPh": "Junior Software Engineer",
+    "jobLabel": "Descrierea jobului", "jobSub": "(recomandat)", "jobPh": "Inserează cerințele din anunț …",
+    "motLabel": "Motivație personală", "motSub": "(opțional)", "motPh": "De ce vrei exact această poziție?",
+    "errorStep2": "Te rugăm să introduci compania și poziția.",
+    "backBtn": "Înapoi", "genBtn": "Creează scrisoarea ✨",
+    "loadTitle": "IA scrie scrisoarea ta …", "loadSub": "GPT-4 · aproximativ 15–30 secunde",
+    "footer": "Gratuit · Doar 6,99 € pentru descărcare · Fără înregistrare", "stepOf": "/"
+  },
+  "result": {
+    "loading": "Se încarcă scrisoarea …", "error": "Eroare:", "newLetter": "← Creează o scrisoare nouă",
+    "downloadBtn": "Descarcă ca PDF",
+    "successTitle": "Plată reușită – scrisoare deblocată!", "successSub": "Click pe «Descarcă ca PDF» de sus sau tipărește direct.",
+    "lockTitle": "Deblochează scrisoarea", "lockDesc": "O singură dată {price} — descarcă PDF-ul complet. Fără abonament, fără costuri suplimentare.",
+    "lockTrust": "SIGUR PRIN PAYPAL · ACCES IMEDIAT",
+    "downloadBtn2": "Descarcă ca PDF", "newLetterBtn": "Creează o scrisoare nouă", "newLetterLink": "← Creează o scrisoare nouă"
+  }
+}

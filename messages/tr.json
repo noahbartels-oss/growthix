@@ -1,0 +1,46 @@
+{
+  "nav": { "howItWorks": "Nasıl çalışır", "price": "Fiyat", "faq": "SSS", "cta": "Dene →" },
+  "hero": {
+    "badge": "Yapay zeka · 60 saniye · Sadece 6,99 €",
+    "sub": "Yapay zeka, sana özel başvuru mektubunu 60 saniyede yazar – profesyonel, pozisyona göre hazırlanmış. Abonelik yok, zahmetsiz.",
+    "cta": "Ücretsiz oluştur →", "cta2": "Nasıl çalışır",
+    "t1": "Ücretsiz dene", "t2": "İndirmek için sadece 6,99 €", "t3": "Kayıt gerekmez",
+    "quote": "2 dakikada hayatımın en iyi başvuru mektubunu yazdım."
+  },
+  "steps": { "title": "3 adımda hazır", "sub": "Zahmetsiz – bilgileri gir ve mektup hazır" },
+  "preview": { "title": "Mektubun böyle görünür", "sub": "Profesyonel, net yapılandırılmış, pozisyonuna göre özelleştirilmiş — genel metin yok.", "cta": "Mektubunu oluştur →", "trust": "Ücretsiz dene · sadece 6,99 € indirme" },
+  "compare": { "title": "Neden ChatGPT değil?", "sub": "ChatGPT çok şey yapabilir — ama profesyonel bir Almanca başvuru mektubu başlı başına bir uzmanlık alanıdır.", "note": "Nisan 2026 itibarıyla · her aracın ücretsiz/standart özellikleri baz alınmıştır" },
+  "features": { "title": "Neden BewerbungsKI?", "sub": "Herhangi bir oluşturucu değil – gerçekten ikna eden biri." },
+  "pricing": { "title": "Basit fiyat", "sub": "Abonelik yok. Gereksizlik yok. Sadece adil.", "period": "tek seferlik · mektup başına · abonelik yok", "cta": "Ücretsiz oluştur →", "trust": "Önce dene — sonra karar ver" },
+  "testimonials": { "title": "Kullanıcılarımız ne diyor" },
+  "faq": { "title": "SSS" },
+  "finalCta": { "title": "Bir sonraki işin", "title2": "burada başlıyor.", "sub": "Şimdi ücretsiz başvuru mektubunu oluştur. Beğenirsen sadece 6,99 €.", "cta": "Ücretsiz oluştur →", "trust": "Kayıt gerekmez · Ücretsiz dene · Sadece 6,99 € indirme" },
+  "mobile": { "title": "Başvuru mektubu oluştur", "sub": "Ücretsiz dene · sadece 6,99 €", "cta": "Başla →" },
+  "form": {
+    "s1label": "Adım 01", "s1title": "Bilgilerin", "s1sub": "Yapay zekanın bireysel mektup yazabilmesi için.",
+    "nameLabel": "Ad Soyad", "namePh": "Ad Soyad",
+    "sitLabel": "Mevcut durum", "sitEmployed": "Çalışıyor (iş değiştirmek istiyor)", "sitStudent": "Öğrenci", "sitApprentice": "Stajyer / Çırak", "sitSeeking": "İş arıyor",
+    "expLabel": "İş deneyimi", "expNone": "Deneyim yok", "exp12": "1–2 yıl", "exp35": "3–5 yıl", "exp5plus": "5 yıldan fazla",
+    "skillsLabel": "Beceriler & bilgiler", "skillsSub": "(birden fazla seçilebilir)", "skillsSearch": "Beceri ara ve ekle …",
+    "extraLabel": "Seni özel yapan ne?", "extraSub": "(isteğe bağlı)", "extraPh": "Kendi projesi, 3 dil, …",
+    "nextBtn": "Pozisyona geç", "errorStep1": "Lütfen adını gir ve en az bir beceri seç.",
+    "s2label": "Adım 02", "s2title": "Pozisyon", "s2sub": "Ne kadar çok bilgi verirsen, mektup o kadar iyi olur.",
+    "countryLabel": "Ülke", "countryDe": "Almanya", "countryAt": "Avusturya",
+    "companyLabel": "Şirket", "companyPh": "Şirket ara …",
+    "posLabel": "Pozisyon / Rol", "posPh": "Junior Software Engineer",
+    "jobLabel": "İş tanımı", "jobSub": "(önerilir)", "jobPh": "İlan gereksinimlerini yapıştır …",
+    "motLabel": "Kişisel motivasyon", "motSub": "(isteğe bağlı)", "motPh": "Neden tam olarak bu pozisyonu istiyorsun?",
+    "errorStep2": "Lütfen şirket ve pozisyon gir.",
+    "backBtn": "Geri", "genBtn": "Mektup oluştur ✨",
+    "loadTitle": "Yapay zeka mektubunu yazıyor …", "loadSub": "GPT-4 · yaklaşık 15–30 saniye",
+    "footer": "Ücretsiz · Sadece 6,99 € indirme · Kayıt gerekmez", "stepOf": "/"
+  },
+  "result": {
+    "loading": "Mektup yükleniyor …", "error": "Hata:", "newLetter": "← Yeni mektup oluştur",
+    "downloadBtn": "PDF olarak indir",
+    "successTitle": "Ödeme başarılı – mektup açıldı!", "successSub": "Yukarıdaki \"PDF olarak indir\" butonuna tıkla veya doğrudan yazdır.",
+    "lockTitle": "Mektubu aç", "lockDesc": "Tek seferlik {price} — tam PDF olarak indir. Abonelik yok, başka maliyet yok.",
+    "lockTrust": "PAYPAL İLE GÜVENLİ · ANINDA ERİŞİM",
+    "downloadBtn2": "PDF olarak indir", "newLetterBtn": "Yeni mektup oluştur", "newLetterLink": "← Yeni mektup oluştur"
+  }
+}

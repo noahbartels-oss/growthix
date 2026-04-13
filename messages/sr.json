@@ -1,0 +1,46 @@
+{
+  "nav": { "howItWorks": "Kako radi", "price": "Cena", "faq": "FAQ", "cta": "Isprobaj →" },
+  "hero": {
+    "badge": "Generiše AI · 60 sekundi · Samo 6,99 €",
+    "sub": "AI piše tvoje individualno motivaciono pismo za 60 sekundi – profesionalno, prilagođeno poziciji. Bez pretplate, bez napora.",
+    "cta": "Kreiraj besplatno →", "cta2": "Kako radi",
+    "t1": "Isprobaj besplatno", "t2": "Samo 6,99 € za preuzimanje", "t3": "Bez registracije",
+    "quote": "Moje najbolje motivaciono pismo ikad za 2 minuta."
+  },
+  "steps": { "title": "Gotovo za 3 koraka", "sub": "Bez napora – unesi podatke i pismo je gotovo" },
+  "preview": { "title": "Ovako izgleda tvoje pismo", "sub": "Profesionalno, jasno strukturirano, prilagođeno poziciji — bez generičkog teksta.", "cta": "Kreiraj svoje pismo →", "trust": "Isprobaj besplatno · samo 6,99 € za preuzimanje" },
+  "compare": { "title": "Zašto ne koristiti ChatGPT?", "sub": "ChatGPT može mnogo — ali profesionalno nemačko motivaciono pismo je posebna nauka.", "note": "Podaci iz aprila 2026. · na osnovu besplatnih/standardnih funkcija svakog alata" },
+  "features": { "title": "Zašto BewerbungsKI?", "sub": "Nije samo generator – već onaj koji zaista ubeduje." },
+  "pricing": { "title": "Jednostavna cena", "sub": "Bez pretplate. Bez komplikacija. Jednostavno pošteno.", "period": "jednokratno · po pismu · bez pretplate", "cta": "Kreiraj besplatno →", "trust": "Prvo isprobaj — pa odluči" },
+  "testimonials": { "title": "Šta kažu naši korisnici" },
+  "faq": { "title": "FAQ" },
+  "finalCta": { "title": "Tvoj sledeći posao", "title2": "počinje ovde.", "sub": "Kreiraj sada besplatno svoje motivaciono pismo. Samo 6,99 € ako ti se svidi.", "cta": "Kreiraj besplatno →", "trust": "Bez registracije · Isprobaj besplatno · Samo 6,99 € za preuzimanje" },
+  "mobile": { "title": "Kreiraj motivaciono pismo", "sub": "Isprobaj besplatno · samo 6,99 €", "cta": "Počni →" },
+  "form": {
+    "s1label": "Korak 01", "s1title": "Tvoji podaci", "s1sub": "Da bi AI mogao da napiše individualno pismo.",
+    "nameLabel": "Puno ime", "namePh": "Marko Marković",
+    "sitLabel": "Trenutna situacija", "sitEmployed": "Zaposlen (promena posla)", "sitStudent": "Student/kinja", "sitApprentice": "Pripravnik/ca", "sitSeeking": "Tražim posao",
+    "expLabel": "Radno iskustvo", "expNone": "Bez iskustva", "exp12": "1–2 godine", "exp35": "3–5 godina", "exp5plus": "Više od 5 godina",
+    "skillsLabel": "Veštine i znanja", "skillsSub": "(moguće više)", "skillsSearch": "Traži i dodaj veštinu …",
+    "extraLabel": "Šta te čini posebnim?", "extraSub": "(opcionalno)", "extraPh": "Sopstveni projekat, 3 jezika, …",
+    "nextBtn": "Dalje: pozicija", "errorStep1": "Molimo unesite ime i izaberite bar jednu veštinu.",
+    "s2label": "Korak 02", "s2title": "Pozicija", "s2sub": "Što više informacija daš, to bolje će pismo biti.",
+    "countryLabel": "Zemlja", "countryDe": "Nemačka", "countryAt": "Austrija",
+    "companyLabel": "Kompanija", "companyPh": "Traži kompaniju …",
+    "posLabel": "Pozicija / Uloga", "posPh": "Junior Software Engineer",
+    "jobLabel": "Opis posla", "jobSub": "(preporučeno)", "jobPh": "Zalepi zahteve iz oglasa …",
+    "motLabel": "Lična motivacija", "motSub": "(opcionalno)", "motPh": "Zašto baš ovu poziciju?",
+    "errorStep2": "Molimo unesite kompaniju i poziciju.",
+    "backBtn": "Nazad", "genBtn": "Kreiraj pismo ✨",
+    "loadTitle": "AI piše tvoje pismo …", "loadSub": "GPT-4 · oko 15–30 sekundi",
+    "footer": "Besplatno · Samo 6,99 € za preuzimanje · Bez registracije", "stepOf": "/"
+  },
+  "result": {
+    "loading": "Učitavanje pisma …", "error": "Greška:", "newLetter": "← Kreiraj novo pismo",
+    "downloadBtn": "Preuzmi kao PDF",
+    "successTitle": "Uplata uspešna – pismo otključano!", "successSub": "Klikni na «Preuzmi kao PDF» gore ili direktno štampaj.",
+    "lockTitle": "Otključaj pismo", "lockDesc": "Jednokratno {price} — potpuno preuzimanje PDF-a. Bez pretplate, bez dodatnih troškova.",
+    "lockTrust": "BEZBEDNO PREKO PAYPAL-A · TRENUTNI PRISTUP",
+    "downloadBtn2": "Preuzmi kao PDF", "newLetterBtn": "Kreiraj novo pismo", "newLetterLink": "← Kreiraj novo pismo"
+  }
+}

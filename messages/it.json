@@ -1,0 +1,46 @@
+{
+  "nav": { "howItWorks": "Come funziona", "price": "Prezzo", "faq": "FAQ", "cta": "Prova ora →" },
+  "hero": {
+    "badge": "Generato dall'IA · 60 secondi · Solo 6,99 €",
+    "sub": "L'IA scrive la tua lettera di candidatura individuale in 60 secondi – professionale, personalizzata per la posizione. Nessun abbonamento, nessuna fatica.",
+    "cta": "Crea gratuitamente →", "cta2": "Come funziona",
+    "t1": "Prova gratis", "t2": "Solo 6,99 € per il download", "t3": "Nessuna registrazione",
+    "quote": "La mia miglior lettera di candidatura in 2 minuti."
+  },
+  "steps": { "title": "Pronto in 3 passaggi", "sub": "Senza sforzo – inserisci i dati e la lettera è pronta" },
+  "preview": { "title": "Ecco come appare la tua lettera", "sub": "Professionale, strutturata chiaramente, personalizzata — nessun testo generico.", "cta": "Crea la tua lettera →", "trust": "Prova gratis · solo 6,99 € per il download" },
+  "compare": { "title": "Perché non usare semplicemente ChatGPT?", "sub": "ChatGPT può fare molte cose — ma una lettera di candidatura tedesca professionale è una scienza a sé.", "note": "Dati di aprile 2026 · basati sulle funzionalità gratuite/standard di ogni strumento" },
+  "features": { "title": "Perché BewerbungsKI?", "sub": "Non un semplice generatore – uno che convince davvero." },
+  "pricing": { "title": "Prezzo semplice", "sub": "Nessun abbonamento. Nessun fronzolo. Semplicemente equo.", "period": "una tantum · per lettera · senza abbonamento", "cta": "Crea gratuitamente →", "trust": "Prima prova — poi decidi" },
+  "testimonials": { "title": "Cosa dicono i nostri utenti" },
+  "faq": { "title": "FAQ" },
+  "finalCta": { "title": "Il tuo prossimo lavoro", "title2": "inizia qui.", "sub": "Crea ora la tua lettera di candidatura gratuitamente. Solo 6,99 € se ti piace.", "cta": "Crea gratuitamente →", "trust": "Nessuna registrazione · Prova gratis · Solo 6,99 € per il download" },
+  "mobile": { "title": "Crea lettera di candidatura", "sub": "Prova gratis · solo 6,99 €", "cta": "Inizia →" },
+  "form": {
+    "s1label": "Passo 01", "s1title": "I tuoi dati", "s1sub": "In modo che l'IA possa scrivere una lettera individuale.",
+    "nameLabel": "Nome completo", "namePh": "Mario Rossi",
+    "sitLabel": "Situazione attuale", "sitEmployed": "Occupato (cambio lavoro)", "sitStudent": "Studente/ssa", "sitApprentice": "Apprendista / Tirocinante", "sitSeeking": "In cerca di lavoro",
+    "expLabel": "Esperienza lavorativa", "expNone": "Nessuna esperienza", "exp12": "1–2 anni", "exp35": "3–5 anni", "exp5plus": "Più di 5 anni",
+    "skillsLabel": "Competenze e conoscenze", "skillsSub": "(possibile selezionarne più)", "skillsSearch": "Cerca e aggiungi una competenza …",
+    "extraLabel": "Cosa ti rende speciale?", "extraSub": "(facoltativo)", "extraPh": "Progetto personale, 3 lingue, …",
+    "nextBtn": "Avanti: la posizione", "errorStep1": "Per favore inserisci il nome e seleziona almeno una competenza.",
+    "s2label": "Passo 02", "s2title": "La posizione", "s2sub": "Più informazioni fornisci, migliore sarà la lettera.",
+    "countryLabel": "Paese", "countryDe": "Germania", "countryAt": "Austria",
+    "companyLabel": "Azienda", "companyPh": "Cerca un'azienda …",
+    "posLabel": "Posizione / Ruolo", "posPh": "Junior Software Engineer",
+    "jobLabel": "Descrizione del lavoro", "jobSub": "(consigliato)", "jobPh": "Incolla i requisiti dell'annuncio …",
+    "motLabel": "Motivazione personale", "motSub": "(facoltativo)", "motPh": "Perché vuoi esattamente questa posizione?",
+    "errorStep2": "Per favore inserisci azienda e posizione.",
+    "backBtn": "Indietro", "genBtn": "Crea lettera ✨",
+    "loadTitle": "L'IA sta scrivendo la tua lettera …", "loadSub": "GPT-4 · circa 15–30 secondi",
+    "footer": "Gratis · Solo 6,99 € per il download · Nessuna registrazione", "stepOf": "/"
+  },
+  "result": {
+    "loading": "Caricamento lettera …", "error": "Errore:", "newLetter": "← Crea nuova lettera",
+    "downloadBtn": "Scarica come PDF",
+    "successTitle": "Pagamento riuscito – lettera sbloccata!", "successSub": "Clicca su \"Scarica come PDF\" sopra o stampa direttamente.",
+    "lockTitle": "Sblocca lettera", "lockDesc": "Una tantum {price} — scarica il PDF completo. Nessun abbonamento, nessun costo aggiuntivo.",
+    "lockTrust": "SICURO TRAMITE PAYPAL · ACCESSO IMMEDIATO",
+    "downloadBtn2": "Scarica come PDF", "newLetterBtn": "Crea nuova lettera", "newLetterLink": "← Crea nuova lettera"
+  }
+}

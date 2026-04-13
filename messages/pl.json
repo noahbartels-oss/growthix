@@ -1,0 +1,46 @@
+{
+  "nav": { "howItWorks": "Jak to działa", "price": "Cena", "faq": "FAQ", "cta": "Wypróbuj →" },
+  "hero": {
+    "badge": "Generowane przez AI · 60 sekund · Tylko 6,99 €",
+    "sub": "AI pisze Twój indywidualny list motywacyjny w 60 sekund – profesjonalnie, dopasowany do stanowiska. Bez abonamentu, bez wysiłku.",
+    "cta": "Utwórz bezpłatnie →", "cta2": "Jak to działa",
+    "t1": "Wypróbuj bezpłatnie", "t2": "Tylko 6,99 € za pobranie", "t3": "Bez rejestracji",
+    "quote": "Mój najlepszy list motywacyjny w 2 minuty."
+  },
+  "steps": { "title": "Gotowe w 3 krokach", "sub": "Bez wysiłku – po prostu wprowadź dane i list jest gotowy" },
+  "preview": { "title": "Tak wygląda Twój list", "sub": "Profesjonalny, przejrzyście ustrukturyzowany, dopasowany do stanowiska — bez ogólnych tekstów.", "cta": "Utwórz swój list →", "trust": "Wypróbuj bezpłatnie · tylko 6,99 € za pobranie" },
+  "compare": { "title": "Dlaczego nie ChatGPT?", "sub": "ChatGPT potrafi wiele — ale profesjonalny niemiecki list motywacyjny to osobna nauka.", "note": "Stan na kwiecień 2026 · na podstawie bezpłatnych/standardowych funkcji każdego narzędzia" },
+  "features": { "title": "Dlaczego BewerbungsKI?", "sub": "Nie byle jaki generator – taki, który naprawdę przekonuje." },
+  "pricing": { "title": "Prosta cena", "sub": "Brak abonamentu. Bez zbędnych dodatków. Po prostu fair.", "period": "jednorazowo · za list · bez abonamentu", "cta": "Utwórz bezpłatnie →", "trust": "Najpierw wypróbuj — potem zdecyduj" },
+  "testimonials": { "title": "Co mówią nasi użytkownicy" },
+  "faq": { "title": "FAQ" },
+  "finalCta": { "title": "Twoja następna praca", "title2": "zaczyna się tutaj.", "sub": "Utwórz teraz bezpłatnie swój list motywacyjny. Tylko 6,99 €, jeśli ci się spodoba.", "cta": "Utwórz bezpłatnie →", "trust": "Bez rejestracji · Wypróbuj bezpłatnie · Tylko 6,99 € za pobranie" },
+  "mobile": { "title": "Utwórz list motywacyjny", "sub": "Wypróbuj bezpłatnie · tylko 6,99 €", "cta": "Zacznij →" },
+  "form": {
+    "s1label": "Krok 01", "s1title": "Twoje dane", "s1sub": "Aby AI mogło napisać indywidualny list.",
+    "nameLabel": "Imię i nazwisko", "namePh": "Jan Kowalski",
+    "sitLabel": "Aktualna sytuacja", "sitEmployed": "Zatrudniony (zmiana pracy)", "sitStudent": "Student/ka", "sitApprentice": "Uczeń / Praktykant", "sitSeeking": "Szukający pracy",
+    "expLabel": "Doświadczenie zawodowe", "expNone": "Brak doświadczenia", "exp12": "1–2 lata", "exp35": "3–5 lat", "exp5plus": "Ponad 5 lat",
+    "skillsLabel": "Umiejętności i wiedza", "skillsSub": "(możliwe wiele)", "skillsSearch": "Wyszukaj i dodaj umiejętność …",
+    "extraLabel": "Co Cię wyróżnia?", "extraSub": "(opcjonalne)", "extraPh": "Własny projekt, 3 języki, …",
+    "nextBtn": "Dalej: stanowisko", "errorStep1": "Proszę wpisać imię i wybrać co najmniej jedną umiejętność.",
+    "s2label": "Krok 02", "s2title": "Stanowisko", "s2sub": "Im więcej podasz, tym lepszy będzie list.",
+    "countryLabel": "Kraj", "countryDe": "Niemcy", "countryAt": "Austria",
+    "companyLabel": "Firma", "companyPh": "Szukaj firmy …",
+    "posLabel": "Stanowisko / Rola", "posPh": "Junior Software Engineer",
+    "jobLabel": "Opis stanowiska", "jobSub": "(zalecane)", "jobPh": "Wklej wymagania z ogłoszenia …",
+    "motLabel": "Osobista motywacja", "motSub": "(opcjonalne)", "motPh": "Dlaczego chcesz właśnie to stanowisko?",
+    "errorStep2": "Proszę podać firmę i stanowisko.",
+    "backBtn": "Wróć", "genBtn": "Utwórz list ✨",
+    "loadTitle": "AI pisze Twój list …", "loadSub": "GPT-4 · ok. 15–30 sekund",
+    "footer": "Bezpłatnie · Tylko 6,99 € za pobranie · Bez rejestracji", "stepOf": "/"
+  },
+  "result": {
+    "loading": "Ładowanie listu …", "error": "Błąd:", "newLetter": "← Utwórz nowy list",
+    "downloadBtn": "Pobierz jako PDF",
+    "successTitle": "Płatność udana – list odblokowany!", "successSub": "Kliknij «Pobierz jako PDF» powyżej lub drukuj bezpośrednio.",
+    "lockTitle": "Odblokuj list", "lockDesc": "Jednorazowo {price} — pełny download PDF. Brak abonamentu, brak dodatkowych kosztów.",
+    "lockTrust": "BEZPIECZNE PRZEZ PAYPAL · NATYCHMIASTOWY DOSTĘP",
+    "downloadBtn2": "Pobierz jako PDF", "newLetterBtn": "Utwórz nowy list", "newLetterLink": "← Utwórz nowy list"
+  }
+}

@@ -1,237 +1,68 @@
 {
-  "common": {
-    "appName": "ReplyFlow AI",
-    "getStarted": "Jetzt starten",
-    "login": "Anmelden",
-    "register": "Registrieren",
-    "logout": "Abmelden",
-    "dashboard": "Dashboard",
-    "settings": "Einstellungen",
-    "save": "Speichern",
-    "cancel": "Abbrechen",
-    "delete": "Löschen",
-    "edit": "Bearbeiten",
-    "loading": "Laden...",
-    "search": "Suchen...",
-    "noResults": "Keine Ergebnisse",
-    "back": "Zurück"
+  "nav": { "howItWorks": "So funktionierts", "price": "Preis", "faq": "FAQ", "cta": "Jetzt testen →" },
+  "hero": {
+    "badge": "KI-generiert · 60 Sekunden · Nur 6,99 €",
+    "sub": "KI schreibt deinen individuellen Bewerbungsbrief in 60 Sekunden – professionell formuliert, auf die Stelle zugeschnitten. Kein Abo, kein Aufwand.",
+    "cta": "Kostenlos erstellen →", "cta2": "So funktionierts",
+    "t1": "Kostenlos testen", "t2": "Nur 6,99 € zum Download", "t3": "Keine Anmeldung",
+    "quote": "In 2 Minuten mein bestes Bewerbungsschreiben aller Zeiten."
   },
-  "landing": {
-    "hero": {
-      "title": "Mehr Antworten. Mehr Termine. Mehr Umsatz.",
-      "subtitle": "KI antwortet automatisch auf WhatsApp & Instagram Nachrichten und verwandelt sie in Termine — 24/7, ohne Aufwand.",
-      "cta": "Kostenlos testen",
-      "secondaryCta": "Demo ansehen"
-    },
-    "features": {
-      "title": "Alles, was du brauchst",
-      "subtitle": "ReplyFlow AI übernimmt deine Kundenkommunikation — intelligent, schnell und rund um die Uhr.",
-      "autoReply": {
-        "title": "Automatische Antworten",
-        "description": "KI generiert sofort passende Antworten auf Kundenanfragen via WhatsApp und Instagram."
-      },
-      "booking": {
-        "title": "Terminbuchung im Chat",
-        "description": "Kunden können direkt im Chat einen Termin buchen — ohne extra App oder Website."
-      },
-      "available": {
-        "title": "24/7 verfügbar",
-        "description": "Dein virtueller Assistent schläft nie. Kein Kunde geht mehr verloren."
-      },
-      "analytics": {
-        "title": "Echtzeit-Analytik",
-        "description": "Verfolge Gespräche, Konversionen und Termine in einem übersichtlichen Dashboard."
-      },
-      "personalized": {
-        "title": "Personalisierte KI",
-        "description": "Die KI lernt deinen Geschäftsstil und antwortet wie du — nur schneller."
-      },
-      "multichannel": {
-        "title": "Multi-Channel",
-        "description": "WhatsApp, Instagram und mehr — alles in einer Plattform vereint."
-      }
-    },
-    "pricing": {
-      "title": "Einfache Preise",
-      "subtitle": "Wähle den Plan, der zu deinem Business passt.",
-      "starter": {
-        "name": "Starter",
-        "price": "49",
-        "period": "/Monat",
-        "description": "Perfekt für den Einstieg",
-        "features": [
-          "1 WhatsApp-Nummer",
-          "500 AI-Antworten/Monat",
-          "Terminbuchung",
-          "Basis-Analytik",
-          "E-Mail-Support"
-        ]
-      },
-      "pro": {
-        "name": "Pro",
-        "price": "79",
-        "period": "/Monat",
-        "description": "Für wachsende Businesses",
-        "features": [
-          "2 WhatsApp-Nummern",
-          "Unbegrenzte AI-Antworten",
-          "Instagram Integration",
-          "Erweiterte Analytik",
-          "Prioritäts-Support",
-          "Eigenes AI-Training"
-        ],
-        "badge": "Beliebt"
-      },
-      "cta": "Plan wählen"
-    },
-    "testimonials": {
-      "title": "Das sagen unsere Kunden",
-      "items": [
-        {
-          "quote": "Seit wir ReplyFlow nutzen, verpassen wir keine Kundenanfrage mehr. Unsere Terminbuchungen sind um 40% gestiegen!",
-          "author": "Sarah M.",
-          "role": "Kosmetikstudio-Inhaberin"
-        },
-        {
-          "quote": "Die KI antwortet schneller und freundlicher als wir es je könnten. Meine Kunden lieben es.",
-          "author": "Marco K.",
-          "role": "Friseurmeister"
-        },
-        {
-          "quote": "Endlich kann ich mich auf mein Coaching konzentrieren, statt Nachrichten zu beantworten.",
-          "author": "Lisa T.",
-          "role": "Life Coach"
-        }
-      ]
-    },
-    "cta": {
-      "title": "Bereit, mehr Kunden zu gewinnen?",
-      "subtitle": "Starte jetzt kostenlos und erlebe, wie KI dein Business transformiert.",
-      "button": "7 Tage kostenlos testen"
-    },
-    "footer": {
-      "product": "Produkt",
-      "features": "Features",
-      "pricing": "Preise",
-      "company": "Unternehmen",
-      "about": "Über uns",
-      "blog": "Blog",
-      "legal": "Rechtliches",
-      "privacy": "Datenschutz",
-      "terms": "AGB",
-      "imprint": "Impressum",
-      "copyright": "Alle Rechte vorbehalten."
-    }
+  "steps": { "title": "In 3 Schritten fertig", "sub": "Kein Aufwand – einfach Daten eingeben und der Brief ist fertig" },
+  "preview": {
+    "title": "So sieht dein Brief aus",
+    "sub": "Professionell, klar strukturiert, auf deine Stelle zugeschnitten — kein generischer Text.",
+    "cta": "Deinen Brief erstellen →", "trust": "Kostenlos testen · nur 6,99 € zum Download"
   },
-  "auth": {
-    "loginTitle": "Willkommen zurück",
-    "loginSubtitle": "Melde dich an, um fortzufahren",
-    "registerTitle": "Konto erstellen",
-    "registerSubtitle": "Starte kostenlos mit ReplyFlow AI",
-    "email": "E-Mail",
-    "password": "Passwort",
-    "confirmPassword": "Passwort bestätigen",
-    "businessName": "Firmenname",
-    "forgotPassword": "Passwort vergessen?",
-    "noAccount": "Noch kein Konto?",
-    "hasAccount": "Bereits ein Konto?",
-    "loginButton": "Anmelden",
-    "registerButton": "Registrieren",
-    "orContinueWith": "oder weiter mit",
-    "google": "Google"
+  "compare": {
+    "title": "Warum nicht einfach ChatGPT?",
+    "sub": "ChatGPT kann vieles — aber ein professionelles deutsches Bewerbungsschreiben ist eine Wissenschaft für sich.",
+    "note": "Stand April 2026 · basierend auf kostenlosem / Standard-Funktionsumfang der jeweiligen Tools"
   },
-  "dashboard": {
-    "overview": "Übersicht",
-    "conversations": "Gespräche",
-    "appointments": "Termine",
-    "billing": "Abonnement",
-    "settings": "Einstellungen",
-    "welcome": "Willkommen zurück",
-    "stats": {
-      "totalConversations": "Gespräche gesamt",
-      "activeConversations": "Aktive Gespräche",
-      "appointmentsBooked": "Gebuchte Termine",
-      "responseRate": "Antwortrate"
-    },
-    "recentConversations": "Letzte Gespräche",
-    "upcomingAppointments": "Nächste Termine",
-    "noConversations": "Noch keine Gespräche",
-    "noAppointments": "Noch keine Termine"
+  "features": { "title": "Warum BewerbungsKI?", "sub": "Nicht irgendein Generator – sondern einer, der wirklich überzeugt." },
+  "pricing": {
+    "title": "Einfacher Preis", "sub": "Kein Abo. Kein Schnickschnack. Einfach fair.",
+    "period": "einmalig · pro Brief · kein Abo",
+    "cta": "Jetzt kostenlos erstellen →", "trust": "Erst ausprobieren — dann entscheiden"
   },
-  "conversations": {
-    "title": "Gespräche",
-    "searchPlaceholder": "Gespräche durchsuchen...",
-    "all": "Alle",
-    "whatsapp": "WhatsApp",
-    "instagram": "Instagram",
-    "noMessages": "Keine Nachrichten",
-    "typeMessage": "Nachricht eingeben...",
-    "send": "Senden",
-    "aiGenerated": "KI-generiert",
-    "customerInfo": "Kundeninfo",
-    "name": "Name",
-    "phone": "Telefon",
-    "channel": "Kanal",
-    "lastActive": "Zuletzt aktiv"
+  "testimonials": { "title": "Das sagen unsere Nutzer" },
+  "faq": { "title": "FAQs" },
+  "finalCta": {
+    "title": "Dein nächster Job", "title2": "beginnt hier.",
+    "sub": "Erstelle jetzt kostenlos deinen Bewerbungsbrief. Nur 6,99 €, wenn er dir gefällt.",
+    "cta": "Kostenlos erstellen →",
+    "trust": "Keine Anmeldung · Kostenlos testen · Nur 6,99 € zum Download"
   },
-  "appointments": {
-    "title": "Termine",
-    "newAppointment": "Neuer Termin",
-    "upcoming": "Anstehend",
-    "past": "Vergangen",
-    "cancelled": "Storniert",
-    "customer": "Kunde",
-    "service": "Dienstleistung",
-    "date": "Datum",
-    "time": "Uhrzeit",
-    "status": "Status",
-    "confirmed": "Bestätigt",
-    "pending": "Ausstehend",
-    "done": "Erledigt",
-    "cancel": "Stornieren",
-    "noAppointments": "Keine Termine vorhanden"
+  "mobile": { "title": "Bewerbungsschreiben erstellen", "sub": "Kostenlos testen · nur 6,99 € zum Download", "cta": "Starten →" },
+  "form": {
+    "s1label": "Schritt 01", "s1title": "Deine Angaben", "s1sub": "Damit die KI einen individuellen Brief schreiben kann.",
+    "nameLabel": "Vollständiger Name", "namePh": "Max Mustermann",
+    "sitLabel": "Aktuelle Situation",
+    "sitEmployed": "Berufstätig (Jobwechsel)", "sitStudent": "Student / Studentin", "sitApprentice": "Auszubildende/r", "sitSeeking": "Arbeitssuchend",
+    "expLabel": "Berufserfahrung",
+    "expNone": "Keine Erfahrung", "exp12": "1–2 Jahre", "exp35": "3–5 Jahre", "exp5plus": "Mehr als 5 Jahre",
+    "skillsLabel": "Fähigkeiten & Kenntnisse", "skillsSub": "(mehrere möglich)", "skillsSearch": "Fähigkeit suchen und hinzufügen …",
+    "extraLabel": "Was macht dich besonders?", "extraSub": "(optional)", "extraPh": "Eigenes Projekt, 3 Sprachen, …",
+    "nextBtn": "Weiter zur Stelle", "errorStep1": "Bitte fülle Name aus und wähle mindestens eine Fähigkeit.",
+    "s2label": "Schritt 02", "s2title": "Die Stelle", "s2sub": "Je mehr du angibst, desto besser wird der Brief.",
+    "countryLabel": "Land", "countryDe": "Deutschland", "countryAt": "Österreich",
+    "companyLabel": "Unternehmen", "companyPh": "Unternehmen suchen …",
+    "posLabel": "Stelle / Position", "posPh": "Junior Software Engineer",
+    "jobLabel": "Stellenbeschreibung", "jobSub": "(empfohlen)", "jobPh": "Anforderungen aus der Stellenanzeige einfügen …",
+    "motLabel": "Persönliche Motivation", "motSub": "(optional)", "motPh": "Warum willst du genau diese Stelle?",
+    "errorStep2": "Bitte gib Unternehmen und Stelle an.",
+    "backBtn": "Zurück", "genBtn": "Brief erstellen ✨",
+    "loadTitle": "KI schreibt deinen Brief …", "loadSub": "GPT-4 · ca. 15–30 Sekunden",
+    "footer": "Kostenlos · Nur 6,99 € zum Download · Keine Anmeldung",
+    "stepOf": "/"
   },
-  "settings": {
-    "title": "Einstellungen",
-    "business": {
-      "title": "Geschäftsprofil",
-      "name": "Firmenname",
-      "type": "Branche",
-      "types": {
-        "hair_salon": "Friseursalon",
-        "beauty_studio": "Kosmetikstudio",
-        "coaching": "Coaching",
-        "other": "Sonstiges"
-      },
-      "address": "Adresse",
-      "phone": "Telefon",
-      "email": "E-Mail",
-      "website": "Website"
-    },
-    "ai": {
-      "title": "KI-Konfiguration",
-      "personality": "KI-Persönlichkeit",
-      "personalityHelp": "Beschreibe, wie die KI antworten soll",
-      "defaultPrompt": "Du bist ein freundlicher Assistent für ein lokales Business. Ziel: Termine vereinbaren, kurz und klar antworten. Wenn möglich, schlage konkrete Zeiten vor.",
-      "services": "Dienstleistungen",
-      "servicesHelp": "Liste deine Dienstleistungen auf (eine pro Zeile)",
-      "hours": "Öffnungszeiten",
-      "language": "Antwortsprache"
-    },
-    "channels": {
-      "title": "Kanäle",
-      "whatsapp": "WhatsApp",
-      "instagram": "Instagram",
-      "connected": "Verbunden",
-      "notConnected": "Nicht verbunden",
-      "connect": "Verbinden",
-      "disconnect": "Trennen"
-    },
-    "account": {
-      "title": "Konto",
-      "plan": "Aktueller Plan",
-      "upgrade": "Upgrade",
-      "deleteAccount": "Konto löschen"
-    }
+  "result": {
+    "loading": "Brief wird geladen …", "error": "Fehler:", "newLetter": "← Neuen Brief erstellen",
+    "downloadBtn": "Als PDF herunterladen",
+    "successTitle": "Zahlung erfolgreich – Brief freigeschaltet!",
+    "successSub": "Klicke oben auf „Als PDF herunterladen" oder drucke direkt.",
+    "lockTitle": "Brief freischalten",
+    "lockDesc": "Einmalig {price} — vollständig als PDF herunterladen. Kein Abo, keine weiteren Kosten.",
+    "lockTrust": "SICHER ÜBER PAYPAL · SOFORTIGER ZUGRIFF",
+    "downloadBtn2": "Als PDF herunterladen", "newLetterBtn": "Neuen Brief erstellen", "newLetterLink": "← Neuen Brief erstellen"
   }
 }
