@@ -40,6 +40,16 @@ function sanitize(s: unknown, maxLen: number): string {
 
 export async function POST(req: NextRequest) {
   try {
+    /* ── Check env vars early ── */
+    if (!process.env.OPENAI_API_KEY) {
+      console.error("Missing: OPENAI_API_KEY");
+      return NextResponse.json({ error: "Server-Konfigurationsfehler: OpenAI API Key fehlt" }, { status: 500 });
+    }
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      console.error("Missing: Supabase credentials");
+      return NextResponse.json({ error: "Server-Konfigurationsfehler: Datenbank nicht konfiguriert" }, { status: 500 });
+    }
+
     /* ── Rate limit ── */
     const ip =
       req.headers.get("x-forwarded-for")?.split(",")[0].trim() ??
@@ -173,7 +183,11 @@ REGELN:
 
     return NextResponse.json({ id: doc.id });
   } catch (err) {
-    console.error("Generate error:", err);
-    return NextResponse.json({ error: "Interner Fehler" }, { status: 500 });
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error("Generate error:", msg);
+    return NextResponse.json(
+      { error: `Interner Fehler: ${msg.slice(0, 120)}` },
+      { status: 500 }
+    );
   }
 }

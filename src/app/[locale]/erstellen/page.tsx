@@ -173,8 +173,7 @@ function SearchSelect({
   }, []);
 
   const filtered = options
-    .filter(o => o.toLowerCase().includes(query.toLowerCase()))
-    .slice(0, 18);
+    .filter(o => o.toLowerCase().includes(query.toLowerCase()));
 
   return (
     <div ref={ref} style={{ position: "relative" }}>
