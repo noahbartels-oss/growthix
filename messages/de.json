@@ -59,7 +59,7 @@
     "loading": "Brief wird geladen …", "error": "Fehler:", "newLetter": "← Neuen Brief erstellen",
     "downloadBtn": "Als PDF herunterladen",
     "successTitle": "Zahlung erfolgreich – Brief freigeschaltet!",
-    "successSub": "Klicke oben auf „Als PDF herunterladen" oder drucke direkt.",
+    "successSub": "Klicke oben auf „Als PDF herunterladen\u201c oder drucke direkt.",
     "lockTitle": "Brief freischalten",
     "lockDesc": "Einmalig {price} — vollständig als PDF herunterladen. Kein Abo, keine weiteren Kosten.",
     "lockTrust": "SICHER ÜBER PAYPAL · SOFORTIGER ZUGRIFF",
